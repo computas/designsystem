@@ -1,17 +1,24 @@
 {
-  "name": "computas-designsystem",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@computas/designsystem",
+  "version": "0.0.1",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comptuas/designsystem.git"
+  },
+  "files": ["global-styles.css", "dist"],
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "lint": "biome check ./src",
     "build-docs": "tsc && storybook build",
     "build-designsystem": "tsc && vite build"
   },
   "dependencies": {
+    "@lit/react": "^1.0.6",
     "lit": "^3.2.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^3.2.1",
     "@storybook/addon-essentials": "^8.4.0",
     "@storybook/blocks": "^8.4.0",
@@ -21,5 +28,13 @@
     "storybook": "^8.4.0",
     "typescript": "~5.6.2",
     "vite": "^5.4.10"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   }
 }
