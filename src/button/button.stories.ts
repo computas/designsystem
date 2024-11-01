@@ -7,17 +7,16 @@ import './button';
 const meta = {
   title: 'Example/Button',
   render: (args) =>
-    html`<button>Regular button</button><computas-button ?primary=${args.primary != null}>This is a button</computas-button>`,
+    html`<computas-button ?primary=${args.primary != null}>This is a button</computas-button>`,
+  argTypes: {
+    primary: { control: 'boolean', type: 'boolean' },
+  },
+  args: {
+    primary: false,
+  },
 } satisfies Meta;
 
 export default meta;
-type Story = StoryObj;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    primary: true,
-  },
-};
-
-export const Secondary: Story = {};
+export const Default: StoryObj = {};

@@ -1,4 +1,31 @@
 @layer computas-base-colors {
   :root {
+    --c-color-primary: #003459;
+    --c-color-secondary: var(--c-color-accent-5);
+
+    --c-color-accent-1: #49bca1;
+    --c-color-accent-2: #fed546;
+    --c-color-accent-3: #ff5f63;
+    --c-color-accent-4: #d28cff;
+    --c-color-accent-5: #2acff5;
+
+    --c-color-danger: #cb3a3d;
+    --c-color-primary-200: #dbe3e8;
+    --c-color-primary-300: #a6b8c5;
+
+    --c-color-grey-1: #aaaaaa;
+    --c-color-grey-2: #757575;
+
+    --c-color-background: #fff;
+    --c-color-text-primary: var(--c-color-primary);
+    --c-color-text-static-dark: #003459;
+    --c-color-text-static-light: #fff;
+    --c-color-elements: #f2f5f7;
+    --c-color-elements-dark: #003459;
+    --c-color-border-hover-elements: var(--c-color-primary-300);
+    --c-color-navigation-bg: #f9fafb;
+
+    --c-color-computas-logo: var(--c-color-primary);
+    --c-color-static-white: #fff;
   }
 }

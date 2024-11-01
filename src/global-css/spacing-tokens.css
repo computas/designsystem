@@ -1,0 +1,11 @@
+@layer c-spacing-tokens {
+  :root {
+    --c-spacing-xs: 5px;
+    --c-spacing-sm: 10px;
+    --c-spacing-md: 20px;
+    --c-spacing-lg: 30px;
+    --c-spacing-xl: 40px;
+    --c-spacing-xxl: 50px;
+    --c-spacing-xxxl: 60px;
+  }
+}

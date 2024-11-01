@@ -5,22 +5,19 @@ import { classMap } from 'lit/directives/class-map.js';
 @customElement('computas-button')
 export class Button extends LitElement {
   static styles = css`
-    .storybook-button {
-      display: inline-block;
-      cursor: pointer;
-      border: 0;
-      border-radius: 3em;
-      font-weight: 700;
-      line-height: 1;
-      font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    button {
+      border: none;
+      background-color: var(--c-color-secondary);
+      color: var(--c-color-text-static-dark);
+      padding: var(--c-spacing-sm) var(--c-spacing-xl);
+      border-radius: 10rem;
+      letter-spacing: 0.03em;
+      display: grid;
+      place-content: center;
+      gap: var(--c-spacing-sm);
     }
 
-    .storybook-button--primary {
-      background-color: #1ea7fd;
-      color: white;
-    }
-
-    .storybook-button--secondary {
+    .secondary {
       box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
       background-color: transparent;
       color: #333;
