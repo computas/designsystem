@@ -6,27 +6,32 @@
     "type": "git",
     "url": "git+https://github.com/comptuas/designsystem.git"
   },
-  "files": ["global-styles.css", "dist"],
   "scripts": {
     "dev": "storybook dev -p 6006",
     "lint": "biome check ./src",
     "build-docs": "tsc && storybook build",
-    "build-designsystem": "tsc && vite build"
+    "build-designsystem": "bun --filter '*' build"
   },
+  "exports": {
+    "./*": "./src/components/*",
+    "./global-styles.css": "./global-styles.css",
+    "./src/global-css/*": "./src/global-css/*"
+  },
+  "workspaces": ["src/components/*"],
   "dependencies": {
     "@lit/react": "^1.0.6",
     "lit": "^3.2.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@chromatic-com/storybook": "^3.2.1",
-    "@storybook/addon-essentials": "^8.4.0",
-    "@storybook/blocks": "^8.4.0",
-    "@storybook/test": "^8.4.0",
-    "@storybook/web-components": "^8.4.0",
-    "@storybook/web-components-vite": "^8.4.0",
-    "storybook": "^8.4.0",
-    "typescript": "~5.6.2",
+    "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-essentials": "^8.4.1",
+    "@storybook/blocks": "^8.4.1",
+    "@storybook/test": "^8.4.1",
+    "@storybook/web-components": "^8.4.1",
+    "@storybook/web-components-vite": "^8.4.1",
+    "storybook": "^8.4.1",
+    "typescript": "~5.6.3",
     "vite": "^5.4.10"
   },
   "peerDependencies": {

@@ -3,8 +3,8 @@ import * as React from 'react';
 
 import { Button } from './button';
 
-export const ComputasButton = createComponent({
-  tagName: 'computas-button',
+export const CxButton = createComponent({
+  tagName: 'cx-button',
   elementClass: Button,
   react: React,
 });

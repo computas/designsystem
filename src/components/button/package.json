@@ -1,0 +1,12 @@
+{
+  "name": "@computas/designsystem-button",
+  "version": "1.0.0",
+  "type": "module",
+  "private": "true",
+  "scripts": {
+    "build": "tsup-node button.ts --sourcemap --dts --format esm --out-dir ../../../dist/button && cp react.ts ../../../dist/button/react.ts"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5"
+  }
+}

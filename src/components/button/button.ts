@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
-@customElement('computas-button')
+@customElement('cx-button')
 export class Button extends LitElement {
   static styles = css`
     button {
@@ -31,7 +31,7 @@ export class Button extends LitElement {
     return html`
     <button
       type="button"
-      class=${classMap({ 'storybook-button': true, 'visually-hidden': true, 'storybook-button--primary': this.primary, 'storybook-button--secondary': !this.primary })}
+      class=${classMap({ 'storybook-button--primary': this.primary, 'storybook-button--secondary': !this.primary })}
     >
       <slot></slot>
     </button>
