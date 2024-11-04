@@ -38,3 +38,9 @@ export class Button extends LitElement {
   `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'cx-button': Button;
+  }
+}

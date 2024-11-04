@@ -28,4 +28,15 @@
     --c-color-computas-logo: var(--c-color-primary);
     --c-color-static-white: #fff;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --c-color-primary: #ffffff;
+
+      --c-color-background: #00192c;
+      --c-color-elements: #0d2537;
+      --c-color-elements-dark: #0d2537;
+      --c-color-navigation-bg: #061f31;
+    }
+  }
 }

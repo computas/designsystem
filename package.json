@@ -12,10 +12,10 @@
     "build-docs": "tsc && storybook build",
     "build-designsystem": "bun --filter '*' build"
   },
+  "files": ["global-styles.css", "dist", "src/global-css"],
   "exports": {
-    "./*": "./src/components/*",
-    "./global-styles.css": "./global-styles.css",
-    "./src/global-css/*": "./src/global-css/*"
+    "./*": "./dist/*",
+    "./global-styles.css": "./global-styles.css"
   },
   "workspaces": ["src/components/*"],
   "dependencies": {
@@ -30,6 +30,7 @@
     "@storybook/test": "^8.4.1",
     "@storybook/web-components": "^8.4.1",
     "@storybook/web-components-vite": "^8.4.1",
+    "@types/node": "^22.8.7",
     "storybook": "^8.4.1",
     "typescript": "~5.6.3",
     "vite": "^5.4.10"
