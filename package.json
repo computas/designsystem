@@ -1,12 +1,9 @@
 {
   "name": "@computas/designsystem",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": "true",
   "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/comptuas/designsystem.git"
-  },
+  "workspaces": ["src/components/*"],
   "scripts": {
     "dev": "storybook dev -p 6006",
     "lint": "biome check ./src",
@@ -15,7 +12,6 @@
     "build-designsystem": "bun run build-styles & bun --filter '*' build",
     "publish": "cd dist && yalc publish"
   },
-  "workspaces": ["src/components/*"],
   "dependencies": {
     "@lit/react": "^1.0.6",
     "lit": "^3.2.1"
@@ -24,13 +20,13 @@
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^3.2.2",
     "@computas/designsystem-button": "workspace:*",
-    "@storybook/addon-essentials": "^8.4.1",
-    "@storybook/blocks": "^8.4.1",
-    "@storybook/test": "^8.4.1",
-    "@storybook/web-components": "^8.4.1",
-    "@storybook/web-components-vite": "^8.4.1",
-    "@types/node": "^22.8.7",
-    "storybook": "^8.4.1",
+    "@storybook/addon-essentials": "^8.4.2",
+    "@storybook/blocks": "^8.4.2",
+    "@storybook/test": "^8.4.2",
+    "@storybook/web-components": "^8.4.2",
+    "@storybook/web-components-vite": "^8.4.2",
+    "@types/node": "^22.9.0",
+    "storybook": "^8.4.2",
     "typescript": "~5.6.3",
     "vite": "^5.4.10"
   }
