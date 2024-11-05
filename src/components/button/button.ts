@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
-@customElement('cx-button')
+@customElement('c-button')
 export class Button extends LitElement {
   static styles = css`
     button {
