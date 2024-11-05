@@ -9,8 +9,7 @@
     "lint": "biome check ./src",
     "build-docs": "tsc && storybook build",
     "build-styles": "tsup global-styles.css --out-dir dist",
-    "build-designsystem": "bun run build-styles & bun --filter '*' build",
-    "publish": "cd dist && yalc publish"
+    "build-designsystem": "bun run build-styles & bun --filter '*' build"
   },
   "dependencies": {
     "@lit/react": "^1.0.6",
