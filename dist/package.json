@@ -1,10 +1,11 @@
 {
   "name": "@computas/designsystem",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/comptuas/designsystem.git"
+    "url": "git+https://github.com/computas/designsystem.git"
   },
   "dependencies": {
     "@lit/react": "^1.0.6",

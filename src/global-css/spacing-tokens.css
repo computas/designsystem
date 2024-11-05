@@ -1,4 +1,4 @@
-@layer c-spacing-tokens {
+@layer computas-spacing-tokens {
   :root {
     --c-spacing-05: 4px;
     --c-spacing-1: 8px;

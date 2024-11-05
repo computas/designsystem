@@ -2,6 +2,7 @@
 
 <p align="center" style="max-width: 70ch; margin-inline: auto">The Computas design system contains building blocks and patterns for creating beautiful and consistent UI's that complies with the Computas design language.
 <br>
+[![npm version](https://badge.fury.io/js/@computas%2Fdesignsystem.svg)](https://badge.fury.io/js/@computas%2Fdesignsystem)
 
 ## Getting started
 
