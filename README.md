@@ -24,7 +24,9 @@ Import the components that you need for your application.
 ```ts
 // React
 import { CxDropdown } from "@computas/designsystem/dropdown/react";
+```
 
+```ts
 // Web Component (Angular, Vue etc.)
 import "@computas/designsystem/dropdown";
 ```
@@ -32,13 +34,11 @@ import "@computas/designsystem/dropdown";
 Finally, use your component in your template.
 
 ```tsx
-// React component
-<CxDropdown>
-  ...
-</CxDropdown>
+// React
+<CxDropdown>...</CxDropdown>
+```
 
-// Web Component (Angular, Vue etc.)
-<cx-dropdown>
-  ...
-</cx-dropdown>
+```html
+<!-- Web Component (Angular, Vue etc.) -->
+<cx-dropdown> ... </cx-dropdown>
 ```
