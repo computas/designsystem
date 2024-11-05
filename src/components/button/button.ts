@@ -24,18 +24,18 @@ export class Button extends LitElement {
     }
   `;
 
-  @property({ type: Boolean, reflect: true })
+  @property({ type: Boolean })
   primary = false;
 
   render() {
     return html`
-    <button
-      type="button"
-      class=${classMap({ 'storybook-button--primary': this.primary, 'storybook-button--secondary': !this.primary })}
-    >
-      <slot></slot>
-    </button>
-  `;
+      <button
+        type="button"
+        class=${classMap({ secondary: !this.primary })}
+      >
+        <slot></slot>
+      </button>
+    `;
   }
 }
 

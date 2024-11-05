@@ -1,6 +1,7 @@
 {
   "name": "@computas/designsystem",
   "version": "0.0.1",
+  "private": "true",
   "type": "module",
   "repository": {
     "type": "git",
@@ -10,12 +11,9 @@
     "dev": "storybook dev -p 6006",
     "lint": "biome check ./src",
     "build-docs": "tsc && storybook build",
-    "build-designsystem": "bun --filter '*' build"
-  },
-  "files": ["global-styles.css", "dist", "src/global-css"],
-  "exports": {
-    "./*": "./dist/*",
-    "./global-styles.css": "./global-styles.css"
+    "build-styles": "tsup global-styles.css --out-dir dist",
+    "build-designsystem": "bun run build-styles & bun --filter '*' build",
+    "publish": "cd dist && yalc publish"
   },
   "workspaces": ["src/components/*"],
   "dependencies": {

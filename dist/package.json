@@ -1,0 +1,21 @@
+{
+  "name": "@computas/designsystem",
+  "version": "0.0.1",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comptuas/designsystem.git"
+  },
+  "dependencies": {
+    "@lit/react": "^1.0.6",
+    "lit": "^3.2.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}

@@ -11,3 +11,4 @@
 @import "src/global-css/margins.css";
 
 /* Components */
+@import "src/components/link/link.css";

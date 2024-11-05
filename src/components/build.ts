@@ -1,17 +1,15 @@
-import fs from 'node:fs/promises';
 import path from 'node:path';
 import { build } from 'tsup';
 
-const outDir = `../../../dist/${path.basename(process.cwd())}`;
+const componentFolder = path.basename(process.cwd());
 
 await build({
-  entry: ['index.ts'],
+  entry: ['index.ts', 'react.ts'],
   sourcemap: true,
   dts: true,
   format: 'esm',
-  outDir: outDir,
+  target: 'es2021',
   clean: true,
-  skipNodeModulesBundle: true,
+  skipNodeModulesBundle: true, // Don't bundle dependencies into the components
+  outDir: `../../../dist/${componentFolder}`,
 });
-
-await fs.copyFile('./react.ts', `${outDir}/react.ts`);

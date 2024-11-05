@@ -6,8 +6,7 @@ import './button';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
   title: 'Example/Button',
-  render: (args) =>
-    html`<computas-button ?primary=${args.primary != null}>This is a button</computas-button>`,
+  render: (args) => html`<cx-button ?primary=${args.primary != null}>This is a button</cx-button>`,
   argTypes: {
     primary: { control: 'boolean', type: 'boolean' },
   },
