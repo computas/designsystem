@@ -1,5 +1,81 @@
 @layer computas-purpose-colors {
   :root {
-    --red: red;
+    /* Background */
+    --c-color-background-accent-1-soft: var(--c-color-dark-blue-100);
+    --c-color-background-accent-1: var(--c-color-dark-blue);
+    --c-color-background-accent-2-soft: var(--c-color-green-100);
+    --c-color-background-accent-2: var(--c-color-green);
+    --c-color-background-accent-3-soft: var(--c-color-yellow-100);
+    --c-color-background-accent-3: var(--c-color-yellow);
+    --c-color-background-accent-4-soft: var(--c-color-red-100);
+    --c-color-background-accent-4: var(--c-color-red);
+    --c-color-background-accent-5-soft: var(--c-color-blue-100);
+    --c-color-background-accent-5: var(--c-color-blue);
+    --c-color-background-accent-6-soft: var(--c-color-purple-100);
+    --c-color-background-accent-6: var(--c-color-purple);
+    --c-color-background-primary: var(--c-color-white);
+
+    /* Border */
+    --c-color-border-accent-1: var(--c-color-blue);
+    --c-color-border-primary: var(--c-color-grey-700);
+    --c-color-border-soft: var(--c-color-grey-200);
+    --c-color-border-strong: var(--c-color-grey-900);
+
+    /* Signal */
+    --c-color-signal-danger: var(--c-color-red);
+    --c-color-signal-info: var(--c-color-blue);
+    --c-color-signal-success: var(--c-color-green);
+    --c-color-signal-warning: var(--c-color-yellow);
+
+    /* Text */
+    --c-color-text-accent-1: var(--c-color-green);
+    --c-color-text-accent-2: var(--c-color-blue);
+    --c-color-text-accent-3: var(--c-color-purple);
+    --c-color-text-inverted: var(--c-color-grey-100);
+    --c-color-text-less-important: var(--c-color-grey-500);
+    --c-color-text-primary: var(--c-color-grey-700);
+    --c-color-text-static-dark: var(--c-color-grey-700);
+    --c-color-text-static-light: var(--c-color-grey-100);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Background */
+      --c-color-background-accent-1-soft: var(--c-color-dark-blue-900);
+      --c-color-background-accent-1: var(--c-color-dark-blue-100);
+      --c-color-background-accent-2-soft: var(--c-color-green-900);
+      --c-color-background-accent-2: var(--c-color-green);
+      --c-color-background-accent-3-soft: var(--c-color-yellow-900);
+      --c-color-background-accent-3: var(--c-color-yellow);
+      --c-color-background-accent-4-soft: var(--c-color-red-900);
+      --c-color-background-accent-4: var(--c-color-red);
+      --c-color-background-accent-5-soft: var(--c-color-blue-900);
+      --c-color-background-accent-5: var(--c-color-blue);
+      --c-color-background-accent-6-soft: var(--c-color-purple-900);
+      --c-color-background-accent-6: var(--c-color-purple);
+      --c-color-background-primary: var(--c-color-grey-800);
+
+      /* Border */
+      --c-color-border-accent-1: var(--c-color-blue);
+      --c-color-border-primary: var(--c-color-grey-300);
+      --c-color-border-soft: var(--c-color-grey-700);
+      --c-color-border-strong: var(--c-color-white);
+
+      /* Signal */
+      --c-color-signal-danger: var(--c-color-red);
+      --c-color-signal-info: var(--c-color-blue);
+      --c-color-signal-success: var(--c-color-green);
+      --c-color-signal-warning: var(--c-color-yellow);
+
+      /* Text */
+      --c-color-text-accent-1: var(--c-color-green);
+      --c-color-text-accent-2: var(--c-color-blue);
+      --c-color-text-accent-3: var(--c-color-purple);
+      --c-color-text-inverted: var(--c-color-grey-700);
+      --c-color-text-less-important: var(--c-color-grey-300);
+      --c-color-text-primary: var(--c-color-grey-100);
+      --c-color-text-static-dark: var(--c-color-grey-700);
+      --c-color-text-static-light: var(--c-color-grey-100);
+    }
   }
 }
