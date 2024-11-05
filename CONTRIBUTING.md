@@ -1,4 +1,13 @@
-# How to get started
+<h1 align="center">Computas design system</h1>
+
+<p align="center" style="max-width: 70ch; margin-inline: auto">The Computas design system contains building blocks and patterns for creating beautiful and consistent UI's that complies with the Computas design language.</p>
+
+<div align="center">
+  <a href="https://badge.fury.io/js/@computas%2Fdesignsystem"><img src="https://badge.fury.io/js/@computas%2Fdesignsystem.svg" alt="npm version" height="18"></a>
+</div>
+<br>
+
+## How to get started
 
 1. Install Bun to manage dependencies and run scripts: https://bun.sh
 2. Install all dependencies:
