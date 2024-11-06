@@ -1,86 +1,86 @@
 /* Margin bottom */
-.c-mb-xs {
-  margin-bottom: var(--c-spacing-05) !important;
+.cx-mb-xs {
+  margin-bottom: var(--cx-spacing-05) !important;
 }
 
-.c-mb-sm {
-  margin-bottom: var(--c-spacing-1) !important;
+.cx-mb-sm {
+  margin-bottom: var(--cx-spacing-1) !important;
 }
 
-.c-mb-md {
-  margin-bottom: var(--c-spacing-2) !important;
+.cx-mb-md {
+  margin-bottom: var(--cx-spacing-2) !important;
 }
 
-.c-mb-lg {
-  margin-bottom: var(--c-spacing-3) !important;
+.cx-mb-lg {
+  margin-bottom: var(--cx-spacing-3) !important;
 }
 
-.c-mb-xl {
-  margin-bottom: var(--c-spacing-4) !important;
+.cx-mb-xl {
+  margin-bottom: var(--cx-spacing-4) !important;
 }
 
-.c-mb-xxl {
-  margin-bottom: var(--c-spacing-5) !important;
+.cx-mb-xxl {
+  margin-bottom: var(--cx-spacing-5) !important;
 }
 
-.c-mb-xxxl {
-  margin-bottom: var(--c-spacing-6) !important;
+.cx-mb-xxxl {
+  margin-bottom: var(--cx-spacing-6) !important;
 }
 
 /* Margin top */
-.c-mt-xs {
-  margin-top: var(--c-spacing-05) !important;
+.cx-mt-xs {
+  margin-top: var(--cx-spacing-05) !important;
 }
 
-.c-mt-sm {
-  margin-top: var(--c-spacing-1) !important;
+.cx-mt-sm {
+  margin-top: var(--cx-spacing-1) !important;
 }
 
-.c-mt-md {
-  margin-top: var(--c-spacing-2) !important;
+.cx-mt-md {
+  margin-top: var(--cx-spacing-2) !important;
 }
 
-.c-mt-lg {
-  margin-top: var(--c-spacing-3) !important;
+.cx-mt-lg {
+  margin-top: var(--cx-spacing-3) !important;
 }
 
-.c-mt-xl {
-  margin-top: var(--c-spacing-4) !important;
+.cx-mt-xl {
+  margin-top: var(--cx-spacing-4) !important;
 }
 
-.c-mt-xxl {
-  margin-top: var(--c-spacing-5) !important;
+.cx-mt-xxl {
+  margin-top: var(--cx-spacing-5) !important;
 }
 
-.c-mt-xxxl {
-  margin-top: var(--c-spacing-6) !important;
+.cx-mt-xxxl {
+  margin-top: var(--cx-spacing-6) !important;
 }
 
 /* Gap */
-.c-gap-xs {
-  gap: var(--c-spacing-05) !important;
+.cx-gap-xs {
+  gap: var(--cx-spacing-05) !important;
 }
 
-.c-gap-sm {
-  gap: var(--c-spacing-1) !important;
+.cx-gap-sm {
+  gap: var(--cx-spacing-1) !important;
 }
 
-.c-gap-md {
-  gap: var(--c-spacing-2) !important;
+.cx-gap-md {
+  gap: var(--cx-spacing-2) !important;
 }
 
-.c-gap-lg {
-  gap: var(--c-spacing-3) !important;
+.cx-gap-lg {
+  gap: var(--cx-spacing-3) !important;
 }
 
-.c-gap-xl {
-  gap: var(--c-spacing-4) !important;
+.cx-gap-xl {
+  gap: var(--cx-spacing-4) !important;
 }
 
-.c-gap-xxl {
-  gap: var(--c-spacing-5) !important;
+.cx-gap-xxl {
+  gap: var(--cx-spacing-5) !important;
 }
 
-.c-gap-xxxl {
-  gap: var(--c-spacing-6) !important;
+.cx-gap-xxxl {
+  gap: var(--cx-spacing-6) !important;
 }

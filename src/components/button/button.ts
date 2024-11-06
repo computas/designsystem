@@ -2,19 +2,19 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
-@customElement('c-button')
+@customElement('cx-button')
 export class Button extends LitElement {
   static styles = css`
     button {
       border: none;
-      background-color: var(--c-color-secondary);
-      color: var(--c-color-text-static-dark);
-      padding: var(--c-spacing-sm) var(--c-spacing-xl);
+      background-color: var(--cx-color-background-accent-5);
+      color: var(--cx-color-text-static-dark);
+      padding: var(--cx-spacing-1) var(--cx-spacing-4);
       border-radius: 10rem;
       letter-spacing: 0.03em;
       display: grid;
       place-content: center;
-      gap: var(--c-spacing-sm);
+      gap: var(--cx-spacing-1);
     }
 
     .secondary {

@@ -1,15 +1,15 @@
 @layer computas-spacing-tokens {
   :root {
-    --c-spacing-05: 4px;
-    --c-spacing-1: 8px;
-    --c-spacing-2: 16px;
-    --c-spacing-3: 24px;
-    --c-spacing-4: 32px;
-    --c-spacing-5: 40px;
-    --c-spacing-6: 48px;
-    --c-spacing-7: 56px;
-    --c-spacing-8: 64px;
-    --c-spacing-9: 72px;
-    --c-spacing-10: 80px;
+    --cx-spacing-05: 4px;
+    --cx-spacing-1: 8px;
+    --cx-spacing-2: 16px;
+    --cx-spacing-3: 24px;
+    --cx-spacing-4: 32px;
+    --cx-spacing-5: 40px;
+    --cx-spacing-6: 48px;
+    --cx-spacing-7: 56px;
+    --cx-spacing-8: 64px;
+    --cx-spacing-9: 72px;
+    --cx-spacing-10: 80px;
   }
 }

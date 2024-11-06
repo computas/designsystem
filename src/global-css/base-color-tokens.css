@@ -1,39 +1,39 @@
 @layer computas-base-color-tokens {
   :root {
-    --c-color-blue-100: #eafbff;
-    --c-color-blue-900: #004c75;
-    --c-color-blue: #29cff5;
+    --cx-color-blue-100: #eafbff;
+    --cx-color-blue-900: #004c75;
+    --cx-color-blue: #29cff5;
 
-    --c-color-dark-blue-100: #ecf7ff;
-    --c-color-dark-blue-900: #192e4c;
-    --c-color-dark-blue: #003459;
+    --cx-color-dark-blue-100: #ecf7ff;
+    --cx-color-dark-blue-900: #192e4c;
+    --cx-color-dark-blue: #003459;
 
-    --c-color-green-100: #defdf6;
-    --c-color-green-900: #103b31;
-    --c-color-green: #49bca1;
+    --cx-color-green-100: #defdf6;
+    --cx-color-green-900: #103b31;
+    --cx-color-green: #49bca1;
 
-    --c-color-grey-100: #f7f7f8;
-    --c-color-grey-200: #e0ebf3;
-    --c-color-grey-300: #93b5cd;
-    --c-color-grey-400: #6b95b3;
-    --c-color-grey-500: #477494;
-    --c-color-grey-600: #255374;
-    --c-color-grey-700: #003459;
-    --c-color-grey-800: #062338;
-    --c-color-grey-900: #04111a;
+    --cx-color-grey-100: #f7f7f8;
+    --cx-color-grey-200: #e0ebf3;
+    --cx-color-grey-300: #93b5cd;
+    --cx-color-grey-400: #6b95b3;
+    --cx-color-grey-500: #477494;
+    --cx-color-grey-600: #255374;
+    --cx-color-grey-700: #003459;
+    --cx-color-grey-800: #062338;
+    --cx-color-grey-900: #04111a;
 
-    --c-color-purple-100: #f8eefe;
-    --c-color-purple-900: #392248;
-    --c-color-purple: #d28cff;
+    --cx-color-purple-100: #f8eefe;
+    --cx-color-purple-900: #392248;
+    --cx-color-purple: #d28cff;
 
-    --c-color-red-100: #ffeeef;
-    --c-color-red-900: #3d191a;
-    --c-color-red: #ff5f63;
+    --cx-color-red-100: #ffeeef;
+    --cx-color-red-900: #3d191a;
+    --cx-color-red: #ff5f63;
 
-    --c-color-white: #ffffff;
+    --cx-color-white: #ffffff;
 
-    --c-color-yellow-100: #fff5d2;
-    --c-color-yellow-900: #403300;
-    --c-color-yellow: #fed546;
+    --cx-color-yellow-100: #fff5d2;
+    --cx-color-yellow-900: #403300;
+    --cx-color-yellow: #fed546;
   }
 }

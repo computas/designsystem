@@ -1,10 +1,10 @@
 @layer computas-radius-tokens {
   :root {
-    --c-radius-mini: 4px;
-    --c-radius-small: 16px;
-    --c-radius-medium: 24px;
-    --c-radius-large: 32px;
-    --c-radius-huge: 64px;
-    --c-radius-pill: 999px;
+    --cx-radius-mini: 4px;
+    --cx-radius-small: 16px;
+    --cx-radius-medium: 24px;
+    --cx-radius-large: 32px;
+    --cx-radius-huge: 64px;
+    --cx-radius-pill: 999px;
   }
 }
