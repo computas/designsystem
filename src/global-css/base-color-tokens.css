@@ -1,4 +1,4 @@
-@layer computas-base-colors {
+@layer computas-base-color-tokens {
   :root {
     --c-color-blue-100: #eafbff;
     --c-color-blue-900: #004c75;

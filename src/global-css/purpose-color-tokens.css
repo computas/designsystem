@@ -1,4 +1,4 @@
-@layer computas-purpose-colors {
+@layer computas-purpose-color-tokens {
   :root {
     /* Background */
     --c-color-background-accent-1-soft: var(--c-color-dark-blue-100);
