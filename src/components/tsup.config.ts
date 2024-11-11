@@ -1,9 +1,9 @@
 import path from 'node:path';
-import { build } from 'tsup';
+import { defineConfig } from 'tsup';
 
 const componentFolder = path.basename(process.cwd());
 
-await build({
+export default defineConfig({
   entry: ['index.ts', 'react.ts'],
   sourcemap: true,
   dts: true,
