@@ -1,21 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { html } from 'lit-html';
 
-import { html } from 'lit';
 import './button';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta = {
-  title: 'Example/Button',
-  render: (args) => html`<cx-button ?primary=${args.primary != null}>This is a button</cx-button>`,
-  argTypes: {
-    primary: { control: 'boolean', type: 'boolean' },
-  },
-  args: {
-    primary: false,
-  },
+export default {
+  title: 'Examples/Button',
 } satisfies Meta;
 
-export default meta;
-
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Default: StoryObj = {};
+export const Default: StoryObj = {
+  render: ({ Variant }) => html`<cx-button variant=${Variant}>I'm a button</cx-button>`,
+  argTypes: {
+    Variant: { control: 'radio', options: ['primary', 'secondary'] },
+  },
+  args: {
+    Variant: 'primary',
+  },
+};

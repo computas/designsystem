@@ -24,14 +24,14 @@ export class Button extends LitElement {
     }
   `;
 
-  @property({ type: Boolean })
-  primary = false;
+  @property()
+  variant: 'primary' | 'secondary' = 'primary';
 
   render() {
     return html`
       <button
         type="button"
-        class=${classMap({ secondary: !this.primary })}
+        class=${classMap({ secondary: this.variant === 'secondary' })}
       >
         <slot></slot>
       </button>
