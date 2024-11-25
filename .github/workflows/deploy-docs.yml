@@ -2,6 +2,8 @@ name: Deploy docs
 
 on:
   workflow_call:
+  push:
+    branches: [main]
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
