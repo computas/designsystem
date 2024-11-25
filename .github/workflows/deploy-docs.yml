@@ -21,6 +21,7 @@ jobs:
           lfs: false
       - uses: oven-sh/setup-bun@v2
       - run: bun install
+      - run: bun run build-docs
       - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -31,8 +32,8 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/"
-          app_build_command: "bun run build-docs"
           output_location: "storybook-static"
+          skip_app_build: true
           skip_api_build: true
           ###### End of Repository/Build Configurations ######
 
