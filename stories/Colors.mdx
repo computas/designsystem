@@ -1,0 +1,111 @@
+import {
+  ColorItem,
+  ColorPalette,
+  Description,
+  Meta,
+  Subtitle,
+  Title,
+} from "@storybook/blocks";
+
+<Meta title="Basics/Colors" />
+
+<Title>Colors</Title>
+<Subtitle>
+  The colors are divided into groups, describing their purpose. Each token is
+  visualized, and a corresponding CSS-variable is provided below the sample.
+</Subtitle>
+
+<br />
+
+## Background color tokens
+
+<ColorPalette>
+  <ColorItem title="Primary" colors={["var(--cx-color-background-primary)"]} />
+  <ColorItem
+    title="Backdrop"
+    colors={["var(--cx-color-background-backdrop)"]}
+  />
+  <ColorItem
+    title="Background accent 1"
+    colors={[
+      "var(--cx-color-background-accent-1)",
+      "var(--cx-color-background-accent-1-soft)",
+    ]}
+  />
+  <ColorItem
+    title="Background accent 2"
+    colors={[
+      "var(--cx-color-background-accent-2)",
+      "var(--cx-color-background-accent-2-soft)",
+    ]}
+  />
+  <ColorItem
+    title="Background accent 3"
+    colors={[
+      "var(--cx-color-background-accent-3)",
+      "var(--cx-color-background-accent-3-soft)",
+    ]}
+  />
+  <ColorItem
+    title="Background accent 4"
+    colors={[
+      "var(--cx-color-background-accent-4)",
+      "var(--cx-color-background-accent-4-soft)",
+    ]}
+  />
+  <ColorItem
+    title="Background accent 5"
+    colors={[
+      "var(--cx-color-background-accent-5)",
+      "var(--cx-color-background-accent-5-soft)",
+    ]}
+  />
+  <ColorItem
+    title="Background accent 6"
+    colors={[
+      "var(--cx-color-background-accent-6)",
+      "var(--cx-color-background-accent-6-soft)",
+    ]}
+  />
+</ColorPalette>
+
+## Border color tokens
+
+<ColorPalette>
+  <ColorItem title="Primary" colors={["var(--cx-color-border-primary)"]} />
+  <ColorItem title="Accent 1" colors={["var(--cx-color-border-accent-1)"]} />
+  <ColorItem title="Soft" colors={["var(--cx-color-border-soft)"]} />
+  <ColorItem title="Strong" colors={["var(--cx-color-border-strong)"]} />
+</ColorPalette>
+
+## Signal color tokens
+
+<ColorPalette>
+  <ColorItem title="Danger" colors={["var(--cx-color-signal-danger)"]} />
+  <ColorItem title="Info" colors={["var(--cx-color-signal-info)"]} />
+  <ColorItem title="Success" colors={["var(--cx-color-signal-success)"]} />
+  <ColorItem title="Warning" colors={["var(--cx-color-signal-warning)"]} />
+</ColorPalette>
+
+## Text color tokens
+
+<ColorPalette>
+  <ColorItem title="Primary" colors={["var(--cx-color-text-primary)"]} />
+  <ColorItem title="Accent 1" colors={["var(--cx-color-text-accent-1)"]} />
+  <ColorItem title="Accent 2" colors={["var(--cx-color-text-accent-2)"]} />
+  <ColorItem title="Accent 3" colors={["var(--cx-color-text-accent-3)"]} />
+  <ColorItem title="Inverted" colors={["var(--cx-color-text-inverted)"]} />
+  <ColorItem
+    title="Less important"
+    colors={["var(--cx-color-text-less-important)"]}
+  />
+  <ColorItem title="Disabled" colors={["var(--cx-color-text-disabled)"]} />
+  <ColorItem
+    title="Static dark"
+    colors={["var(--cx-color-text-static-dark)"]}
+  />
+  <ColorItem
+    title="Static light"
+    colors={["var(--cx-color-text-static-light)"]}
+  />
+</ColorPalette>
