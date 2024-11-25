@@ -24,6 +24,10 @@ export class Button extends LitElement {
     }
   `;
 
+  /**
+   * @description Controls the appearance of the button
+   * @default "primary"
+   */
   @property()
   variant: 'primary' | 'secondary' = 'primary';
 
