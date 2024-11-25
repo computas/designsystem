@@ -31,10 +31,9 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/"
-          output_location: "storybook-static"
           skip_app_build: true
           skip_api_build: true
+          app_location: "storybook-static" # This is where the build-docs command places the output
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
