@@ -21,6 +21,7 @@
     --cx-color-grey-700: #003459;
     --cx-color-grey-800: #062338;
     --cx-color-grey-900: #04111a;
+    --cx-color-grey-900-o-60: color-mix(in oklch, var(--cx-color-grey-900), transparent 64%);
 
     --cx-color-purple-100: #f8eefe;
     --cx-color-purple-900: #392248;
