@@ -23,7 +23,9 @@ export const Invalid: StoryObj = {
       <div class="cx-form-field__input-container">
         <input placeholder="Placeholder" />
       </div>
-      <div class="cx-form-field__footer">Error text</div>
+      <div class="cx-form-field__subscript">
+        Error text
+      </div>
     </label>
     `,
 };

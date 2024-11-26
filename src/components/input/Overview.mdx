@@ -1,0 +1,26 @@
+import { Canvas, Meta, Subtitle, Title } from "@storybook/blocks";
+
+import * as inputStories from "./input.stories";
+
+<Meta of={inputStories} />
+
+<Title />
+<Subtitle>
+  The input component is implemented using only CSS. It is required that the top
+  level element is a `label` element. Since this enforces better accessibility.
+  Below you'll find the different appearances that are currently supported.
+</Subtitle>
+
+### Default
+
+<Canvas />
+
+### Invalid
+
+The `cx-form-field--invalid` class gives the form field an invalid appearance.
+
+<Canvas of={inputStories.Invalid} />
+
+### Text area
+
+<Canvas of={inputStories.TextArea} />

@@ -19,3 +19,10 @@ label.cx-form-field :is(input, textarea) {
     outline: none;
   }
 }
+
+label.cx-form-field textarea {
+  resize: vertical;
+
+  /* 24px */
+  min-height: 1.5rem;
+}
