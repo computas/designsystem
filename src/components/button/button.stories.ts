@@ -4,15 +4,20 @@ import { html } from 'lit-html';
 import './button';
 
 export default {
-  title: 'Examples/Button',
+  title: 'Components/Button (do not use this component)',
+  tags: ['autodocs'],
 } satisfies Meta;
 
 export const Default: StoryObj = {
-  render: ({ Variant }) => html`<cx-button variant=${Variant}>I'm a button in a PR</cx-button>`,
+  render: ({ variant }) => html`<cx-button variant=${variant}>I'm a button</cx-button>`,
   argTypes: {
-    Variant: { control: 'radio', options: ['primary', 'secondary'] },
+    variant: {
+      control: 'radio',
+      options: ['primary', 'secondary'],
+      description: 'Changes the visual appearance of the button',
+    },
   },
   args: {
-    Variant: 'primary',
+    variant: 'primary',
   },
 };
