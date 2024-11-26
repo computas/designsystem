@@ -19,14 +19,15 @@ export const Default: StoryObj = {
 export const Invalid: StoryObj = {
   render: () => html`
     <label class="cx-form-field cx-form-field--invalid">
-      <div class="cx-form-field__label">My label</div>
-      <div class="cx-form-field__input-container">
-        <input placeholder="Placeholder" />
-      </div>
-      <div class="cx-form-field__subscript">
-        Error text
-      </div>
-    </label>
+  <div class="cx-form-field__label">My label</div>
+  <div class="cx-form-field__placeholder">Placeholder</div>
+  <div class="cx-form-field__input-container">
+    <input placeholder="Placeholder" />
+  </div>
+  <div class="cx-form-field__subscript">
+    Error text
+  </div>
+</label>
     `,
 };
 

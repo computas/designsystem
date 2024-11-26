@@ -44,6 +44,10 @@ label.cx-form-field {
   box-shadow: inset 0 0 0 1px var(--border-color);
   transition: background-color 200ms ease, box-shadow 200ms ease;
 
+  &:has(> textarea) {
+    padding: var(--cx-spacing-2) var(--cx-spacing-2) var(--cx-spacing-2) var(--cx-spacing-3);
+  }
+
   &:hover {
     --border-color: var(--cx-color-border-primary);
   }
@@ -56,9 +60,8 @@ label.cx-form-field {
 
 .cx-form-field__subscript {
   grid-area: input;
-  position: relative;
   align-self: flex-end;
-  top: var(--cx-spacing-3);
+  margin-bottom: calc(var(--cx-spacing-3) * -1);
   display: flex;
   gap: var(--cx-spacing-1);
   align-items: center;
