@@ -11,7 +11,12 @@ label.cx-form-field {
       background-color: var(--cx-color-background-accent-4-soft);
       --border-color: var(--cx-color-signal-danger);
 
+      &:hover {
+        --border-color: var(--cx-color-border-primary);
+      }
+
       &:has(:focus) {
+        background-color: transparent;
         --border-color: var(--cx-color-border-primary);
       }
     }
