@@ -7,7 +7,7 @@ import * as inputStories from "./input.stories";
 <Title />
 <Subtitle>
   The input component is implemented using only CSS. It is required that the top
-  level element is a `label` element. Since this enforces better accessibility.
+  level element is a `label` element, since this enforces good accessibility.
   Below you'll find the different appearances that are currently supported.
 </Subtitle>
 
@@ -24,3 +24,9 @@ The `cx-form-field--invalid` class gives the form field an invalid appearance.
 ### Text area
 
 <Canvas of={inputStories.TextArea} />
+
+### Without label
+
+If you don't want a label over the input, please provide a label with the utility class `.cx-visually-hidden`. This way, screen readers will still have a descriptive label associated with the input.
+
+<Canvas of={inputStories.InputWithoutLabel} />

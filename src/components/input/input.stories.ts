@@ -40,3 +40,14 @@ export const TextArea: StoryObj = {
 </label>
   `,
 };
+
+export const InputWithoutLabel: StoryObj = {
+  render: () => html`
+    <label class="cx-form-field">
+  <div class="cx-form-field__label cx-visually-hidden">This label is read by a screen reader</div>
+  <div class="cx-form-field__input-container">
+    <input placeholder="This input has no label" />
+  </div>
+</label>
+  `,
+};

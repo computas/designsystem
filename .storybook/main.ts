@@ -7,6 +7,9 @@ const config: StorybookConfig = {
     name: '@storybook/web-components-vite',
     options: {},
   },
+  docs: {
+    defaultName: 'Overview',
+  },
   async viteFinal(config, { configType }) {
     if (config.optimizeDeps) {
       // customize the Vite config here

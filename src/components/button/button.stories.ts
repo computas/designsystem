@@ -4,7 +4,7 @@ import { html } from 'lit-html';
 import './button';
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Button (do not use this component)',
   tags: ['autodocs'],
 } satisfies Meta;
 
