@@ -5,7 +5,6 @@ import './button';
 
 export default {
   title: 'Components/Button (do not use this component)',
-  tags: ['autodocs'],
 } satisfies Meta;
 
 export const Default: StoryObj = {
