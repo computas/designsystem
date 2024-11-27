@@ -15,6 +15,13 @@ import * as inputStories from "./input.stories";
 
 <Canvas />
 
+### With placeholder
+
+For accessibility reasons, we never use the `placeholder` attribute on the `input` element.
+Instead, please use the `cx-form-field__placeholder` class which provides a placeholder that is placed above the input.
+
+<Canvas of={inputStories.WithPlaceholder} />
+
 ### Invalid
 
 The `cx-form-field--invalid` class gives the form field an invalid appearance.
