@@ -1,0 +1,68 @@
+import {
+  ColorItem,
+  ColorPalette,
+  Description,
+  Meta,
+  Subtitle,
+  Title,
+} from "@storybook/blocks";
+
+<Meta title="Basics/Utility classes" />
+
+<Title>Utility classes</Title>
+<Subtitle>
+  The design system provides a set of different utility classes. They are all
+  grouped and documented below.
+</Subtitle>
+
+<br />
+
+## Accessibility
+
+<table>
+  <thead>
+    <tr>
+      <th>CSS class</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>`.cx-visually-hidden`</td>
+      <td>Hides an element visually and takes it out of the document flow, while still being read by a screen reader.</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+
+## Spacing
+
+The design system operates on a 8px grid. We consider 8px as "one unit",
+which makes 16px "two units" and so on. We also provide a "half unit" which
+is called `05`. All CSS classes and CSS variables that has to do with spacing uses these units to define their size.
+
+<table>
+  <thead>
+    <tr>
+      <th>CSS class</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>`.cx-mb-<05|1|2|3|4|5|6>`</td>
+      <td>Applies margin bottom, using the spacing units mentioned above.</td>
+    </tr>
+    <tr>
+      <td>`.cx-mt-<05|1|2|3|4|5|6>`</td>
+      <td>Applies margin top, using the spacing units mentioned above.</td>
+    </tr>
+    <tr>
+      <td>`.cx-gap-<05|1|2|3|4|5|6>`</td>
+      <td>Applies gap to the element, using the spacing units mentioned above.</td>
+    </tr>
+  </tbody>
+</table>

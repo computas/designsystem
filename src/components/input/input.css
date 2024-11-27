@@ -22,7 +22,11 @@ label.cx-form-field :is(input, textarea) {
 
 label.cx-form-field textarea {
   resize: vertical;
+}
 
-  /* 24px */
-  min-height: 1.5rem;
+@layer computas-form-field-overridable-props {
+  label.cx-form-field textarea {
+    min-height: 4rem;
+    max-height: 40rem;
+  }
 }

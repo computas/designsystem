@@ -10,7 +10,19 @@ export const Default: StoryObj = {
     <label class="cx-form-field">
   <div class="cx-form-field__label">My label</div>
   <div class="cx-form-field__input-container">
-    <input placeholder="Placeholder" />
+    <input />
+  </div>
+</label>
+  `,
+};
+
+export const WithPlaceholder: StoryObj = {
+  render: () => html`
+    <label class="cx-form-field">
+  <div class="cx-form-field__label">My label</div>
+  <div class="cx-form-field__placeholder">Example: Use me instead of placeholder</div>
+  <div class="cx-form-field__input-container">
+    <input />
   </div>
 </label>
   `,
@@ -18,15 +30,15 @@ export const Default: StoryObj = {
 
 export const Invalid: StoryObj = {
   render: () => html`
-    <label class="cx-form-field cx-form-field--invalid">
-      <div class="cx-form-field__label">My label</div>
-      <div class="cx-form-field__input-container">
-        <input placeholder="Placeholder" />
-      </div>
-      <div class="cx-form-field__subscript">
-        Error text
-      </div>
-    </label>
+    <label class="cx-form-field">
+  <div class="cx-form-field__label">E-mail</div>
+  <div class="cx-form-field__input-container">
+    <input aria-describedby="error-text" type="email" />
+  </div>
+  <div class="cx-form-field__error" aria-live="polite" id="error-text">
+    Please provide a valid e-mail
+  </div>
+</label>
     `,
 };
 
@@ -35,7 +47,7 @@ export const TextArea: StoryObj = {
     <label class="cx-form-field">
   <div class="cx-form-field__label">My label</div>
   <div class="cx-form-field__input-container">
-    <textarea placeholder="Placeholder"></textarea>
+    <textarea></textarea>
   </div>
 </label>
   `,
@@ -45,8 +57,9 @@ export const InputWithoutLabel: StoryObj = {
   render: () => html`
     <label class="cx-form-field">
   <div class="cx-form-field__label cx-visually-hidden">This label is read by a screen reader</div>
+  <div class="cx-form-field__placeholder">The label above is read by a screen reader</div>
   <div class="cx-form-field__input-container">
-    <input placeholder="This input has no label" />
+    <input />
   </div>
 </label>
   `,
