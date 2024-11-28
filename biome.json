@@ -29,6 +29,9 @@
       "suspicious": {
         "noArrayIndexKey": "off"
       },
+      "complexity": {
+        "noForEach": "off"
+      },
       "correctness": {
         "useExhaustiveDependencies": "off"
       }
