@@ -1,0 +1,32 @@
+import { Canvas, Meta, Subtitle, Title } from "@storybook/blocks";
+
+import * as buttonStories from "./button.stories";
+
+<Meta of={buttonStories} />
+
+<Title />
+<Subtitle>
+  The input component is implemented using only CSS. It is required that the top
+  level element is a `label` element, since this enforces good accessibility.
+  Below you'll find the different appearances that are currently supported.
+</Subtitle>
+
+### Primary
+
+<Canvas of={buttonStories.Primary} />
+
+### Secondary
+
+<Canvas of={buttonStories.Secondary} />
+
+### Tertiary
+
+<Canvas of={buttonStories.Tertiary} />
+
+### Danger
+
+<Canvas of={buttonStories.Danger} />
+
+### Icon
+
+<Canvas of={buttonStories.Icon} />

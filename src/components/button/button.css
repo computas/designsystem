@@ -1,0 +1,107 @@
+.cx-btn__primary,
+.cx-btn__secondary,
+.cx-btn__tertiary,
+.cx-btn__danger {
+  --highlight-size: 45%;
+
+  display: inline-flex;
+  gap: var(--cx-spacing-1);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0 var(--cx-spacing-3);
+  height: 3.5rem;
+  min-width: 5rem;
+  border-radius: var(--cx-radius-pill);
+  transition: scale 50ms ease, background-position 500ms ease, color 300ms ease, box-shadow 300ms ease;
+  background-size: 400% 400%;
+
+  &:active {
+    scale: 0.98;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transition: scale 50ms ease, background-position 3s var(--ease-spring-4), color 300ms ease, box-shadow
+      300ms ease;
+  }
+}
+
+.cx-btn__primary {
+  color: var(--cx-color-text-inverted);
+  background-image: radial-gradient(
+    ellipse at center in oklch,
+    var(--cx-color-background-accent-5),
+    var(--cx-color-background-accent-1) var(--highlight-size),
+    var(--cx-color-background-accent-1)
+  );
+  background-position: 100% 0%;
+
+  &:hover,
+  &:focus-visible {
+    background-position: 75% 25%;
+  }
+}
+
+.cx-btn__secondary {
+  box-shadow: 0 0 0 1px var(--cx-color-border-primary);
+}
+
+.cx-btn__secondary,
+.cx-btn__tertiary {
+  color: var(--cx-color-text-primary);
+  background-image: radial-gradient(
+    ellipse at center,
+    var(--cx-color-background-accent-5),
+    var(--cx-color-background-accent-1) 30%,
+    var(--cx-color-background-accent-1) 35%,
+    var(--cx-color-background-primary) 50%,
+    var(--cx-color-background-primary)
+  );
+  background-position: 100% 0%;
+  background-size: 500% 500%;
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: none;
+    color: var(--cx-color-text-inverted);
+    background-position: 65% 40%;
+  }
+}
+
+.cx-btn__danger {
+  color: var(--cx-color-text-primary);
+  background-image: radial-gradient(
+    ellipse at center,
+    var(--cx-color-background-accent-1),
+    var(--cx-color-signal-danger) var(--highlight-size),
+    var(--cx-color-signal-danger)
+  );
+  background-position: 0% 100%;
+
+  &:hover,
+  &:focus-visible {
+    background-position: 15% 75%;
+  }
+}
+
+.cx-btn__sm {
+  padding: 0 20px;
+  font-size: 0.875rem;
+  height: 3rem;
+}
+
+.cx-btn__icon {
+  padding: 0;
+  min-width: unset;
+  width: var(--cx-spacing-6);
+  height: var(--cx-spacing-6);
+}
+
+.cx-btn__icon.cx-btn__sm {
+  width: var(--cx-spacing-4);
+  height: var(--cx-spacing-4);
+}
