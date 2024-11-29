@@ -46,7 +46,7 @@ label.cx-form-field {
   font-size: 0.875rem;
   line-height: 1.71;
   font-weight: 500;
-  text-align: left;
+  text-align: start;
 }
 
 .cx-form-field__placeholder {
@@ -54,7 +54,7 @@ label.cx-form-field {
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.83;
-  text-align: left;
+  text-align: start;
 }
 
 .cx-form-field__input-container {
@@ -89,7 +89,7 @@ label.cx-form-field {
   font-size: 0.75rem;
   line-height: 1.8;
   font-weight: 400;
-  text-align: left;
+  text-align: start;
   white-space: nowrap;
   overflow-y: clip;
   height: 0rem;
