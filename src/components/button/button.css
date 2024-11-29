@@ -14,13 +14,13 @@
   font-weight: 500;
   line-height: 1rem;
   padding: var(--cx-spacing-4) var(--cx-spacing-6);
-  min-width: 5rem;
+  min-width: 6rem;
   border-radius: var(--cx-radius-pill);
-  transition: scale 50ms ease, background-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  transition: scale 20ms ease, background-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
   grid-template-columns: repeat(auto-fill);
 
   &:active {
-    scale: 0.98;
+    scale: 0.99;
   }
 
   &:hover,
@@ -80,6 +80,7 @@
 .cx-btn__sm {
   padding: var(--cx-spacing-3) var(--cx-spacing-4);
   font-size: 0.75rem;
+  min-width: 5rem;
 }
 
 .cx-btn__lg {
