@@ -4,6 +4,8 @@
 .cx-btn__danger {
   --highlight-color: var(--cx-color-background-accent-5);
   --highlight-background: var(--cx-color-background-accent-1);
+  --highlight-size: 500%;
+
   position: relative;
   display: inline-flex;
   gap: var(--cx-spacing-1);
@@ -44,7 +46,7 @@
     );
 
     border-radius: inherit;
-    background-size: 500% 500%;
+    background-size: var(--highlight-size) var(--highlight-size);
     background-position: 70% 30%;
     animation: cx-btn-highlight-rotate 6s linear infinite;
     transition: opacity 300ms ease;
@@ -78,6 +80,7 @@
 .cx-btn__danger {
   --highlight-color: var(--cx-color-background-accent-1);
   --highlight-background: var(--cx-color-signal-danger);
+  --highlight-size: 700%;
 
   color: var(--cx-color-text-primary);
   background-color: var(--cx-color-signal-danger);
