@@ -47,7 +47,7 @@
   }
 }
 
-:is(.cx-btn__primary, .cx-btn__secondary, .cx-btn__tertiary):is(:hover, :focus-visible) {
+:is(.cx-btn__secondary, .cx-btn__tertiary):is(:hover, :focus-visible) {
   color: var(--cx-color-text-inverted);
 }
 
