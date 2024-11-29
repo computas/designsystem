@@ -18,7 +18,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^3.2.2",
-    "@computas/designsystem-button": "workspace:*",
+    "@computas/designsystem-breadcrumbs": "workspace:*",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/blocks": "^8.4.2",
     "@storybook/manager-api": "^8.4.5",
