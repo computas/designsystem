@@ -8,7 +8,7 @@ export default {
 } satisfies Meta;
 
 export const Default: StoryObj = {
-  render: ({ variant }) => html`<cx-button variant=${variant}>I'm a button</cx-button>`,
+  render: ({ variant }) => html`<cx-button variant=${variant}>I'm a buttonn</cx-button>`,
   argTypes: {
     variant: {
       control: 'radio',
