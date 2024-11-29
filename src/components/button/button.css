@@ -26,6 +26,10 @@
   &:focus-visible {
     box-shadow: none;
     background-color: transparent;
+
+    &::before {
+      opacity: 1;
+    }
   }
 
   &::before {
@@ -40,9 +44,10 @@
     );
 
     border-radius: inherit;
-    background-size: 500% 500%;
+    background-size: 600% 600%;
     background-position: 70% 30%;
-    animation: cx-btn-highlight-rotate 20s linear infinite;
+    animation: cx-btn-highlight-rotate 10s linear infinite;
+    transition: opacity 300ms ease;
     z-index: -1;
   }
 }
@@ -64,8 +69,10 @@
 
 .cx-btn__tertiary {
   color: var(--cx-color-text-primary);
-  background-color: var(--cx-color-background-primary);
-  box-shadow: 0 0 0 1px var(--cx-color-background-primary);
+
+  &::before {
+    opacity: 0;
+  }
 }
 
 .cx-btn__danger {
@@ -114,39 +121,79 @@
     background-position: 70% 30%;
   }
 
+  5% {
+    background-position: 62% 24%;
+  }
+
   10% {
-    background-position: 50% 20%;
+    background-position: 54% 18%;
+  }
+
+  15% {
+    background-position: 46% 18%;
   }
 
   20% {
+    background-position: 38% 24%;
+  }
+
+  25% {
     background-position: 30% 30%;
   }
 
   30% {
-    background-position: 20% 50%;
+    background-position: 24% 38%;
+  }
+
+  35% {
+    background-position: 18% 46%;
   }
 
   40% {
-    background-position: 30% 60%;
+    background-position: 18% 54%;
+  }
+
+  45% {
+    background-position: 24% 62%;
   }
 
   50% {
-    background-position: 35% 70%;
+    background-position: 30% 70%;
+  }
+
+  55% {
+    background-position: 38% 76%;
   }
 
   60% {
-    background-position: 50% 75%;
+    background-position: 46% 82%;
+  }
+
+  65% {
+    background-position: 54% 82%;
   }
 
   70% {
-    background-position: 60% 85%;
+    background-position: 62% 76%;
   }
 
-  80% {
+  75% {
     background-position: 70% 70%;
   }
 
+  80% {
+    background-position: 76% 62%;
+  }
+
+  85% {
+    background-position: 82% 54%;
+  }
+
   90% {
-    background-position: 80% 50%;
+    background-position: 82% 46%;
+  }
+
+  95% {
+    background-position: 76% 38%;
   }
 }
