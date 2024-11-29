@@ -2,22 +2,22 @@
 .cx-btn__secondary,
 .cx-btn__tertiary,
 .cx-btn__danger {
-  --highlight-size: 45%;
-
+  --highlight-color: var(--cx-color-background-accent-5);
+  --highlight-background: var(--cx-color-background-accent-1);
+  position: relative;
   display: inline-flex;
   gap: var(--cx-spacing-1);
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1;
-  padding: 0 var(--cx-spacing-3);
-  height: 3.5rem;
+  line-height: 1rem;
+  padding: var(--cx-spacing-4) var(--cx-spacing-6);
   min-width: 5rem;
   border-radius: var(--cx-radius-pill);
-  transition: scale 50ms ease, background-position 500ms ease, color 300ms ease, box-shadow 300ms ease;
-  background-size: 400% 400%;
+  transition: scale 50ms ease, background-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  grid-template-columns: repeat(auto-fill);
 
   &:active {
     scale: 0.98;
@@ -25,83 +25,128 @@
 
   &:hover,
   &:focus-visible {
-    transition: scale 50ms ease, background-position 3s var(--ease-spring-4), color 300ms ease, box-shadow
-      300ms ease;
+    box-shadow: none;
+    background-color: transparent;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      ellipse at center,
+      var(--highlight-color),
+      var(--highlight-background) 45%,
+      var(--highlight-background)
+    );
+
+    border-radius: inherit;
+    background-size: 500% 500%;
+    background-position: 70% 30%;
+    animation: cx-btn-highlight-rotate 20s linear infinite;
+    z-index: -1;
+  }
+}
+
+:is(.cx-btn__primary, .cx-btn__secondary, .cx-btn__tertiary):is(:hover, :focus-visible) {
+  color: var(--cx-color-text-inverted);
 }
 
 .cx-btn__primary {
   color: var(--cx-color-text-inverted);
-  background-image: radial-gradient(
-    ellipse at center in oklch,
-    var(--cx-color-background-accent-5),
-    var(--cx-color-background-accent-1) var(--highlight-size),
-    var(--cx-color-background-accent-1)
-  );
-  background-position: 100% 0%;
-
-  &:hover,
-  &:focus-visible {
-    background-position: 75% 25%;
-  }
+  background-color: var(--cx-color-background-accent-1);
 }
 
 .cx-btn__secondary {
-  box-shadow: 0 0 0 1px var(--cx-color-border-primary);
+  color: var(--cx-color-text-primary);
+  background-color: var(--cx-color-background-primary);
+  box-shadow: inset 0 0 0 1px var(--cx-color-border-primary);
 }
 
-.cx-btn__secondary,
 .cx-btn__tertiary {
   color: var(--cx-color-text-primary);
-  background-image: radial-gradient(
-    ellipse at center,
-    var(--cx-color-background-accent-5),
-    var(--cx-color-background-accent-1) 30%,
-    var(--cx-color-background-accent-1) 35%,
-    var(--cx-color-background-primary) 50%,
-    var(--cx-color-background-primary)
-  );
-  background-position: 100% 0%;
-  background-size: 500% 500%;
-
-  &:hover,
-  &:focus-visible {
-    box-shadow: none;
-    color: var(--cx-color-text-inverted);
-    background-position: 65% 40%;
-  }
+  background-color: var(--cx-color-background-primary);
+  box-shadow: 0 0 0 1px var(--cx-color-background-primary);
 }
 
 .cx-btn__danger {
-  color: var(--cx-color-text-primary);
-  background-image: radial-gradient(
-    ellipse at center,
-    var(--cx-color-background-accent-1),
-    var(--cx-color-signal-danger) var(--highlight-size),
-    var(--cx-color-signal-danger)
-  );
-  background-position: 0% 100%;
+  --highlight-color: var(--cx-color-background-accent-1);
+  --highlight-background: var(--cx-color-signal-danger);
 
-  &:hover,
-  &:focus-visible {
-    background-position: 15% 75%;
-  }
+  color: var(--cx-color-text-primary);
+  background-color: var(--cx-color-signal-danger);
 }
 
 .cx-btn__sm {
-  padding: 0 20px;
-  font-size: 0.875rem;
-  height: 3rem;
+  padding: var(--cx-spacing-3) var(--cx-spacing-4);
+  font-size: 0.75rem;
+}
+
+.cx-btn__lg {
+  padding: var(--cx-spacing-5) var(--cx-spacing-8);
+  font-size: 1.125rem;
 }
 
 .cx-btn__icon {
-  padding: 0;
+  --icon-size: var(--cx-spacing-6);
+  padding: var(--cx-spacing-3);
   min-width: unset;
-  width: var(--cx-spacing-6);
-  height: var(--cx-spacing-6);
+
+  > * {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
 }
 
 .cx-btn__icon.cx-btn__sm {
-  width: var(--cx-spacing-4);
-  height: var(--cx-spacing-4);
+  --icon-size: var(--cx-spacing-4);
+  padding: var(--cx-spacing-3);
+}
+
+.cx-btn__icon.cx-btn__lg {
+  --icon-size: var(--cx-spacing-8);
+  padding: var(--cx-spacing-4);
+}
+
+@keyframes cx-btn-highlight-rotate {
+  0%,
+  100% {
+    background-position: 70% 30%;
+  }
+
+  10% {
+    background-position: 50% 20%;
+  }
+
+  20% {
+    background-position: 30% 30%;
+  }
+
+  30% {
+    background-position: 20% 50%;
+  }
+
+  40% {
+    background-position: 30% 60%;
+  }
+
+  50% {
+    background-position: 35% 70%;
+  }
+
+  60% {
+    background-position: 50% 75%;
+  }
+
+  70% {
+    background-position: 60% 85%;
+  }
+
+  80% {
+    background-position: 70% 70%;
+  }
+
+  90% {
+    background-position: 80% 50%;
+  }
 }
