@@ -17,7 +17,6 @@
   min-width: 6rem;
   border-radius: var(--cx-radius-pill);
   transition: scale 20ms ease, background-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
-  grid-template-columns: repeat(auto-fill);
 
   &:active {
     scale: 0.99;
