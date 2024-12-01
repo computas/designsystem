@@ -1,4 +1,5 @@
 @layer computas-purpose-color-tokens {
+  .cx-theme-light,
   :root {
     /* Background */
     --cx-color-background-primary: var(--cx-color-white);
