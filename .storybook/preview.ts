@@ -1,12 +1,6 @@
+import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/web-components';
 import '../global-styles.css';
-
-/**
- * Enforce light theme on the docs. We do this since it's
- * complicated to add a dynamic theme to Storybook.
- */
-const storybookDocs = document.getElementById('storybook-docs');
-storybookDocs?.classList.add('cx-theme-light');
 
 const preview: Preview = {
   parameters: {
@@ -20,6 +14,15 @@ const preview: Preview = {
       toc: true,
     },
   },
+  decorators: [
+    withThemeByClassName({
+      themes: {
+        light: 'cx-theme-light',
+        dark: 'cx-theme-dark',
+      },
+      defaultTheme: 'light',
+    }),
+  ],
   tags: ['autodocs'],
 };
 

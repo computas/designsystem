@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@lit/react": "^1.0.6",
+    "@storybook/addon-themes": "^8.4.6",
     "lit": "^3.2.1"
   },
   "devDependencies": {

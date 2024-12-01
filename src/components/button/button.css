@@ -54,8 +54,8 @@
   }
 }
 
-:is(.cx-btn__secondary, .cx-btn__tertiary):is(:hover, :focus-visible) {
-  color: var(--cx-color-text-inverted);
+:is(.cx-btn__primary, .cx-btn__secondary, .cx-btn__tertiary):is(:hover, :focus-visible) {
+  color: var(--cx-color-text-static-light);
 }
 
 .cx-btn__primary {
@@ -82,7 +82,7 @@
   --highlight-background: var(--cx-color-signal-danger);
   --highlight-size: 700%;
 
-  color: var(--cx-color-text-primary);
+  color: var(--cx-color-text-static-dark);
   background-color: var(--cx-color-signal-danger);
 }
 
