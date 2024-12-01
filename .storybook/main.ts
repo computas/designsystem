@@ -10,6 +10,7 @@ const config: StorybookConfig = {
   docs: {
     defaultName: 'Overview',
   },
+  staticDirs: ['../public'],
   async viteFinal(config, { configType }) {
     if (config.optimizeDeps) {
       // customize the Vite config here
