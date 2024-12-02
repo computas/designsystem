@@ -1,0 +1,24 @@
+import { Canvas, Meta, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./chip.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>
+  The input component is implemented using only CSS. It is required that the top
+  level element is a `label` element, since this enforces good accessibility.
+  Below you'll find the different appearances that are currently supported.
+</Subtitle>
+
+### Display
+
+<Canvas of={stories.Display} />
+
+### Display soft
+
+<Canvas of={stories.DisplaySoft} />
+
+### Removable
+
+<Canvas of={stories.Removable} />

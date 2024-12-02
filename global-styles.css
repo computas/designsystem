@@ -13,6 +13,7 @@
 @import "src/global-css/a11y.css";
 @import "src/global-css/margins.css";
 @import "src/global-css/typography.css";
+@import "src/global-css/animations.css";
 
 /* Components */
 @import "src/components/button/button.css";
