@@ -2,9 +2,10 @@
 .cx-btn__secondary,
 .cx-btn__tertiary,
 .cx-btn__danger {
-  --highlight-color: var(--cx-color-background-accent-5);
-  --highlight-background: var(--cx-color-background-accent-1);
+  --highlight-color: var(--cx-color-blue);
+  --highlight-background: var(--cx-color-grey-700);
   --highlight-size: 500%;
+  --background-transition-duration: 150ms;
 
   position: relative;
   display: inline-flex;
@@ -18,7 +19,8 @@
   padding: var(--cx-spacing-4) var(--cx-spacing-6);
   min-width: 6rem;
   border-radius: var(--cx-radius-pill);
-  transition: scale 20ms ease, background-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
+  transition: scale 20ms ease, background-color var(--background-transition-duration) ease, color 300ms ease,
+    box-shadow 300ms ease;
 
   &:active {
     scale: 0.99;
@@ -26,11 +28,13 @@
 
   &:hover,
   &:focus-visible {
+    --background-transition-duration: 300ms;
     box-shadow: none;
     background-color: transparent;
 
     &::before {
       opacity: 1;
+      transition-duration: 150ms;
     }
   }
 
@@ -48,9 +52,10 @@
     border-radius: inherit;
     background-size: var(--highlight-size) var(--highlight-size);
     background-position: 70% 30%;
-    animation: cx-btn-highlight-rotate 6s linear infinite;
+    animation: cx-btn-highlight-rotate 5s linear infinite;
     transition: opacity 300ms ease;
     z-index: -1;
+    opacity: 0;
   }
 }
 
@@ -78,7 +83,7 @@
 }
 
 .cx-btn__danger {
-  --highlight-color: var(--cx-color-background-accent-1);
+  --highlight-color: var(--cx-color-grey-700);
   --highlight-background: var(--cx-color-signal-danger);
   --highlight-size: 700%;
 
