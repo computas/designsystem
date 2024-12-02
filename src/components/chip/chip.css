@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--cx-spacing-2) var(--cx-spacing-2);
+  padding: var(--cx-spacing-2);
   gap: var(--cx-spacing-2);
   border-radius: var(--cx-radius-mini);
   background-color: var(--cx-color-background-accent-6);
