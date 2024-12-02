@@ -36,7 +36,7 @@ export const Danger: StoryObj = {
 export const Icon: StoryObj = {
   render: () => html`
     <button class="cx-btn__danger cx-btn__lg cx-btn__icon cx-mr-6">
-  <div style="width: 24px; height: 24px; border: 1px solid black"></div>
+  <div style="width: 32px; height: 32px; border: 1px solid black"></div>
 </button>
 <button class="cx-btn__danger cx-btn__icon cx-mr-6">
   <div style="width: 24px; height: 24px; border: 1px solid black"></div>
