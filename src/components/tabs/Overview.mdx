@@ -1,0 +1,15 @@
+import { Canvas, Meta, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./tabs.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>
+  Tabs are split into two different use cases; tabs used for routing, and tabs
+  used for displaying different content on a route.
+</Subtitle>
+
+### Primary
+
+<Canvas of={stories.Primary} />

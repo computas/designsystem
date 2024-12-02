@@ -1,0 +1,44 @@
+.cx-tab-link {
+  display: inline-flex;
+  flex-direction: column;
+  place-items: center;
+  position: relative;
+  padding: 7px 15px 15px;
+  border-bottom: 1px solid var(--c-color-elements);
+  transition: font-weight 100ms ease;
+  color: var(--cx-color-text-primary);
+
+  text-decoration: 2px wavy underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: var(--cx-spacing-1);
+}
+
+/* .cx-tab-link::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  transition: background-color 0.3s ease;
+  height: 5px;
+  background: transparent;
+  border-radius: var(--c-radius-sm) var(--c-radius-sm) 0px 0px;
+}
+
+.cx-tab-link:not(.cx-tab-link--active):is(:focus-visible, :hover) {
+  &::after {
+    background-color: var(--c-color-primary);
+  }
+} */
+
+.cx-tab-link--active {
+  font-weight: 700;
+
+  &::after {
+    background-color: var(--c-color-secondary);
+  }
+}
+
+.hidden-max-width-estimator {
+  font-weight: 700;
+  height: 0;
+  visibility: hidden;
+}
