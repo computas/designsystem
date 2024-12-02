@@ -2,7 +2,7 @@
  * These custom properties are meant as semantic tokens
  * that can be used to animate colors used in gradients.
  * We define them globally, so that we don't need to define
- * custom properties each time we want to animate a colors.
+ * custom properties each time we want to animate colors in gradients.
  */
 @layer cx-gradient-background-colors {
   @property --cx-gradient-highlight {
