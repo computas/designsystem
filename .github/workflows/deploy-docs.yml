@@ -1,10 +1,6 @@
 name: Deploy docs
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
   workflow_call:
 
 permissions:
