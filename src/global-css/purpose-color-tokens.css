@@ -1,5 +1,6 @@
 @layer computas-purpose-color-tokens {
-  :root {
+  .cx-theme-light,
+  :root:not(.cx-theme-dark) {
     /* Background */
     --cx-color-background-primary: var(--cx-color-white);
     --cx-color-background-backdrop: var(--cx-color-grey-900-o-60);
@@ -81,5 +82,46 @@
       --cx-color-text-static-dark: var(--cx-color-grey-700);
       --cx-color-text-static-light: var(--cx-color-grey-100);
     }
+  }
+
+  .cx-theme-dark {
+    /* Background */
+    --cx-color-background-primary: var(--cx-color-grey-800);
+    --cx-color-background-backdrop: var(--cx-color-grey-900-o-60);
+    --cx-color-background-accent-1-soft: var(--cx-color-dark-blue-900);
+    --cx-color-background-accent-1: var(--cx-color-dark-blue-100);
+    --cx-color-background-accent-2-soft: var(--cx-color-green-900);
+    --cx-color-background-accent-2: var(--cx-color-green);
+    --cx-color-background-accent-3-soft: var(--cx-color-yellow-900);
+    --cx-color-background-accent-3: var(--cx-color-yellow);
+    --cx-color-background-accent-4-soft: var(--cx-color-red-900);
+    --cx-color-background-accent-4: var(--cx-color-red);
+    --cx-color-background-accent-5-soft: var(--cx-color-blue-900);
+    --cx-color-background-accent-5: var(--cx-color-blue);
+    --cx-color-background-accent-6-soft: var(--cx-color-purple-900);
+    --cx-color-background-accent-6: var(--cx-color-purple);
+
+    /* Border */
+    --cx-color-border-primary: var(--cx-color-grey-300);
+    --cx-color-border-accent-1: var(--cx-color-blue);
+    --cx-color-border-soft: var(--cx-color-grey-700);
+    --cx-color-border-strong: var(--cx-color-white);
+
+    /* Signal */
+    --cx-color-signal-danger: var(--cx-color-red);
+    --cx-color-signal-info: var(--cx-color-blue);
+    --cx-color-signal-success: var(--cx-color-green);
+    --cx-color-signal-warning: var(--cx-color-yellow);
+
+    /* Text */
+    --cx-color-text-primary: var(--cx-color-grey-100);
+    --cx-color-text-accent-1: var(--cx-color-green);
+    --cx-color-text-accent-2: var(--cx-color-blue);
+    --cx-color-text-accent-3: var(--cx-color-purple);
+    --cx-color-text-inverted: var(--cx-color-grey-700);
+    --cx-color-text-less-important: var(--cx-color-grey-300);
+    --cx-color-text-disabled: var(--cx-color-grey-500);
+    --cx-color-text-static-dark: var(--cx-color-grey-700);
+    --cx-color-text-static-light: var(--cx-color-grey-100);
   }
 }
