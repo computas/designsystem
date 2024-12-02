@@ -1,8 +1,4 @@
 /* Margin top */
-.cx-mt-05 {
-  margin-top: var(--cx-spacing-05) !important;
-}
-
 .cx-mt-1 {
   margin-top: var(--cx-spacing-1) !important;
 }
@@ -27,11 +23,23 @@
   margin-top: var(--cx-spacing-6) !important;
 }
 
-/* Margin right */
-.cx-mr-05 {
-  margin-right: var(--cx-spacing-05) !important;
+.cx-mt-7 {
+  margin-top: var(--cx-spacing-7) !important;
 }
 
+.cx-mt-8 {
+  margin-top: var(--cx-spacing-8) !important;
+}
+
+.cx-mt-9 {
+  margin-top: var(--cx-spacing-9) !important;
+}
+
+.cx-mt-10 {
+  margin-top: var(--cx-spacing-10) !important;
+}
+
+/* Margin right */
 .cx-mr-1 {
   margin-right: var(--cx-spacing-1) !important;
 }
@@ -56,11 +64,23 @@
   margin-right: var(--cx-spacing-6) !important;
 }
 
-/* Margin bottom */
-.cx-mb-05 {
-  margin-bottom: var(--cx-spacing-05) !important;
+.cx-mr-7 {
+  margin-right: var(--cx-spacing-7) !important;
 }
 
+.cx-mr-8 {
+  margin-right: var(--cx-spacing-8) !important;
+}
+
+.cx-mr-9 {
+  margin-right: var(--cx-spacing-9) !important;
+}
+
+.cx-mr-10 {
+  margin-right: var(--cx-spacing-10) !important;
+}
+
+/* Margin bottom */
 .cx-mb-1 {
   margin-bottom: var(--cx-spacing-1) !important;
 }
@@ -85,11 +105,23 @@
   margin-bottom: var(--cx-spacing-6) !important;
 }
 
-/* Margin left */
-.cx-ml-05 {
-  margin-left: var(--cx-spacing-05) !important;
+.cx-mb-7 {
+  margin-bottom: var(--cx-spacing-7) !important;
 }
 
+.cx-mb-8 {
+  margin-bottom: var(--cx-spacing-8) !important;
+}
+
+.cx-mb-9 {
+  margin-bottom: var(--cx-spacing-9) !important;
+}
+
+.cx-mb-10 {
+  margin-bottom: var(--cx-spacing-10) !important;
+}
+
+/* Margin left */
 .cx-ml-1 {
   margin-left: var(--cx-spacing-1) !important;
 }
@@ -114,11 +146,23 @@
   margin-left: var(--cx-spacing-6) !important;
 }
 
-/* Gap */
-.cx-gap-05 {
-  gap: var(--cx-spacing-05) !important;
+.cx-ml-7 {
+  margin-left: var(--cx-spacing-7) !important;
 }
 
+.cx-ml-8 {
+  margin-left: var(--cx-spacing-8) !important;
+}
+
+.cx-ml-9 {
+  margin-left: var(--cx-spacing-9) !important;
+}
+
+.cx-ml-10 {
+  margin-left: var(--cx-spacing-10) !important;
+}
+
+/* Gap */
 .cx-gap-1 {
   gap: var(--cx-spacing-1) !important;
 }
@@ -141,4 +185,20 @@
 
 .cx-gap-6 {
   gap: var(--cx-spacing-6) !important;
+}
+
+.cx-gap-7 {
+  gap: var(--cx-spacing-7) !important;
+}
+
+.cx-gap-8 {
+  gap: var(--cx-spacing-8) !important;
+}
+
+.cx-gap-9 {
+  gap: var(--cx-spacing-9) !important;
+}
+
+.cx-gap-10 {
+  gap: var(--cx-spacing-10) !important;
 }

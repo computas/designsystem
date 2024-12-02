@@ -2,7 +2,7 @@ import type { StorybookConfig } from '@storybook/web-components-vite';
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.mdx', '../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: ['@storybook/addon-essentials', '@chromatic-com/storybook'],
+  addons: ['@storybook/addon-essentials', '@chromatic-com/storybook', '@storybook/addon-themes'],
   framework: {
     name: '@storybook/web-components-vite',
     options: {},
@@ -10,6 +10,7 @@ const config: StorybookConfig = {
   docs: {
     defaultName: 'Overview',
   },
+  staticDirs: ['../public'],
   async viteFinal(config, { configType }) {
     if (config.optimizeDeps) {
       // customize the Vite config here

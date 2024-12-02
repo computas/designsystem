@@ -4,7 +4,7 @@ import { create } from '@storybook/theming/create';
 const cxTheme = create({
   base: 'light',
 
-  brandUrl: 'https://computas.com',
+  brandUrl: 'https://designsystem.computas.com',
   brandImage: 'https://computas.com/content/themes/computas/assets/images/logo.svg',
   brandTarget: '_self',
 
