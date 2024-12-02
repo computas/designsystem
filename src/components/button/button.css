@@ -29,7 +29,7 @@
     var(--cx-gradient-background)
   );
   background-size: var(--cx-gradient-highlight-size) var(--cx-gradient-highlight-size);
-  animation: cx-gradient-background-rotation 5s linear infinite;
+  animation: cx-gradient-background-rotation 7s linear infinite;
 
   &:active {
     scale: 0.99;

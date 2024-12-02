@@ -38,7 +38,7 @@ button.cx-chip {
     var(--cx-gradient-background)
   );
   background-size: 500% 500%;
-  animation: cx-gradient-background-rotation 5s linear infinite;
+  animation: cx-gradient-background-rotation 7s linear infinite;
 
   &::before,
   &::after {
