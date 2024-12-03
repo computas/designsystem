@@ -13,8 +13,10 @@
 @import "src/global-css/a11y.css";
 @import "src/global-css/margins.css";
 @import "src/global-css/typography.css";
+@import "src/global-css/animations.css";
 
 /* Components */
 @import "src/components/button/button.css";
+@import "src/components/chip/chip.css";
 @import "src/components/form-field/form-field.css";
 @import "src/components/input/input.css";
