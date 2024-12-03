@@ -1,4 +1,5 @@
-*:focus-visible {
+*:focus-visible,
+.cx-outline-on-focus-within:has(:focus-visible) {
   outline: 2px auto var(--cx-color-border-accent-1);
   outline-offset: 2px;
 }
