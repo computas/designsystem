@@ -12,13 +12,13 @@ export const Primary: StoryObj = {
 <button class="cx-btn__primary cx-btn__sm cx-mr-6">Primary button small</button>
 <br /><br />
 <button class="cx-btn__primary cx-btn__icon cx-btn__lg cx-mr-6">
-  <div style="width: 32px; height: 32px; border: 1px solid black"></div>
+  <div style="width: 32px; height: 32px; border: 1px solid white"></div>
 </button>
 <button class="cx-btn__primary cx-btn__icon cx-mr-6">
-  <div style="width: 24px; height: 24px; border: 1px solid black"></div>
+  <div style="width: 24px; height: 24px; border: 1px solid white"></div>
 </button>
 <button class="cx-btn__primary cx-btn__icon cx-btn__sm">
-  <div style="width: 16px; height: 16px; border: 1px solid black"></div>
+  <div style="width: 16px; height: 16px; border: 1px solid white"></div>
 </button>
   `,
 };
