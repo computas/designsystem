@@ -1,11 +1,11 @@
 import { createComponent } from '@lit/react';
 import * as React from 'react';
 
-import { Tab, Tabs } from './index';
+import { Tab, TabGroup } from './index';
 
-export const CxTabs = createComponent({
-  tagName: 'cx-tabs',
-  elementClass: Tabs,
+export const CxTabGroup = createComponent({
+  tagName: 'cx-tab-group',
+  elementClass: TabGroup,
   react: React,
 });
 

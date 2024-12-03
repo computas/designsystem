@@ -15,7 +15,6 @@ export class Tab extends LitElement {
   @property()
   header = '';
 
-  // @state()
   content: Element[] = [];
 
   private onSlotChange(e: Event) {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
 import './tab';
-import './tabs';
+import './tab-group';
 
 export default {
   title: 'Components/Tabs',
@@ -26,25 +26,27 @@ export const TabLink: StoryObj = {
 
 export const WebComponent: StoryObj = {
   render: () => html`
-    <cx-tabs>
-<cx-tab header="This is the first tab">
-  <h2 class="cx-headline-jumbo">Heading</h2>
-  <p>This is the content of the first tab</p>
-</cx-tab>
-<cx-tab header="Second tab">
-  <button class="cx-btn">This is the content of the first tab</button>
-</cx-tab>
-<cx-tab header="Last tab">
-<label class="cx-form-field">
-  <div class="cx-form-field__label">E-mail</div>
-  <div class="cx-form-field__input-container">
-    <input aria-describedby="error-text" type="email" />
-  </div>
-  <div class="cx-form-field__error" aria-live="polite" id="error-text">
-    Please provide a valid e-mail
-  </div>
-</label>
-</cx-tab>
-</cx-tabs>
+    <cx-tab-group>
+  <cx-tab header="General">
+    <h2 class="cx-headline-jumbo">Heading</h2>
+    <p>This is the content of the first tab</p>
+  </cx-tab>
+
+  <cx-tab header="Advanced settings">
+    <button class="cx-btn__primary">This is the content of the second tab</button>
+  </cx-tab>
+
+  <cx-tab header="Form submission">
+    <label class="cx-form-field">
+      <div class="cx-form-field__label">E-mail</div>
+      <div class="cx-form-field__input-container">
+        <input aria-describedby="error-text" type="email" />
+      </div>
+      <div class="cx-form-field__error" aria-live="polite" id="error-text">
+        Please provide a valid e-mail
+      </div>
+    </label>
+  </cx-tab>
+</cx-tab-group>
   `,
 };

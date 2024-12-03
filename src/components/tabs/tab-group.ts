@@ -5,8 +5,8 @@ import a11yStyles from '../../global-css/a11y.css?inline';
 import type { Tab } from './tab';
 import tabStyles from './tab-link.css?inline';
 
-@customElement('cx-tabs')
-export class Tabs extends LitElement {
+@customElement('cx-tab-group')
+export class TabGroup extends LitElement {
   static styles = [
     unsafeCSS(tabStyles),
     unsafeCSS(a11yStyles),
@@ -21,13 +21,12 @@ export class Tabs extends LitElement {
       }
 
       .cx-tab-link {
-        border: none;
         cursor: pointer;
-        background: transparent;
       }
 
       .content-container {
         display: grid;
+        padding-block: var(--cx-spacing-2);
 
         > * {
           grid-area: 1 / 1;
@@ -51,8 +50,6 @@ export class Tabs extends LitElement {
       }
     `,
   ];
-
-  private readonly tabGroupId = crypto.randomUUID();
 
   /**
    * @description The index of the active tab
@@ -80,13 +77,13 @@ export class Tabs extends LitElement {
           ${this.tabs.map(
             (tab, index) => html`
             <label
-              class=${classMap({ 'cx-tab-link': true, 'cx-tab-link--active': this.activeTabIndex === index })}
+              class=${classMap({ 'cx-tab-link': true, 'cx-outline-on-focus-within': true, 'cx-tab-link--active': this.activeTabIndex === index })}
             >
               <input 
                 class="cx-visually-hidden"
                 role="tab"
                 type="radio"
-                name=${this.tabGroupId}
+                name="cx-tab-group"
                 id=${`tab-${index}`}
                 aria-controls=${`tabpanel-${index}`}
                 aria-selected=${this.activeTabIndex === index}
@@ -98,33 +95,33 @@ export class Tabs extends LitElement {
           )}
         </header>
 
-        <div 
+        <div
           class="content-container"
           role="tabpanel"
           id=${`tabpanel-${this.activeTabIndex}`}
           aria-labelledby=${`tab-${this.activeTabIndex}`}
-        >
-          ${this.tabs.map(
-            (tab, index) => html`
+          >
+          ${this.tabs.map((tab, index) => {
+            return html`
               <div class=${classMap({
                 'tab-content': true,
-                active: this.activeTabIndex === index,
                 before: index < this.activeTabIndex,
                 after: index > this.activeTabIndex,
               })}>
                 ${tab.content}
               </div>
-          `,
-          )}
+            `;
+          })}
         </div>
-        <slot @slotchange=${this.onSlotChange}></slot>
       </section>
+
+      <slot @slotchange=${this.onSlotChange}></slot>
     `;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cx-tabs': Tabs;
+    'cx-tab-group': TabGroup;
   }
 }
