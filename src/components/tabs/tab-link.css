@@ -6,6 +6,8 @@
 
   color: var(--cx-color-text-primary);
   line-height: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
 
   text-decoration: 20% wavy underline;
   text-decoration-skip-ink: none;
@@ -14,7 +16,7 @@
   text-decoration-color: transparent;
   transition: text-decoration-color 100ms ease, text-underline-offset 100ms ease;
 
-  &:hover:not(.cx-tab-link--active) {
+  &:hover {
     text-underline-offset: 30%;
     text-decoration-color: var(--cx-color-text-primary);
   }
@@ -34,8 +36,14 @@
   border-radius: var(--cx-radius-mini) var(--cx-radius-mini) 0px 0px;
 }
 
-.cx-tab-link--active::before {
-  background-color: var(--cx-color-background-accent-5);
+.cx-tab-link--active {
+  &:hover {
+    text-decoration-color: transparent;
+  }
+
+  &::before {
+    background-color: var(--cx-color-background-accent-5);
+  }
 }
 
 .cx-tab-link ~ .cx-tab-link {
