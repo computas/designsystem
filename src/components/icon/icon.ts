@@ -5,13 +5,33 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 import { getIcon } from './store';
 
-type IconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+type IconSize =
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | '11'
+  | '12'
+  | '13'
+  | '14'
+  | '15'
+  | '16'
+  | '17'
+  | '18'
+  | '19'
+  | '20';
 
 @customElement('cx-icon')
 export class Icon extends LitElement {
   static readonly styles = css`
     :host {
-      --_icon-size: 32px;
+      --_icon-size: 24px;
 
       display: inline-block;
       width: var(--_icon-size);
@@ -19,33 +39,26 @@ export class Icon extends LitElement {
       line-height: 0;
     }
 
-    :host([size='xxs']) {
-      --_icon-size: 8px;
-    }
-
-    :host([size='xs']) {
-      --_icon-size: 16px;
-    }
-
-    :host([size='sm']) {
-      --_icon-size: 24px;
-    }
-
-    :host([size='md']) {
-      --_icon-size: 32px;
-    }
-
-    :host([size='lg']) {
-      --_icon-size: 40px;
-    }
-
-    :host([size='xl']) {
-      --_icon-size: 48px;
-    }
-
-    :host([size='xxl']) {
-      --_icon-size: 56px;
-    }
+    :host([size='1']) { --_icon-size: 0.25rem; }
+    :host([size='2']) { --_icon-size: 0.5rem; }
+    :host([size='3']) { --_icon-size: 0.75rem; }
+    :host([size='4']) { --_icon-size: 1rem; }
+    :host([size='5']) { --_icon-size: 1.25rem; }
+    :host([size='6']) { --_icon-size: 1.5rem; }
+    :host([size='7']) { --_icon-size: 1.75rem; }
+    :host([size='8']) { --_icon-size: 2rem; }
+    :host([size='9']) { --_icon-size: 2.25rem; }
+    :host([size='10']) { --_icon-size: 2.5rem; }
+    :host([size='11']) { --_icon-size: 2.75rem; }
+    :host([size='12']) { --_icon-size: 3rem; }
+    :host([size='13']) { --_icon-size: 3.25rem; }
+    :host([size='14']) { --_icon-size: 3.5rem; }
+    :host([size='15']) { --_icon-size: 3.75rem; }
+    :host([size='16']) { --_icon-size: 4rem; }
+    :host([size='17']) { --_icon-size: 4.25rem; }
+    :host([size='18']) { --_icon-size: 4.5rem; }
+    :host([size='19']) { --_icon-size: 4.75rem; }
+    :host([size='20']) { --_icon-size: 5rem; }
 
     svg {
       width: 100%;

@@ -1,0 +1,88 @@
+import {
+  Canvas,
+  Description,
+  IconGallery,
+  IconItem,
+  Meta,
+  Source,
+  Subtitle,
+  Title,
+} from "@storybook/blocks";
+
+import { iconNames } from "./icon-names";
+import * as stories from "./icon.stories";
+
+<Meta of={stories} />
+
+<Title />
+
+The icon component is implemented as a web component where you manually register each icon you want to use in your application.
+This is to ensure that you only include the icons that you need in your bundle. To register a an icon for use, please call the `addIcons()`
+function with an object containing your icons, as such:
+
+<Source
+  code={`
+ import { addIcons } from '@computas/designsystem/icon';
+ 
+// import the icon data (SVG string)
+import download from '@computas/designsystem/icon/svg/download?raw';
+
+addIcons({
+download: { svg: download }
+});
+`}
+language="ts"
+dark
+/>
+
+The registration of icons is usually done at the root level of your application, and makes the icon available globally.
+After registering an icon, use it through the `cx-icon` component. Start by importing the component:
+
+<Source
+  code={`
+// Web component
+import '@computas/designsystem/icon';
+
+// React
+import { CxIcon } from '@computas/designsystem/icon/react';
+`}
+language="ts"
+dark
+/>
+
+Then simply use the component and provide the name of the icon you wish to display:
+
+<Source
+  code={`
+// Web component
+<cx-icon name="download" />
+
+// React
+
+<CxIcon name="download" />
+`} language="ts" dark />
+
+If you try to use an icon that is not registered, the component throws an error.
+
+<br />
+## Icon overview
+
+<IconGallery>
+  {iconNames.map((iconName) => (
+    <IconItem name={iconName} key={iconName}>
+      <cx-icon name={iconName} />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Sizing
+
+The icon component can be sized through the `size` prop. The prop accepts the same values as our spacing tokens, in other words a number between 1 and 20.
+
+<Canvas of={stories.Sizing} />
+
+## Color
+
+The icon component can be sized through the `size` prop. The prop accepts the same values as our spacing tokens, in other words a number between 1 and 20.
+
+<Canvas of={stories.Color} />

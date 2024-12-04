@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@lit/react": "^1.0.6",
+    "dompurify": "^3.2.2",
     "lit": "^3.2.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^3.2.2",
-    "@computas/designsystem-breadcrumbs": "workspace:*",
     "@computas/designsystem-icon": "workspace:*",
     "@storybook/addon-essentials": "^8.4.6",
     "@storybook/addon-themes": "^8.4.6",
