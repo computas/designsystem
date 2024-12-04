@@ -48,9 +48,9 @@ export const Color: StoryObj = {
   }
 </style>
 
-<cx-icon name="star-added" size="10" class="cx-mr-4 danger-icon"></cx-icon>
-<cx-icon name="star-added" size="10" class="cx-mr-4 info-icon"></cx-icon>
-<cx-icon name="star-added" size="10" class="cx-mr-4 success-icon"></cx-icon>
+<cx-icon name="star-filled" size="10" class="cx-mr-4 danger-icon"></cx-icon>
+<cx-icon name="star-filled" size="10" class="cx-mr-4 info-icon"></cx-icon>
+<cx-icon name="star-filled" size="10" class="cx-mr-4 success-icon"></cx-icon>
 <button class="cx-btn__secondary">
   Go forward
   <cx-icon name="forward" size="4"></cx-icon>
