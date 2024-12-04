@@ -1,15 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
-import * as cxIcons from './iconRegistry';
-import { addIcons } from './store';
-
-const iconObj = Object.entries(cxIcons)
-  .map(([_, icon]) => icon as cxIcons.SVGIcon)
-  .filter((icon) => !!icon.name && !!icon.data);
-
-addIcons(...iconObj);
-
 import './icon';
 
 export default {
@@ -61,8 +52,8 @@ export const Color: StoryObj = {
 <cx-icon name="star-added" size="10" class="cx-mr-4 info-icon"></cx-icon>
 <cx-icon name="star-added" size="10" class="cx-mr-4 success-icon"></cx-icon>
 <button class="cx-btn__secondary">
-  Create user
-  <cx-icon name="add" size="4"></cx-icon>
+  Go forward
+  <cx-icon name="forward" size="4"></cx-icon>
 </button>
   `,
 };
