@@ -51,3 +51,9 @@ The web components are located in the `src/components` folder, where each compon
 2. Try to add your submissions through small, focused and well described commits. This makes it easier to do QA. Use the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) syntax if you feel like doing so.
 3. When you're done implementing your feature, create a pull request for your branch to be merged into the `main` branch. This will automatically run linting, and will create a preview URL of your feature branch. At least one approval is required to merge the pull request.
 4. When a reviewer has approved your pull request; merge your branch and delete it.
+
+## How to add new icons
+
+1. Add the new or changed SVG icon to the folder `/src/components/icon/svg`.
+2. Ensure that the icon has a width and height of 24px, and that fill and/or stroke is defined as `currentColor`.
+3. Run the script `bun run create-icon-registry`.

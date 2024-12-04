@@ -1,8 +1,8 @@
-import DOMPurify from 'dompurify';
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
+import type { IconName } from './iconRegistry';
 import { getIcon } from './store';
 
 type IconSize =
@@ -67,7 +67,7 @@ export class Icon extends LitElement {
   `;
 
   @property({ type: String, reflect: true })
-  name = '';
+  name: IconName | null = null;
 
   // Setting this to reflect: true will make the size attribute reflect to the DOM, which makes the current
   // CSS-selector-based approach for sizing work in React. If another approach is used, this whole property may be removed.
@@ -75,7 +75,7 @@ export class Icon extends LitElement {
   size: IconSize | undefined = undefined;
 
   render() {
-    return html`${unsafeHTML(DOMPurify.sanitize(getIcon(this.name)?.svg ?? ''))}`;
+    return html`${unsafeHTML(getIcon(this.name)?.data ?? '')}`;
   }
 }
 

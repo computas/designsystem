@@ -10,7 +10,7 @@ import {
 } from "@storybook/blocks";
 
 import * as stories from "./icon.stories";
-import * as cxIcons from "./svgRegistry";
+import * as cxIcons from "./iconRegistry";
 
 <Meta of={stories} />
 
@@ -66,11 +66,14 @@ If you try to use an icon that is not registered, the component throws an error.
 ## Icon overview
 
 <IconGallery>
-  {Object.entries(cxIcons).map(([, icon]) => (
-    <IconItem name={icon.name} key={icon.name}>
-      <cx-icon name={icon.name} />
-    </IconItem>
-  ))}
+  {Object.entries(cxIcons)
+    .map(([, icon]) => icon)
+    .filter((icon) => !!icon.data)
+    .map((icon) => (
+      <IconItem name={icon.name} key={icon.name}>
+        <cx-icon name={icon.name} />
+      </IconItem>
+    ))}
 </IconGallery>
 
 ## Sizing

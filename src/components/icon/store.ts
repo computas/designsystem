@@ -1,4 +1,4 @@
-import type { SVGIcon } from './svgRegistry';
+import type { IconName, SVGIcon } from './iconRegistry';
 
 type IconRegistry = Record<string, SVGIcon>;
 
@@ -28,12 +28,12 @@ export const addIcons = (...icons: SVGIcon[]) => {
   });
 };
 
-export const getIcon = (name: string): SVGIcon | undefined => {
+export const getIcon = (name: IconName | null): SVGIcon | undefined => {
   // Need to check `name` because it can be `undefined` on initial render depending on property vs attribute
   if (name && !_cxGlobalIconsStore[name]) {
     throw new Error(
       `Icon "${name}" not found. Ensure the icon name is correct and that it has been added to the global icon store using \`addIcons\`.`,
     );
   }
-  return _cxGlobalIconsStore[name];
+  return _cxGlobalIconsStore[name ?? ''];
 };

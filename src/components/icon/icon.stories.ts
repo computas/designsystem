@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
+import * as cxIcons from './iconRegistry';
 import { addIcons } from './store';
-import * as cxIcons from './svgRegistry';
 
-const iconObj = Object.entries(cxIcons).map(([_, icon]) => icon);
+const iconObj = Object.entries(cxIcons)
+  .map(([_, icon]) => icon as cxIcons.SVGIcon)
+  .filter((icon) => !!icon.name && !!icon.data);
+
 addIcons(...iconObj);
 
 import './icon';

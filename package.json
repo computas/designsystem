@@ -9,11 +9,11 @@
     "lint": "biome check ./src",
     "build-docs": "tsc && storybook build",
     "build-styles": "tsup global-styles.css --out-dir dist",
-    "build-designsystem": "bun run build-styles & bun --filter '*' build"
+    "build-designsystem": "bun run build-styles & bun --filter '*' build",
+    "create-icon-registry": "bun --filter '@computas/designsystem-icon' create-icon-registry"
   },
   "dependencies": {
     "@lit/react": "^1.0.6",
-    "dompurify": "^3.2.2",
     "lit": "^3.2.1"
   },
   "devDependencies": {
