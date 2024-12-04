@@ -104,13 +104,6 @@ export const computas: {
   name: 'computas',
   data: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M20.646 6.979A10 10 0 1 0 22 11.999c0-.272 0-.542-.034-.808a9.9 9.9 0 0 0-1.32-4.212m-.126 6.053a8.537 8.537 0 1 1-.017-2.195.315.315 0 0 1-.313.356h-3.653a.315.315 0 0 1-.305-.244 4.31 4.31 0 1 0 .03 1.976.31.31 0 0 1 .307-.244h3.646a.315.315 0 0 1 .305.351"/></svg>`,
 };
-export const dotMenu: {
-  name: 'dot-menu';
-  data: string;
-} = {
-  name: 'dot-menu',
-  data: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="6" fill="none" viewBox="0 0 20 6"><path fill="currentColor" fill-rule="evenodd" d="M2.813 1.44a1.563 1.563 0 1 0 0 3.125 1.563 1.563 0 0 0 0-3.125M0 3.003a2.812 2.812 0 1 1 5.625 0 2.812 2.812 0 0 1-5.625 0M17.188 1.44a1.563 1.563 0 1 0 0 3.125 1.563 1.563 0 0 0 0-3.125m-2.813 1.563a2.812 2.812 0 1 1 5.625 0 2.812 2.812 0 0 1-5.625 0M10 1.44a1.562 1.562 0 1 0 0 3.125 1.562 1.562 0 0 0 0-3.125M7.188 3.003a2.812 2.812 0 1 1 5.624 0 2.812 2.812 0 0 1-5.624 0" clip-rule="evenodd"/></svg>`,
-};
 export const down: {
   name: 'down';
   data: string;
@@ -222,6 +215,13 @@ export const logOut: {
 } = {
   name: 'log-out',
   data: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3.729 2h10.294c.495.027.95.263 1.27.639.315.371.475.851.458 1.337v4.006a.625.625 0 0 1-1.25 0V3.938a.71.71 0 0 0-.162-.49.54.54 0 0 0-.37-.198H3.783a.54.54 0 0 0-.37.198.71.71 0 0 0-.16.516v16.072l-.001.026a.71.71 0 0 0 .162.49.55.55 0 0 0 .37.198H13.97a.54.54 0 0 0 .37-.198.71.71 0 0 0 .161-.516v-4.018a.625.625 0 1 1 1.25 0v4.006c.017.486-.143.966-.458 1.337A1.8 1.8 0 0 1 13.99 22H3.728a1.8 1.8 0 0 1-1.268-.64A1.96 1.96 0 0 1 2 20.025V3.976A1.96 1.96 0 0 1 2.46 2.64c.32-.376.774-.612 1.27-.638m14.096 6.198a.625.625 0 0 1 .883.03l3.125 3.35a.625.625 0 0 1 0 .852l-3.125 3.348a.625.625 0 1 1-.914-.853l2.144-2.296H8.251a.625.625 0 0 1 0-1.25h11.687l-2.144-2.297a.625.625 0 0 1 .03-.884" clip-rule="evenodd"/></svg>`,
+};
+export const meatballMenu: {
+  name: 'meatball-menu';
+  data: string;
+} = {
+  name: 'meatball-menu',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="6" fill="none" viewBox="0 0 20 6"><path fill="currentColor" fill-rule="evenodd" d="M2.813 1.44a1.563 1.563 0 1 0 0 3.125 1.563 1.563 0 0 0 0-3.125M0 3.003a2.812 2.812 0 1 1 5.625 0 2.812 2.812 0 0 1-5.625 0M17.188 1.44a1.563 1.563 0 1 0 0 3.125 1.563 1.563 0 0 0 0-3.125m-2.813 1.563a2.812 2.812 0 1 1 5.625 0 2.812 2.812 0 0 1-5.625 0M10 1.44a1.562 1.562 0 1 0 0 3.125 1.562 1.562 0 0 0 0-3.125M7.188 3.003a2.812 2.812 0 1 1 5.624 0 2.812 2.812 0 0 1-5.624 0" clip-rule="evenodd"/></svg>`,
 };
 export const message: {
   name: 'message';
@@ -363,11 +363,11 @@ export const sorting: {
   name: 'sorting',
   data: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M3.75 0c.345 0 .625.28.625.625v18.75a.625.625 0 1 1-1.25 0V.625c0-.345.28-.625.625-.625" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M.183 15.808a.625.625 0 0 1 .884 0l2.683 2.683 2.683-2.683a.625.625 0 1 1 .884.884l-3.125 3.125a.625.625 0 0 1-.884 0L.183 16.692a.625.625 0 0 1 0-.884M16.25 0c.345 0 .625.28.625.625v18.75a.625.625 0 1 1-1.25 0V.625c0-.345.28-.625.625-.625" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M16.25 0c.166 0 .325.066.442.183l3.125 3.125a.625.625 0 1 1-.884.884L16.25 1.509l-2.683 2.683a.625.625 0 1 1-.884-.884L15.808.183A.63.63 0 0 1 16.25 0" clip-rule="evenodd"/></svg>`,
 };
-export const starAdded: {
-  name: 'star-added';
+export const starFilled: {
+  name: 'star-filled';
   data: string;
 } = {
-  name: 'star-added',
+  name: 'star-filled',
   data: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M11.998 2a1.31 1.31 0 0 0-1.164.712l-.002.003L8.203 7.93l-5.02.498a1.296 1.296 0 0 0-.8 2.211l4.16 4.12-1.54 5.596-.001.006a1.303 1.303 0 0 0 1.842 1.499l.002-.001 5.152-2.552 5.16 2.555.002.001a1.302 1.302 0 0 0 1.842-1.499l-1.542-5.601 4.156-4.12a1.296 1.296 0 0 0-.799-2.212l-5.02-.497-2.634-5.218-.001-.003A1.31 1.31 0 0 0 11.998 2"/></svg>`,
 };
 export const star: {
@@ -442,7 +442,6 @@ export type IconName =
   | 'chess'
   | 'close'
   | 'computas'
-  | 'dot-menu'
   | 'down'
   | 'download'
   | 'edit'
@@ -459,6 +458,7 @@ export type IconName =
   | 'left'
   | 'location'
   | 'log-out'
+  | 'meatball-menu'
   | 'message'
   | 'microphone'
   | 'multiple-actions-question'
@@ -479,7 +479,7 @@ export type IconName =
   | 'sort-ascending'
   | 'sort-descending'
   | 'sorting'
-  | 'star-added'
+  | 'star-filled'
   | 'star'
   | 'tech'
   | 'time'
@@ -510,7 +510,6 @@ export const completeIconSet = [
   chess,
   close,
   computas,
-  dotMenu,
   down,
   download,
   edit,
@@ -527,6 +526,7 @@ export const completeIconSet = [
   left,
   location,
   logOut,
+  meatballMenu,
   message,
   microphone,
   multipleActionsQuestion,
@@ -547,7 +547,7 @@ export const completeIconSet = [
   sortAscending,
   sortDescending,
   sorting,
-  starAdded,
+  starFilled,
   star,
   tech,
   time,
