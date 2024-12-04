@@ -17,8 +17,8 @@ import * as cxIcons from "./iconRegistry";
 <Title />
 
 The icon component is implemented as a web component where you manually register each icon you want to use in your application.
-This is to ensure that you only include the icons that you need in your bundle. To register a an icon for use, please call the `addIcons()`
-function with an object containing your icons, as such:
+This ensures that you only include the icons that you need in your bundle. To register an icon for use, please use the `addIcons()`
+function with a list of your icons, as such:
 
 <Source
   code={`
@@ -31,8 +31,10 @@ language="typescript"
 dark
 />
 
-The registration of icons is usually done at the root level of your application, and makes the icon available globally.
-After registering an icon, use it through the `cx-icon` component. Start by importing the component:
+The registration of icons is usually done at the root level of your application, and makes the icons globally available.
+After registering an icon, use it through the `cx-icon` component. Start by importing the component. If you use the 
+web component, you only need to import the component once in your app, preferably at the root level. If you use the
+React component, you must import the component in each place you need it.
 
 <Source
   code={`
@@ -54,9 +56,8 @@ Then simply use the component and provide the name of the icon you wish to displ
 <cx-icon name="download" />
 
 // React
-
 <CxIcon name="download" />
-`} language="typescript" dark />
+`} language="tsx" dark />
 
 If you try to use an icon that is not registered, the component throws an error.
 
@@ -77,11 +78,13 @@ If you try to use an icon that is not registered, the component throws an error.
 ## Sizing
 
 The icon component can be sized through the `size` prop. The prop accepts the same values as our spacing tokens, in other words a number between 1 and 20.
+The numbers are on a relative scale, and aligns with our 4px grid. If you want your icon to be 32px, use `size="8"` (since 32 / 4 = 8).
 
 <Canvas of={stories.Sizing} />
 
 ## Color
 
-Use the `color` CSS property to colorize the icons. When used inside a component, the icon will inherit the text color by default.
+By default, the icon inherits the font color of the container it's within.
+If you want to use a custom color, apply a CSS class where you use the `color` property to colorize the icon.
 
 <Canvas of={stories.Color} />
