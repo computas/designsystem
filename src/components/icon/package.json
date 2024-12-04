@@ -1,0 +1,12 @@
+{
+  "name": "@computas/designsystem-icon",
+  "version": "1.0.0",
+  "type": "module",
+  "private": "true",
+  "scripts": {
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5"
+  }
+}
