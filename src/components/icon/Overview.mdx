@@ -22,7 +22,7 @@ function with an object containing your icons, as such:
 
 <Source
   code={`
- import { addIcons } from '@computas/designsystem/icon';
+import { addIcons } from '@computas/designsystem/icon';
  
 // import the icon data (SVG string)
 import download from '@computas/designsystem/icon/svg/download?raw';
@@ -31,7 +31,7 @@ addIcons({
 download: { svg: download }
 });
 `}
-language="ts"
+language="typescript"
 dark
 />
 
@@ -46,7 +46,7 @@ import '@computas/designsystem/icon';
 // React
 import { CxIcon } from '@computas/designsystem/icon/react';
 `}
-language="ts"
+language="typescript"
 dark
 />
 
@@ -60,7 +60,7 @@ Then simply use the component and provide the name of the icon you wish to displ
 // React
 
 <CxIcon name="download" />
-`} language="ts" dark />
+`} language="typescript" dark />
 
 If you try to use an icon that is not registered, the component throws an error.
 
