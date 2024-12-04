@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["./src/routeTree.gen.ts", "./src/ui/Icon/name.d.ts"]
+    "ignore": ["./src/components/icon/iconRegistry.ts"]
   },
   "formatter": {
     "enabled": true,
