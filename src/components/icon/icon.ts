@@ -31,7 +31,7 @@ type IconSize =
 export class Icon extends LitElement {
   static readonly styles = css`
     :host {
-      --_icon-size: 24px;
+      --_icon-size: 1.5rem;
 
       display: inline-block;
       width: var(--_icon-size);
