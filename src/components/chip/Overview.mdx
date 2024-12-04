@@ -1,0 +1,20 @@
+import { Canvas, Meta, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./chip.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>The chip component is implemented using only CSS.</Subtitle>
+
+### Display
+
+<Canvas of={stories.Display} />
+
+### Display soft
+
+<Canvas of={stories.DisplaySoft} />
+
+### Removable
+
+<Canvas of={stories.Removable} />

@@ -1,0 +1,163 @@
+.cx-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--cx-spacing-2);
+  gap: var(--cx-spacing-2);
+  border-radius: var(--cx-radius-mini);
+  background-color: var(--cx-color-background-accent-6);
+
+  color: var(--cx-color-text-static-dark);
+  line-height: 1rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.28px;
+}
+
+.cx-chip__soft {
+  color: var(--cx-color-text-primary);
+  background-color: var(--cx-color-background-accent-6-soft);
+}
+
+button.cx-chip {
+  --cx-gradient-highlight: var(--cx-color-background-accent-6-soft);
+  --cx-gradient-background: var(--cx-color-background-accent-6-soft);
+
+  position: relative;
+  border-radius: var(--cx-radius-pill);
+  padding: var(--cx-spacing-3) var(--cx-spacing-10) var(--cx-spacing-3) var(--cx-spacing-4);
+  transition: scale 20ms ease, color 300ms ease, --cx-gradient-highlight 300ms ease, --cx-gradient-background
+    300ms ease;
+  color: var(--cx-color-text-primary);
+
+  background-image: radial-gradient(
+    ellipse at center,
+    var(--cx-gradient-highlight),
+    var(--cx-gradient-background) 50%,
+    var(--cx-gradient-background)
+  );
+  background-size: 500% 500%;
+  animation: cx-gradient-background-rotation 7s linear infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: var(--cx-spacing-2);
+    top: 50%;
+    translate: -50% 0;
+    width: 1rem;
+    height: 0.0625rem;
+    background-color: var(--cx-color-text-primary);
+    transition: background-color 300ms ease;
+  }
+
+  &::before {
+    rotate: 45deg;
+  }
+
+  &::after {
+    rotate: -45deg;
+  }
+
+  &:active {
+    scale: 0.99;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--cx-color-text-static-light);
+    --cx-gradient-highlight: var(--cx-color-blue);
+    --cx-gradient-background: var(--cx-color-grey-700);
+
+    &::before,
+    &::after {
+      background-color: var(--cx-color-text-static-light);
+    }
+  }
+}
+
+/* Basic chip colors */
+.cx-chip__purple {
+  background-color: var(--cx-color-background-accent-6);
+}
+
+.cx-chip__dark-blue:not(.cx-chip__soft):not(button) {
+  color: var(--cx-color-text-inverted);
+  background-color: var(--cx-color-background-accent-1);
+}
+
+.cx-chip__blue {
+  background-color: var(--cx-color-background-accent-5);
+}
+
+.cx-chip__yellow {
+  background-color: var(--cx-color-background-accent-3);
+}
+
+.cx-chip__green {
+  background-color: var(--cx-color-background-accent-2);
+}
+
+.cx-chip__red {
+  background-color: var(--cx-color-background-accent-4);
+}
+
+/* Soft chip colors */
+.cx-chip__soft {
+  &.cx-chip__purple {
+    background-color: var(--cx-color-background-accent-6-soft);
+  }
+
+  &.cx-chip__dark-blue {
+    background-color: var(--cx-color-background-accent-1-soft);
+  }
+
+  &.cx-chip__blue {
+    background-color: var(--cx-color-background-accent-5-soft);
+  }
+
+  &.cx-chip__yellow {
+    background-color: var(--cx-color-background-accent-3-soft);
+  }
+
+  &.cx-chip__green {
+    background-color: var(--cx-color-background-accent-2-soft);
+  }
+
+  &.cx-chip__red {
+    background-color: var(--cx-color-background-accent-4-soft);
+  }
+}
+
+/* Removable chip colors */
+button.cx-chip__purple {
+  --cx-gradient-highlight: var(--cx-color-background-accent-6-soft);
+  --cx-gradient-background: var(--cx-color-background-accent-6-soft);
+}
+
+button.cx-chip__dark-blue {
+  --cx-gradient-highlight: var(--cx-color-background-accent-1-soft);
+  --cx-gradient-background: var(--cx-color-background-accent-1-soft);
+}
+
+button.cx-chip__blue {
+  --cx-gradient-highlight: var(--cx-color-background-accent-5-soft);
+  --cx-gradient-background: var(--cx-color-background-accent-5-soft);
+}
+
+button.cx-chip__yellow {
+  --cx-gradient-highlight: var(--cx-color-background-accent-3-soft);
+  --cx-gradient-background: var(--cx-color-background-accent-3-soft);
+}
+
+button.cx-chip__green {
+  --cx-gradient-highlight: var(--cx-color-background-accent-2-soft);
+  --cx-gradient-background: var(--cx-color-background-accent-2-soft);
+}
+
+button.cx-chip__red {
+  --cx-gradient-highlight: var(--cx-color-background-accent-4-soft);
+  --cx-gradient-background: var(--cx-color-background-accent-4-soft);
+}

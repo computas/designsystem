@@ -1,3 +1,23 @@
+/**
+ * These custom properties are meant as semantic tokens
+ * that can be used to animate colors used in gradients.
+ * We define them globally, so that we don't need to define
+ * custom properties each time we want to animate colors in gradients.
+ */
+@layer cx-gradient-background-colors {
+  @property --cx-gradient-highlight {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+  }
+
+  @property --cx-gradient-background {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+  }
+}
+
 @layer computas-purpose-color-tokens {
   .cx-theme-light,
   :root:not(.cx-theme-dark) {

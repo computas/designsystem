@@ -1,0 +1,23 @@
+{
+  "name": "@computas/designsystem-icon",
+  "version": "1.0.0",
+  "type": "module",
+  "private": "true",
+  "scripts": {
+    "create-icon-registry": "svg-to-ts-constants",
+    "build": "tsup index.ts react.ts iconRegistry.ts"
+  },
+  "devDependencies": {
+    "svg-to-ts": "^12.0.0",
+    "tsup": "^8.3.5"
+  },
+  "svg-to-ts": {
+    "srcFiles": ["svg/*.svg"],
+    "outputDirectory": "./",
+    "prefix": "",
+    "typeName": "IconName",
+    "fileName": "iconRegistry",
+    "delimiter": "KEBAB",
+    "interfaceName": "SVGIcon"
+  }
+}

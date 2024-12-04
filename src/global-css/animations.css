@@ -1,0 +1,82 @@
+@keyframes cx-gradient-background-rotation {
+  0%,
+  100% {
+    background-position: 70% 30%;
+  }
+
+  5% {
+    background-position: 62% 24%;
+  }
+
+  10% {
+    background-position: 54% 22%;
+  }
+
+  15% {
+    background-position: 46% 22%;
+  }
+
+  20% {
+    background-position: 38% 24%;
+  }
+
+  25% {
+    background-position: 30% 30%;
+  }
+
+  30% {
+    background-position: 24% 38%;
+  }
+
+  35% {
+    background-position: 22% 46%;
+  }
+
+  40% {
+    background-position: 22% 54%;
+  }
+
+  45% {
+    background-position: 24% 62%;
+  }
+
+  50% {
+    background-position: 30% 70%;
+  }
+
+  55% {
+    background-position: 38% 76%;
+  }
+
+  60% {
+    background-position: 46% 78%;
+  }
+
+  65% {
+    background-position: 54% 78%;
+  }
+
+  70% {
+    background-position: 62% 76%;
+  }
+
+  75% {
+    background-position: 70% 70%;
+  }
+
+  80% {
+    background-position: 76% 62%;
+  }
+
+  85% {
+    background-position: 78% 54%;
+  }
+
+  90% {
+    background-position: 78% 46%;
+  }
+
+  95% {
+    background-position: 76% 38%;
+  }
+}
