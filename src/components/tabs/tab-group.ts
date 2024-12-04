@@ -1,8 +1,12 @@
 import { LitElement, css, html, unsafeCSS } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+
+import { provide } from '@lit/context';
 import a11yStyles from '../../global-css/a11y.css?inline';
 import type { Tab } from './tab';
+import type { TabContent } from './tab-content';
+import { activeIndexContext } from './tab-context';
 import tabStyles from './tab-link.css?inline';
 
 @customElement('cx-tab-group')
@@ -15,11 +19,6 @@ export class TabGroup extends LitElement {
         display: block;
       }
       
-      header {
-        display: flex;
-        gap: var(---cx-spacing-1);
-      }
-
       .cx-tab-link {
         cursor: pointer;
       }
@@ -28,25 +27,9 @@ export class TabGroup extends LitElement {
         display: grid;
         padding-block: var(--cx-spacing-2);
 
-        > * {
+        &::slotted(*) {
           grid-area: 1 / 1;
         }
-      }
-
-      .tab-content {
-        transition: opacity 300ms ease, translate 700ms var(--ease-spring-5), visibility 300ms;
-      }
-
-      .tab-content.before {
-        visibility: hidden;
-        opacity: 0;
-        translate: -10px 0;
-      }
-      
-      .tab-content.after {
-        visibility: hidden;
-        opacity: 0;
-        translate: 10px 0;
       }
     `,
   ];
@@ -56,14 +39,23 @@ export class TabGroup extends LitElement {
    * @default 0
    */
   @property({ type: Number, reflect: true })
+  @provide({ context: activeIndexContext })
   activeTabIndex = 0;
 
   @state()
-  private tabs: Tab[] = [];
+  private tabHeaders: Tab[] = [];
 
-  private onSlotChange(e: Event) {
+  private registerTabNames(e: Event) {
     const slot = e.target as HTMLSlotElement;
-    this.tabs = slot.assignedElements({ flatten: true }) as Tab[];
+    this.tabHeaders = slot.assignedElements({ flatten: true }) as Tab[];
+  }
+
+  private setTabContentIndexes(e: Event) {
+    const slot = e.target as HTMLSlotElement;
+    const tabContent = slot.assignedElements({ flatten: true }) as TabContent[];
+    tabContent.forEach((tabContent, index) => {
+      tabContent.index = index;
+    });
   }
 
   private setActiveTabIndex(newTabIndex: number) {
@@ -74,8 +66,8 @@ export class TabGroup extends LitElement {
     return html`
       <section class="tabs-container">
         <header role="tablist">
-          ${this.tabs.map(
-            (tab, index) => html`
+          ${this.tabHeaders.map(
+            (tabHeader, index) => html`
             <label
               class=${classMap({ 'cx-tab-link': true, 'cx-outline-on-focus-within': true, 'cx-tab-link--active': this.activeTabIndex === index })}
             >
@@ -89,33 +81,22 @@ export class TabGroup extends LitElement {
                 aria-selected=${this.activeTabIndex === index}
                 @click=${() => this.setActiveTabIndex(index)}
                 ?checked=${this.activeTabIndex === index} />
-              ${tab.header}
-            </label>
-          `,
+                ${tabHeader.headerContent}
+              </label>
+              `,
           )}
+          <slot name="header" @slotchange=${this.registerTabNames}></slot>
         </header>
 
         <div
-          class="content-container"
           role="tabpanel"
           id=${`tabpanel-${this.activeTabIndex}`}
           aria-labelledby=${`tab-${this.activeTabIndex}`}
           >
-          ${this.tabs.map((tab, index) => {
-            return html`
-              <div class=${classMap({
-                'tab-content': true,
-                before: index < this.activeTabIndex,
-                after: index > this.activeTabIndex,
-              })}>
-                ${tab.content}
-              </div>
-            `;
-          })}
+          <slot class="content-container" @slotchange=${this.setTabContentIndexes}></slot>
         </div>
       </section>
 
-      <slot @slotchange=${this.onSlotChange}></slot>
     `;
   }
 }

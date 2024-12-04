@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 
 @customElement('cx-tab')
 export class Tab extends LitElement {
@@ -12,14 +12,18 @@ export class Tab extends LitElement {
   /**
    * @description Provides the tab header
    */
-  @property()
-  header = '';
+  @property({ type: String, reflect: true })
+  forContent = '';
 
-  content: Element[] = [];
+  @state()
+  headerContent = '';
 
   private onSlotChange(e: Event) {
     const slot = e.target as HTMLSlotElement;
-    this.content = slot.assignedElements({ flatten: true }).map((e) => e.cloneNode(true) as Element);
+    this.headerContent = slot
+      .assignedNodes({ flatten: true })
+      .map((node) => node.textContent)
+      .join(', ');
   }
 
   render() {

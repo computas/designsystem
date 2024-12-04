@@ -13,6 +13,7 @@
     "create-icon-registry": "bun --filter '@computas/designsystem-icon' create-icon-registry"
   },
   "dependencies": {
+    "@lit/context": "^1.1.3",
     "@lit/react": "^1.0.6",
     "lit": "^3.2.1"
   },

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
 import './tab';
+import './tab-content';
 import './tab-group';
 
 export default {
@@ -27,16 +28,19 @@ export const TabLink: StoryObj = {
 export const WebComponent: StoryObj = {
   render: () => html`
     <cx-tab-group>
-  <cx-tab header="General">
+  <cx-tab slot="header" forContent="general">General</cx-tab>
+  <cx-tab-content name="general">
     <h2 class="cx-headline-jumbo">Heading</h2>
     <p>This is the content of the first tab</p>
-  </cx-tab>
+  </cx-tab-content>
 
-  <cx-tab header="Advanced settings">
+  <cx-tab slot="header" forContent="advanced">Advanced settings</cx-tab>
+  <cx-tab-content name="advanced">
     <button class="cx-btn__primary">This is the content of the second tab</button>
-  </cx-tab>
+  </cx-tab-content>
 
-  <cx-tab header="Form submission">
+  <cx-tab slot="header" forContent="form">Form submission</cx-tab>
+  <cx-tab-content name="form">
     <label class="cx-form-field">
       <div class="cx-form-field__label">E-mail</div>
       <div class="cx-form-field__input-container">
@@ -46,7 +50,34 @@ export const WebComponent: StoryObj = {
         Please provide a valid e-mail
       </div>
     </label>
-  </cx-tab>
+  </cx-tab-content>
+</cx-tab-group>
+
+
+<cx-tab-group>
+  <cx-tab slot="header" forContent="general">General</cx-tab>
+  <cx-tab-content name="general">
+    <h2 class="cx-headline-jumbo">Heading</h2>
+    <p>This is the content of the first tab</p>
+  </cx-tab-content>
+
+  <cx-tab slot="header" forContent="advanced">Advanced settings</cx-tab>
+  <cx-tab-content name="advanced">
+    <button class="cx-btn__primary">This is the content of the second tab</button>
+  </cx-tab-content>
+
+  <cx-tab slot="header" forContent="form">Form submission</cx-tab>
+  <cx-tab-content name="form">
+    <label class="cx-form-field">
+      <div class="cx-form-field__label">E-mail</div>
+      <div class="cx-form-field__input-container">
+        <input aria-describedby="error-text" type="email" />
+      </div>
+      <div class="cx-form-field__error" aria-live="polite" id="error-text">
+        Please provide a valid e-mail
+      </div>
+    </label>
+  </cx-tab-content>
 </cx-tab-group>
   `,
 };
