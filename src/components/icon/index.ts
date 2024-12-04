@@ -1,3 +1,2 @@
-export * from './icon';
+export { Icon } from './icon';
 export { addIcons } from './store';
-export * from './svgRegistry';

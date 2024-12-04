@@ -23,11 +23,9 @@ function with an object containing your icons, as such:
 <Source
   code={`
 import { addIcons } from '@computas/designsystem/icon';
- 
-// import the icon data (SVG string)
-import { download } from '@computas/designsystem/icon/svgRegistry';
+import { bin, download } from '@computas/designsystem/icon/iconRegistry';
 
-addIcons(download);
+addIcons(bin, download);
 `}
 language="typescript"
 dark
