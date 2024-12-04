@@ -23,5 +23,5 @@
     "noUncheckedSideEffectImports": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.stories.ts"] // <-- this is the line we need to add
+  "exclude": ["src/**/*.stories.ts"]
 }

@@ -1,6 +1,7 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/web-components';
 import '../global-styles.css';
+import './registerIcons';
 
 const preview: Preview = {
   parameters: {

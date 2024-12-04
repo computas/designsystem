@@ -5,7 +5,7 @@
   --cx-gradient-highlight-size: 500%;
 
   display: inline-flex;
-  gap: var(--cx-spacing-1);
+  gap: var(--cx-spacing-2);
   align-items: center;
   justify-content: center;
   text-align: center;
