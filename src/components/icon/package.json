@@ -4,7 +4,7 @@
   "type": "module",
   "private": "true",
   "scripts": {
-    "build": "tsup && cp -r svg ../../../dist/icon"
+    "build": "tsup"
   },
   "devDependencies": {
     "tsup": "^8.3.5"

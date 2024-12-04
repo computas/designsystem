@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
+import { addIcons } from './store';
+import * as cxIcons from './svgRegistry';
+
+const iconObj = Object.entries(cxIcons).map(([_, icon]) => icon);
+addIcons(...iconObj);
+
 import './icon';
-import './register-demo-icons';
 
 export default {
   title: 'Components/Icon',

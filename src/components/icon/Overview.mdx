@@ -9,8 +9,8 @@ import {
   Title,
 } from "@storybook/blocks";
 
-import { iconNames } from "./icon-names";
 import * as stories from "./icon.stories";
+import * as cxIcons from "./svgRegistry";
 
 <Meta of={stories} />
 
@@ -25,11 +25,9 @@ function with an object containing your icons, as such:
 import { addIcons } from '@computas/designsystem/icon';
  
 // import the icon data (SVG string)
-import download from '@computas/designsystem/icon/svg/download?raw';
+import { download } from '@computas/designsystem/icon/svgRegistry';
 
-addIcons({
-download: { svg: download }
-});
+addIcons(download);
 `}
 language="typescript"
 dark
@@ -68,9 +66,9 @@ If you try to use an icon that is not registered, the component throws an error.
 ## Icon overview
 
 <IconGallery>
-  {iconNames.map((iconName) => (
-    <IconItem name={iconName} key={iconName}>
-      <cx-icon name={iconName} />
+  {Object.entries(cxIcons).map(([, icon]) => (
+    <IconItem name={icon.name} key={icon.name}>
+      <cx-icon name={icon.name} />
     </IconItem>
   ))}
 </IconGallery>

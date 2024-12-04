@@ -1,12 +1,11 @@
-interface IconData {
-  svg: string;
-}
-type IconRegistry = Record<string, IconData>;
+import type { SVGIcon } from './svgRegistry';
 
-let _cxGlobalIconsStore: IconRegistry = {};
+type IconRegistry = Record<string, SVGIcon>;
+
+const _cxGlobalIconsStore: IconRegistry = {};
 
 /**
- * Add icons to the global icon store to make them available for use in the `<e-icon>/Icon` component.
+ * Add icons to the global icon store to make them available for use in the `<cx-icon>/CxIcon` component.
  *
  * You can add multiple icons at once. The key of the input object is the icon name corresponding to the `name`
  * prop in the `<e-icon>/Icon` component. While this can be any string, it is recommended to use the icon name as the key.
@@ -18,18 +17,18 @@ let _cxGlobalIconsStore: IconRegistry = {};
  * import { addIcons } from '@computas/designsystem/icon';
  *
  * // import the icon data (SVG string)
- * import download from '@computas/designsystem/icon/svg/download?raw';
+ * import { bin, download } from '@computas/designsystem/icon/svgRegistry';
  *
- * addIcons({
- *  download: { svg: download }
- * });
+ * addIcons(bin, download);
  * ```
  */
-export const addIcons = (icons: IconRegistry) => {
-  _cxGlobalIconsStore = { ..._cxGlobalIconsStore, ...icons };
+export const addIcons = (...icons: SVGIcon[]) => {
+  icons.forEach((icon) => {
+    _cxGlobalIconsStore[icon.name] = icon;
+  });
 };
 
-export const getIcon = (name: string): IconData | undefined => {
+export const getIcon = (name: string): SVGIcon | undefined => {
   // Need to check `name` because it can be `undefined` on initial render depending on property vs attribute
   if (name && !_cxGlobalIconsStore[name]) {
     throw new Error(
