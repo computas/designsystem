@@ -36,21 +36,21 @@ export const Sizing: StoryObj = {
 export const Color: StoryObj = {
   render: () => html`
     <style>
-      .danger-icon {
-        color: var(--cx-color-signal-danger);
-      }
-      
-      .info-icon {
-        color: var(--cx-color-signal-info);
-      }
-      
-      .success-icon {
-        color: var(--cx-color-signal-success);
-      }
-    </style>
+  .danger-icon {
+    color: var(--cx-color-signal-danger);
+  }
+  
+  .info-icon {
+    color: var(--cx-color-signal-info);
+  }
+  
+  .success-icon {
+    color: var(--cx-color-signal-success);
+  }
+</style>
 
-    <cx-icon name="star-added" size="10" class="cx-mr-4 danger-icon"></cx-icon>
-    <cx-icon name="star-added" size="10" class="cx-mr-4 info-icon"></cx-icon>
-    <cx-icon name="star-added" size="10" class="cx-mr-4 success-icon"></cx-icon>
+<cx-icon name="star-added" size="10" class="cx-mr-4 danger-icon"></cx-icon>
+<cx-icon name="star-added" size="10" class="cx-mr-4 info-icon"></cx-icon>
+<cx-icon name="star-added" size="10" class="cx-mr-4 success-icon"></cx-icon>
   `,
 };
