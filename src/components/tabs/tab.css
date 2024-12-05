@@ -1,4 +1,4 @@
-.cx-tab-link {
+.cx-tab {
   --underline-height: 6px;
   display: inline-flex;
   position: relative;
@@ -29,7 +29,7 @@
   }
 }
 
-.cx-tab-link::before {
+.cx-tab::before {
   content: "";
   position: absolute;
   inset: auto 0 0;
@@ -39,7 +39,7 @@
   border-radius: var(--cx-radius-mini) var(--cx-radius-mini) 0px 0px;
 }
 
-.cx-tab-link--active {
+.cx-tab--active {
   &:hover {
     text-decoration-color: transparent;
   }
@@ -49,6 +49,6 @@
   }
 }
 
-.cx-tab-link ~ .cx-tab-link {
+.cx-tab ~ .cx-tab {
   margin-left: var(--cx-spacing-4);
 }

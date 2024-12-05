@@ -10,17 +10,17 @@ export default {
 
 export const TabLink: StoryObj = {
   render: () => html`
-    <a href="https://designsystem.computas.com" class="cx-tab-link">This is an option</a>
-<a href="https://designsystem.computas.com" class="cx-tab-link cx-tab-link--active">This is another option</a>
-<a href="https://designsystem.computas.com" class="cx-tab-link">This is the final option</a>
+    <a href="https://designsystem.computas.com" class="cx-tab">This is an option</a>
+<a href="https://designsystem.computas.com" class="cx-tab cx-tab--active">This is another option</a>
+<a href="https://designsystem.computas.com" class="cx-tab">This is the final option</a>
   `,
 };
 
 export const TabButton: StoryObj = {
   render: () => html`
-    <button class="cx-tab-link">This is an option</button>
-<button class="cx-tab-link cx-tab-link--active">This is another option</button>
-<button class="cx-tab-link">This is the final option</button>
+    <button class="cx-tab">This is an option</button>
+<button class="cx-tab cx-tab--active">This is another option</button>
+<button class="cx-tab">This is the final option</button>
   `,
 };
 

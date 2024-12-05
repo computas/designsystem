@@ -6,7 +6,7 @@ import { provide } from '@lit/context';
 import a11yStyles from '../../global-css/a11y.css?inline';
 import type { Tab } from './tab';
 import { activeIndexContext } from './tab-context';
-import tabStyles from './tab-link.css?inline';
+import tabStyles from './tab.css?inline';
 
 @customElement('cx-tab-group')
 export class TabGroup extends LitElement {
@@ -18,7 +18,7 @@ export class TabGroup extends LitElement {
         display: block;
       }
       
-      .cx-tab-link {
+      .cx-tab {
         cursor: pointer;
       }
 
@@ -65,7 +65,7 @@ export class TabGroup extends LitElement {
           ${this.tabHeaders.map(
             (tabHeader, index) => html`
             <label
-              class=${classMap({ 'cx-tab-link': true, 'cx-outline-on-focus-within': true, 'cx-tab-link--active': this.activeTabIndex === index })}
+              class=${classMap({ 'cx-tab': true, 'cx-outline-on-focus-within': true, 'cx-tab--active': this.activeTabIndex === index })}
             >
               <input 
                 class="cx-visually-hidden"
