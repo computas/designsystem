@@ -5,7 +5,6 @@ import { classMap } from 'lit/directives/class-map.js';
 import { provide } from '@lit/context';
 import a11yStyles from '../../global-css/a11y.css?inline';
 import type { Tab } from './tab';
-import type { TabContent } from './tab-content';
 import { activeIndexContext } from './tab-context';
 import tabStyles from './tab-link.css?inline';
 
@@ -25,7 +24,7 @@ export class TabGroup extends LitElement {
 
       .content-container {
         display: grid;
-        padding-block: var(--cx-spacing-2);
+        padding-top: var(--cx-spacing-4);
 
         &::slotted(*) {
           grid-area: 1 / 1;
@@ -43,19 +42,16 @@ export class TabGroup extends LitElement {
   activeTabIndex = 0;
 
   @state()
-  private tabHeaders: Tab[] = [];
-
-  private registerTabNames(e: Event) {
-    const slot = e.target as HTMLSlotElement;
-    this.tabHeaders = slot.assignedElements({ flatten: true }) as Tab[];
-  }
+  private tabHeaders: string[] = [];
 
   private setTabContentIndexes(e: Event) {
     const slot = e.target as HTMLSlotElement;
-    const tabContent = slot.assignedElements({ flatten: true }) as TabContent[];
+    const tabContent = slot.assignedElements({ flatten: true }) as Tab[];
     tabContent.forEach((tabContent, index) => {
       tabContent.index = index;
     });
+
+    this.tabHeaders = tabContent.map((tab) => tab.header);
   }
 
   private setActiveTabIndex(newTabIndex: number) {
@@ -81,11 +77,10 @@ export class TabGroup extends LitElement {
                 aria-selected=${this.activeTabIndex === index}
                 @click=${() => this.setActiveTabIndex(index)}
                 ?checked=${this.activeTabIndex === index} />
-                ${tabHeader.headerContent}
+                ${tabHeader}
               </label>
               `,
           )}
-          <slot name="header" @slotchange=${this.registerTabNames}></slot>
         </header>
 
         <div

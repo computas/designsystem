@@ -36,6 +36,7 @@ export const Invalid: StoryObj = {
     <input aria-describedby="error-text" type="email" />
   </div>
   <div class="cx-form-field__error" aria-live="polite" id="error-text">
+    <cx-icon name="error-circle" size="6"></cx-icon>
     Please provide a valid e-mail
   </div>
 </label>

@@ -22,7 +22,7 @@ label.cx-form-field {
 
     .cx-form-field__error {
       display: flex;
-      height: 1.4rem;
+      height: 1.5rem;
       opacity: 1;
       margin-top: var(--cx-spacing-1);
 
@@ -96,6 +96,6 @@ label.cx-form-field {
   opacity: 0;
   transition: height var(--rubber-band-ease), opacity ease, margin ease, display;
   transition-behavior: allow-discrete;
-  transition-duration: 500ms;
+  transition-duration: 400ms;
   display: none;
 }
