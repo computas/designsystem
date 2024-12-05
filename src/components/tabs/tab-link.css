@@ -9,20 +9,23 @@
   font-size: 1rem;
   font-weight: 500;
 
-  text-decoration: 20% wavy underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: wavy;
+  text-decoration-line: underline;
   text-decoration-skip-ink: none;
-  text-underline-offset: 20%;
+  text-underline-offset: 0.125rem;
   text-underline-position: from-font;
   text-decoration-color: transparent;
   transition: text-decoration-color 100ms ease, text-underline-offset 100ms ease;
+  user-select: none;
 
   &:hover {
-    text-underline-offset: 30%;
+    text-underline-offset: 0.25rem;
     text-decoration-color: var(--cx-color-text-primary);
   }
 
   &:active {
-    text-underline-offset: 60%;
+    text-underline-offset: 0.5rem;
   }
 }
 
