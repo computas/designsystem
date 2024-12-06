@@ -15,7 +15,8 @@ export class TabGroup extends LitElement {
     unsafeCSS(a11yStyles),
     css`
       :host {
-        display: block;
+        display: flex;
+        flex-direction: column;
       }
       
       .cx-tab {
@@ -56,42 +57,40 @@ export class TabGroup extends LitElement {
 
   private setActiveTabIndex(newTabIndex: number) {
     this.activeTabIndex = newTabIndex;
+    this.dispatchEvent(new Event('activeTabIndexChange', { bubbles: true, composed: true }));
   }
 
   render() {
     return html`
-      <section class="tabs-container">
-        <header role="tablist">
-          ${this.tabHeaders.map(
-            (tabHeader, index) => html`
-            <label
-              class=${classMap({ 'cx-tab': true, 'cx-outline-on-focus-within': true, 'cx-tab--active': this.activeTabIndex === index })}
-            >
-              <input 
-                class="cx-visually-hidden"
-                role="tab"
-                type="radio"
-                name="cx-tab-group"
-                id=${`tab-${index}`}
-                aria-controls=${`tabpanel-${index}`}
-                aria-selected=${this.activeTabIndex === index}
-                @click=${() => this.setActiveTabIndex(index)}
-                ?checked=${this.activeTabIndex === index} />
-                ${tabHeader}
-              </label>
-              `,
-          )}
-        </header>
-
-        <div
-          role="tabpanel"
-          id=${`tabpanel-${this.activeTabIndex}`}
-          aria-labelledby=${`tab-${this.activeTabIndex}`}
+      <header role="tablist">
+        ${this.tabHeaders.map(
+          (tabHeader, index) => html`
+          <label
+            class=${classMap({ 'cx-tab': true, 'cx-outline-on-focus-within': true, 'cx-tab--active': this.activeTabIndex === index })}
           >
-          <slot class="content-container" @slotchange=${this.setTabContentIndexes}></slot>
-        </div>
-      </section>
+            <input 
+              class="cx-visually-hidden"
+              role="tab"
+              type="radio"
+              name="cx-tab-group"
+              id=${`tab-${index}`}
+              aria-controls=${`tabpanel-${index}`}
+              aria-selected=${this.activeTabIndex === index}
+              @click=${() => this.setActiveTabIndex(index)}
+              ?checked=${this.activeTabIndex === index} />
+              ${tabHeader}
+            </label>
+            `,
+        )}
+      </header>
 
+      <div
+        role="tabpanel"
+        id=${`tabpanel-${this.activeTabIndex}`}
+        aria-labelledby=${`tab-${this.activeTabIndex}`}
+        >
+        <slot class="content-container" @slotchange=${this.setTabContentIndexes}></slot>
+      </div>
     `;
   }
 }

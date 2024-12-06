@@ -7,6 +7,9 @@ export const CxTabGroup = createComponent({
   tagName: 'cx-tab-group',
   elementClass: TabGroup,
   react: React,
+  events: {
+    onActiveTabIndexChange: 'activeTabIndexChange',
+  },
 });
 
 export const CxTab = createComponent({
