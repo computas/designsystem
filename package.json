@@ -9,12 +9,14 @@
     "lint": "biome check ./src",
     "build-docs": "tsc && storybook build",
     "build-designsystem": "bun --filter '@computas/designsystem' build",
-    "create-icon-registry": "bun --filter '@computas/designsystem-icon' create-icon-registry"
+    "create-icon-registry": "bun --filter '@computas/designsystem' create-icon-registry",
+    "start-react-test-project": "bun --filter '@computas/react-test-project' dev"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^3.2.2",
     "@computas/designsystem": "workspace:*",
+    "@computas/react-test-project": "workspace:*",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-themes": "^8.4.7",
     "@storybook/blocks": "^8.4.7",
