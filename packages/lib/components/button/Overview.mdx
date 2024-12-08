@@ -1,0 +1,24 @@
+import { Canvas, Meta, Subtitle, Title } from "@storybook/blocks";
+
+import * as buttonStories from "./button.stories";
+
+<Meta of={buttonStories} />
+
+<Title />
+<Subtitle>The button component is implemented using only CSS.</Subtitle>
+
+### Primary
+
+<Canvas of={buttonStories.Primary} />
+
+### Secondary
+
+<Canvas of={buttonStories.Secondary} />
+
+### Tertiary
+
+<Canvas of={buttonStories.Tertiary} />
+
+### Danger
+
+<Canvas of={buttonStories.Danger} />

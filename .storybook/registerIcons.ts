@@ -1,5 +1,5 @@
-import { addIcons } from '../src/components/icon';
-import * as cxIcons from '../src/components/icon/iconRegistry';
+import { addIcons } from '../packages/lib/components/icon';
+import * as cxIcons from '../packages/lib/components/icon/iconRegistry';
 
 const iconObj = Object.entries(cxIcons)
   .map(([_, icon]) => icon as cxIcons.SVGIcon)

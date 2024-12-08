@@ -5,7 +5,7 @@ const cxTheme = create({
   base: 'light',
 
   brandUrl: 'https://designsystem.computas.com',
-  brandImage: 'https://computas.com/content/themes/computas/assets/images/logo.svg',
+  brandImage: 'https://designsystem.computas.com/computas-logo.svg',
   brandTarget: '_self',
 
   colorPrimary: '#003459',

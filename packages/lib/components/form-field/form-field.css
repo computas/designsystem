@@ -1,0 +1,101 @@
+label.cx-form-field {
+  display: inline-block;
+
+  /* This prevents layout jumping when the error label is animated in */
+  vertical-align: top;
+
+  &.cx-form-field--invalid,
+  &:has(:user-invalid) {
+    .cx-form-field__input-container {
+      background-color: var(--cx-color-background-accent-4-soft);
+      --border-color: var(--cx-color-signal-danger);
+
+      &:hover {
+        --border-color: var(--cx-color-border-primary);
+      }
+
+      &:has(:focus) {
+        background-color: transparent;
+        --border-color: var(--cx-color-border-primary);
+      }
+    }
+
+    .cx-form-field__error {
+      display: flex;
+      height: 1.5rem;
+      opacity: 1;
+      margin-top: var(--cx-spacing-1);
+
+      @starting-style {
+        opacity: 0;
+        height: 0rem;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+/* Adds margin bottom to either the label or the placeholder, depending on who's the neighbor to the input */
+.cx-form-field__label:has(+ .cx-form-field__input-container),
+.cx-form-field__placeholder:has(+ .cx-form-field__input-container) {
+  margin-bottom: var(--cx-spacing-1);
+}
+
+.cx-form-field__label {
+  color: var(--cx-color-text-primary);
+  font-size: 0.875rem;
+  line-height: 1.71;
+  font-weight: 500;
+  text-align: start;
+}
+
+.cx-form-field__placeholder {
+  color: var(--cx-color-text-less-important);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.83;
+  text-align: start;
+}
+
+.cx-form-field__input-container {
+  --border-color: transparent;
+  display: flex;
+  align-items: center;
+  border-radius: var(--cx-radius-medium);
+  background-color: var(--cx-color-background-accent-1-soft);
+  gap: var(--cx-spacing-2);
+  padding: var(--cx-spacing-3) var(--cx-spacing-6);
+  box-shadow: inset 0 0 0 1px var(--border-color);
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+
+  &:has(> textarea) {
+    padding: var(--cx-spacing-4) var(--cx-spacing-4) var(--cx-spacing-4) var(--cx-spacing-6);
+  }
+
+  &:hover {
+    --border-color: var(--cx-color-border-primary);
+  }
+
+  &:has(:focus) {
+    background-color: transparent;
+    --border-color: var(--cx-color-border-primary);
+  }
+}
+
+.cx-form-field__error {
+  --rubber-band-ease: cubic-bezier(0.46, 0, 0.06, 1.04);
+  gap: var(--cx-spacing-2);
+  align-items: center;
+  font-size: 0.75rem;
+  line-height: 1.8;
+  font-weight: 400;
+  text-align: start;
+  white-space: nowrap;
+  overflow-y: clip;
+  height: 0rem;
+  opacity: 0;
+  transition: height var(--rubber-band-ease), opacity ease, margin ease, display;
+  transition-behavior: allow-discrete;
+  transition-duration: 400ms;
+  display: none;
+}
