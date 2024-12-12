@@ -6,10 +6,10 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "lint": "biome check ./src",
+    "lint": "biome check ./packages",
     "build-docs": "tsc && storybook build",
-    "build-designsystem": "bun --filter '@computas/designsystem' build",
-    "create-icon-registry": "bun --filter '@computas/designsystem' create-icon-registry",
+    "build-designsystem": "bun --filter '@computas/lib' build",
+    "create-icon-registry": "bun --filter '@computas/lib' create-icon-registry",
     "start-react-test-project": "bun --filter '@computas/react-test-project' dev"
   },
   "devDependencies": {

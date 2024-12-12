@@ -1,8 +1,8 @@
 import '@computas/designsystem/icon';
 import { useState } from 'react';
 import './App.css';
-import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
+import reactLogo from './assets/react.svg';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <div>
-        <cx-icon></cx-icon>
         <a href="https://vitejs.dev" rel="noreferrer" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

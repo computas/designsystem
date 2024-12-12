@@ -4,10 +4,12 @@ import App from './App.tsx';
 import './index.css';
 import './registerIcons';
 
-import '@computas/designsystem/dist/components/icon';
+const rootNode = document.getElementById('root');
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+if (rootNode) {
+  ReactDOM.createRoot(rootNode).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+  );
+}
