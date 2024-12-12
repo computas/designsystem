@@ -5,7 +5,7 @@ import litPlugin from 'esbuild-plugin-lit';
 import { dependencies, peerDependencies } from './package.json';
 
 esbuild.build({
-  entryPoints: ['components/**/index.ts', 'components/**/react.ts'],
+  entryPoints: ['components/**/index.ts', 'components/**/react.ts', 'components/icon/iconRegistry.ts'],
   outdir: 'dist',
   bundle: true,
   sourcemap: true,
