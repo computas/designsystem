@@ -1,3 +1,4 @@
-import { addIcons } from '@computas/designsystem/icon';
+import { addIcons } from '@computas/designsystem/dist/components/icon';
+import { bin, bookmark } from '@computas/designsystem/dist/components/icon/iconRegistry';
 
-addIcons();
+addIcons(bin, bookmark);

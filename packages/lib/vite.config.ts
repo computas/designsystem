@@ -2,9 +2,9 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 const components = {
-  'tabs/index': 'components/tabs/index.ts',
-  'icon/index': 'components/icon/icon.ts',
-  'icon/iconRegistry': 'components/icon/iconRegistry.ts',
+  'components/tabs/index': 'components/tabs/index.ts',
+  'components/icon/index': 'components/icon/icon.ts',
+  'components/icon/iconRegistry': 'components/icon/iconRegistry.ts',
 };
 
 export default defineConfig({
