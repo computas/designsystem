@@ -3,34 +3,28 @@
   "version": "1.0.0",
   "private": "true",
   "type": "module",
-  "workspaces": ["src/components/*"],
+  "workspaces": ["packages/*"],
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "lint": "biome check ./src",
+    "lint": "biome check ./packages",
     "build-docs": "tsc && storybook build",
-    "build-styles": "tsup global-styles.css --out-dir dist",
-    "build-designsystem": "bun run build-styles & bun --filter '*' build",
-    "create-icon-registry": "bun --filter '@computas/designsystem-icon' create-icon-registry"
-  },
-  "dependencies": {
-    "@lit/react": "^1.0.6",
-    "lit": "^3.2.1"
+    "build-designsystem": "bun --filter '@computas/lib' build",
+    "create-icon-registry": "bun --filter '@computas/lib' create-icon-registry",
+    "start-react-test-project": "bun --filter '@computas/react-test-project' dev"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@chromatic-com/storybook": "^3.2.2",
-    "@computas/designsystem-icon": "workspace:*",
-    "@storybook/addon-essentials": "^8.4.6",
-    "@storybook/addon-themes": "^8.4.6",
-    "@storybook/blocks": "^8.4.6",
-    "@storybook/manager-api": "^8.4.6",
-    "@storybook/test": "^8.4.6",
-    "@storybook/theming": "^8.4.6",
-    "@storybook/web-components": "^8.4.6",
-    "@storybook/web-components-vite": "^8.4.6",
-    "@types/node": "^22.10.1",
-    "storybook": "^8.4.6",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-themes": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/manager-api": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@storybook/theming": "^8.4.7",
+    "@storybook/web-components": "^8.4.7",
+    "@storybook/web-components-vite": "^8.4.7",
+    "storybook": "^8.4.7",
     "typescript": "~5.7.2",
-    "vite": "^6.0.2"
+    "vite": "^6.0.3"
   }
 }

@@ -10,11 +10,11 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
       - uses: oven-sh/setup-bun@v2
       - run: bun install
       - run: bun run build-designsystem
-      - run: cd dist && npm publish --access=public
+      - run: cd packages/lib/dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

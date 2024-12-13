@@ -1,0 +1,54 @@
+.cx-tab {
+  --underline-height: 6px;
+  display: inline-flex;
+  position: relative;
+  padding: 7px 0px calc(var(--cx-spacing-1) + var(--underline-height));
+
+  color: var(--cx-color-text-primary);
+  line-height: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+
+  text-decoration-thickness: 2px;
+  text-decoration-style: wavy;
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.125rem;
+  text-underline-position: from-font;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 100ms ease, text-underline-offset 100ms ease;
+  user-select: none;
+
+  &:hover {
+    text-underline-offset: 0.25rem;
+    text-decoration-color: var(--cx-color-text-primary);
+  }
+
+  &:active {
+    text-underline-offset: 0.5rem;
+  }
+}
+
+.cx-tab::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  transition: background-color 0.3s ease;
+  height: var(--underline-height);
+  background: transparent;
+  border-radius: var(--cx-radius-mini) var(--cx-radius-mini) 0px 0px;
+}
+
+.cx-tab--active {
+  &:hover {
+    text-decoration-color: transparent;
+  }
+
+  &::before {
+    background-color: var(--cx-color-background-accent-5);
+  }
+}
+
+.cx-tab ~ .cx-tab {
+  margin-left: var(--cx-spacing-4);
+}

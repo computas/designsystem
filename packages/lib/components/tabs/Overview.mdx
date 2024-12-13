@@ -1,0 +1,63 @@
+import { Canvas, Meta, Source, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./tabs.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>
+  Tabs are used to divide content into sections and let the user navigate between one section at a time.
+  Use tabs when the content is at the same level of the hierarchy and are related.
+  It should always be one tab selected by default.
+</Subtitle>
+
+## Tab link
+Tabs are most commonly used for top level navigation. The recommended way of doing this is by using routing,
+since this leverages URL state. In most cases you'll therefore have links in your application, styled
+as tabs. If you use Tanstack Router, this means using the `Link` component provided by Tanstack Router.
+Simply put the `.cx-tab` class on there, and you're good to go. To set a tab as visually active, apply the
+`.cx-tab--active` class. 
+<Canvas of={stories.TabLink} />
+
+## Tab button
+In some rare occasions, you'll want to route programmatically. This may be if you for instance need to do some
+other tasks before navigating. In these scenarios, it's recommended to use a `button` element with a click event.
+As with the `a` element, simply use the `.cx-tab` class.
+<Canvas of={stories.TabButton} />
+
+## Web component
+Sometimes, tabs are not used "top level", and are only used to shuffle between blocks of content on a part of the page.
+In these scenarios we provide a web component/React component. This component handles all of the accessibility and
+state for you, so you only need to provide the title for the tab, and the content that goes within.
+
+To use the web component, import the appropriate version for your application:
+<Source
+  code={`
+// Web component
+import '@computas/designsystem/tabs';
+
+// React
+import { CxTabGroup, CxTab } from '@computas/designsystem/tabs/react';
+`}
+language="typescript"
+dark
+/>
+
+Then use it as follows:
+<Canvas of={stories.WebComponent} />
+
+### Active tab index
+If you need to set the tab index programmatically, please use the `activeTabIndex` prop on the `cx-tab-group` element:
+
+<Source
+  code={`
+// The second tab will be active by default
+// Web component
+<cx-tab-group activeTabIndex="1">
+
+// React
+<CxTabGroup activeTabIndex="1">
+`}
+language="tsx"
+dark
+/>
