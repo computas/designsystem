@@ -153,6 +153,13 @@ export const forward: {
   name: 'forward',
   data: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20"><path fill="currentColor" fill-rule="evenodd" d="M10.28.903a.625.625 0 0 0 0 .884l7.586 7.587H.625a.625.625 0 1 0 0 1.25h17.241L10.28 18.21a.625.625 0 1 0 .884.884l8.654-8.654a.625.625 0 0 0 0-.884L11.163.903a.625.625 0 0 0-.884 0" clip-rule="evenodd"/></svg>`,
 };
+export const graphAscend: {
+  name: 'graph-ascend';
+  data: string;
+} = {
+  name: 'graph-ascend',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M15.125 6.625c0-.345.28-.625.625-.625h5.625c.345 0 .625.28.625.625v5.625a.625.625 0 1 1-1.25 0v-5h-5a.625.625 0 0 1-.625-.625" clip-rule="evenodd"/><path fill="currentColor" fill-rule="evenodd" d="M21.817 6.183a.625.625 0 0 1 0 .884L15.2 13.683a1.875 1.875 0 0 1-2.652 0l-2.607-2.607a.625.625 0 0 0-.884 0l-5.991 5.99a.625.625 0 1 1-.884-.883l5.99-5.99a1.876 1.876 0 0 1 2.653 0l2.607 2.606a.625.625 0 0 0 .884 0l6.616-6.616a.625.625 0 0 1 .884 0" clip-rule="evenodd"/></svg>`,
+};
 export const headphones: {
   name: 'headphones';
   data: string;
@@ -449,6 +456,7 @@ export type IconName =
   | 'error-circle'
   | 'external'
   | 'forward'
+  | 'graph-ascend'
   | 'headphones'
   | 'history'
   | 'hyperlink'
@@ -517,6 +525,7 @@ export const completeIconSet = [
   errorCircle,
   external,
   forward,
+  graphAscend,
   headphones,
   history,
   hyperlink,
