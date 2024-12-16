@@ -4,13 +4,13 @@ import { classMap } from 'lit/directives/class-map.js';
 
 type AlertPriorityType = 'Info' | 'Danger' | 'Warning' | 'Success';
 interface AlertType {
-	header?: string;
-	priority?: AlertPriorityType;
+  header?: string;
+  priority?: AlertPriorityType;
 }
 
 @customElement('cx-alert')
 export class Alert extends LitElement implements AlertType {
-	static styles = css`
+  static styles = css`
 		.cx-alert {
 			padding: var(--cx-spacing-6);
 			border-radius: var(--cx-radius-medium);
@@ -60,37 +60,36 @@ export class Alert extends LitElement implements AlertType {
 		}
 	`;
 
-	@property({ type: String, reflect: true }) header = 'Tab title';
+  @property({ type: String, reflect: true }) header = 'Tab title';
 
-	@property({ type: String, reflect: true }) priority: AlertPriorityType =
-		'Info';
+  @property({ type: String, reflect: true }) priority: AlertPriorityType = 'Info';
 
-	render() {
-		let priorityIcon = 'info-circle';
-		switch (this.priority) {
-			case 'Danger':
-				priorityIcon = 'error-circle';
-				break;
-			case 'Warning':
-				priorityIcon = 'warning';
-				break;
-			case 'Success':
-				priorityIcon = 'check-circle';
-				break;
-			default:
-				priorityIcon = 'info-circle';
-				break;
-		}
-		return html`
+  render() {
+    let priorityIcon = 'info-circle';
+    switch (this.priority) {
+      case 'Danger':
+        priorityIcon = 'error-circle';
+        break;
+      case 'Warning':
+        priorityIcon = 'warning';
+        break;
+      case 'Success':
+        priorityIcon = 'check-circle';
+        break;
+      default:
+        priorityIcon = 'info-circle';
+        break;
+    }
+    return html`
 			<div
 				role="alert"
 				class=${classMap({
-					'cx-alert': true,
-					'cx-alert--info': this.priority === 'Info',
-					'cx-alert--danger': this.priority === 'Danger',
-					'cx-alert--warning': this.priority === 'Warning',
-					'cx-alert--success': this.priority === 'Success',
-				})}
+          'cx-alert': true,
+          'cx-alert--info': this.priority === 'Info',
+          'cx-alert--danger': this.priority === 'Danger',
+          'cx-alert--warning': this.priority === 'Warning',
+          'cx-alert--success': this.priority === 'Success',
+        })}
 			>
 				<cx-icon name=${priorityIcon} size="8"></cx-icon>
 				<div class="cx-alert__content">
@@ -99,11 +98,11 @@ export class Alert extends LitElement implements AlertType {
 				</div>
 			</div>
 		`;
-	}
+  }
 }
 
 declare global {
-	interface HTMLElementTagNameMap {
-		'cx-alert': Alert;
-	}
+  interface HTMLElementTagNameMap {
+    'cx-alert': Alert;
+  }
 }
