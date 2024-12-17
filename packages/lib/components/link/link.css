@@ -4,15 +4,17 @@
 	line-height: 1.125rem;
 	font-size: 1.125rem;
 	font-weight: 600;
+	display: inline-flex;
+	align-items: center;
+	gap: var(--cx-spacing-2);
 
 	text-decoration-thickness: 2px;
+	text-decoration-color: var(--cx-color-border-primary);
 	text-decoration-line: underline;
 	text-decoration-skip-ink: none;
 	text-underline-offset: 0.3rem;
 	text-underline-position: from-font;
-	text-decoration-color: transparent;
 	user-select: none;
-	text-decoration-color: var(--cx-color-border-primary);
 
 	&:hover {
 		text-decoration-style: wavy;
@@ -24,10 +26,22 @@
 		text-underline-offset: 0.4rem;
 	}
 
-	&.cx-link--small {
+	.cx-link__icon {
+		--icon-size: var(--cx-spacing-6);
+		> * {
+			width: var(--icon-size);
+			height: var(--icon-size);
+			fill: currentColor;
+		}
+	}
+
+	&.cx-link--sm {
 		line-height: 0.875rem;
 		font-size: 0.875rem;
-		font-weight: 600;
+	}
+
+	&.cx-link--sm .cx-link__icon {
+		--icon-size: var(--cx-spacing-5);
 	}
 
 	&.cx-link--inline {
