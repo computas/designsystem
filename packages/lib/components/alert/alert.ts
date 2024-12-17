@@ -3,7 +3,6 @@ import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 type AlertPriorityType = 'Info' | 'Danger' | 'Warning' | 'Success';
-
 @customElement('cx-alert')
 export class Alert extends LitElement {
   static styles = css`
