@@ -1,57 +1,57 @@
 .cx-link {
-	--underline-height: 6px;
-	color: var(--cx-color-text-primary);
-	line-height: 1.125rem;
-	font-size: 1.125rem;
-	font-weight: 600;
-	display: inline-flex;
-	align-items: center;
-	gap: var(--cx-spacing-2);
+  --underline-height: 6px;
+  color: var(--cx-color-text-primary);
+  line-height: 1.125rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cx-spacing-2);
 
-	text-decoration-thickness: 2px;
-	text-decoration-color: var(--cx-color-border-primary);
-	text-decoration-line: underline;
-	text-decoration-skip-ink: none;
-	text-underline-offset: 0.3rem;
-	text-underline-position: from-font;
-	user-select: none;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--cx-color-border-primary);
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.3rem;
+  text-underline-position: from-font;
+  user-select: none;
 
-	&:hover {
-		text-decoration-style: wavy;
-		text-decoration-color: var(--cx-color-border-accent-1);
-		transition: text-decoration-color 200ms ease;
-	}
+  &:hover {
+    text-decoration-style: wavy;
+    text-decoration-color: var(--cx-color-border-accent-1);
+    transition: text-decoration-color 200ms ease;
+  }
 
-	&:active {
-		text-underline-offset: 0.4rem;
-	}
+  &:active {
+    text-underline-offset: 0.4rem;
+  }
 
-	.cx-link__icon {
-		--icon-size: var(--cx-spacing-6);
-		> * {
-			width: var(--icon-size);
-			height: var(--icon-size);
-			fill: currentColor;
-		}
-	}
+  .cx-link__icon {
+    --icon-size: var(--cx-spacing-6);
+    > * {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      fill: currentColor;
+    }
+  }
 
-	&.cx-link--sm {
-		line-height: 0.875rem;
-		font-size: 0.875rem;
-	}
+  &.cx-link--sm {
+    line-height: 0.875rem;
+    font-size: 0.875rem;
+  }
 
-	&.cx-link--sm .cx-link__icon {
-		--icon-size: var(--cx-spacing-5);
-	}
+  &.cx-link--sm .cx-link__icon {
+    --icon-size: var(--cx-spacing-5);
+  }
 
-	&.cx-link--inline {
-		line-height: inherit;
-		font-size: inherit;
-		font-weight: 600;
-		text-underline-offset: 0.175rem;
+  &.cx-link--inline {
+    line-height: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    text-underline-offset: 0.175rem;
 
-		&:active {
-			text-underline-offset: 0.25rem;
-		}
-	}
+    &:active {
+      text-underline-offset: 0.25rem;
+    }
+  }
 }
