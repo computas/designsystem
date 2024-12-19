@@ -31,8 +31,6 @@ type IconSize =
 export class Icon extends LitElement {
   static readonly styles = css`
     :host {
-      --cx-icon-color: currentColor;
-      --cx-icon-color-accent: var(--cx-color-text-inverted);
       --_icon-size: 1.5rem;
 
       display: inline-block;
