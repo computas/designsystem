@@ -3,7 +3,7 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "build": "lit-analyzer components && bun run build-components && bun run build-global-styles",
+    "build": "bun run build-components && bun run build-global-styles",
     "build-global-styles": "tsup global-styles.css --out-dir dist",
     "build-components": "bun build.ts",
     "create-icon-registry": "svg-to-ts-constants"
@@ -21,7 +21,6 @@
     "esbuild": "^0.24.0",
     "esbuild-plugin-d.ts": "^1.3.1",
     "esbuild-plugin-lit": "^0.1.1",
-    "lit-analyzer": "^2.0.3",
     "svg-to-ts": "^12.0.0",
     "tsup": "^8.3.5",
     "vite": "^6.0.3",
