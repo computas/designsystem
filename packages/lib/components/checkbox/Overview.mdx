@@ -5,15 +5,15 @@ import * as stories from "./checkbox.stories";
 <Meta of={stories} />
 
 <Title />
-<Subtitle>
-  Checkbox
-</Subtitle>
+<Subtitle>The checkbox component is implemented using only CSS.</Subtitle>
 
-## Default
+### Default
 <Canvas of={stories.Default} />
 
-## Indeterminate
+### Indeterminate
+A checkbox is displayed as indeterminate if it is put in an indeterminate state. It can also be triggered by applying the CSS class `.cx-checkbox--indeterminate`.
 <Canvas of={stories.Indeterminate} />
 
-## Error
+### Error
+A checkbox receives error styling when the input is considered invalid. It can also be triggered by applying the CSS class `.cx-checkbox--invalid`.
 <Canvas of={stories.ErrorState} />

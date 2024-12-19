@@ -27,8 +27,8 @@ export const Indeterminate: StoryObj = {
 
 export const ErrorState: StoryObj = {
   render: () => html`
-<label class="cx-checkbox">
-  <input type="checkbox" required />
+<label class="cx-checkbox cx-checkbox--invalid">
+  <input type="checkbox" />
   <div class="cx-checkbox__checkmark"></div>
   Check me
 </label>

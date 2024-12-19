@@ -62,7 +62,7 @@ Then simply use the component and provide the name of the icon you wish to displ
 If you try to use an icon that is not registered, the component throws an error.
 
 <br />
-## Icon overview
+### Icon overview
 
 <IconGallery>
   {Object.entries(cxIcons)
@@ -75,14 +75,14 @@ If you try to use an icon that is not registered, the component throws an error.
     ))}
 </IconGallery>
 
-## Sizing
+### Sizing
 
 The icon component can be sized through the `size` prop. The prop accepts the same values as our spacing tokens, in other words a number between 1 and 20.
 The numbers are on a relative scale, and aligns with our 4px grid. If you want your icon to be 32px, use `size="8"` (since 32 / 4 = 8).
 
 <Canvas of={stories.Sizing} />
 
-## Color
+### Color
 
 By default, the icon inherits the font color of the container it's within.
 If you want to use a custom color, apply a CSS class where you use the `color` property to colorize the icon.

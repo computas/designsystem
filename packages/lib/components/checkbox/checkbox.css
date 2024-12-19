@@ -40,7 +40,8 @@ label.cx-checkbox:has(input:checked) .cx-checkbox__checkmark {
   }
 }
 
-label.cx-checkbox:has(input:invalid) {
+label.cx-checkbox:has(input:user-invalid),
+label.cx-checkbox.cx-checkbox--invalid {
   .cx-checkbox__checkmark {
     --border-color: var(--cx-color-signal-danger);
     --border-thickness: 2px;
@@ -51,6 +52,7 @@ label.cx-checkbox:has(input:invalid) {
   }
 }
 
+label.cx-checkbox:has(input:indeterminate),
 label.cx-checkbox.cx-checkbox--indeterminate {
   .cx-checkbox__checkmark {
     --cx-gradient-highlight: var(--cx-color-background-accent-5);
