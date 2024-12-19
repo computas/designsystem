@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
-import './checkbox';
-
 export default {
   title: 'Components/Checkbox',
 } satisfies Meta;
