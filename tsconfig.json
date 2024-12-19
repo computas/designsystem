@@ -21,7 +21,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "strict": true,
+      }
+    ]
   },
   "include": ["packages/lib/**/*.ts", "vite-env.d.ts"],
   "exclude": ["packages/lib/**/*.stories.ts"]
