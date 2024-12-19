@@ -1,0 +1,23 @@
+import { Canvas, Meta, Subtitle, Title } from '@storybook/blocks';
+
+import * as stories from './alert.stories';
+
+<Meta of={stories} />
+
+<Title>Alert</Title>
+<Subtitle>
+	Alerts convey information or warnings to the users and should grab their
+	attention to help make informed actions and decisions.
+</Subtitle>
+
+### Local alert
+
+This alert should be placed next to the content it is related to and should not be confused with toast (pops up and disappear) or global alerts (static at the top of the entire web-site). They should help the user correct a problem and then disappear once the problem is corrected.
+
+<Canvas of={stories.AlertInfo} />
+
+<Canvas of={stories.AlertDanger} />
+
+<Canvas of={stories.AlertWarning} />
+
+<Canvas of={stories.AlertSuccess} />

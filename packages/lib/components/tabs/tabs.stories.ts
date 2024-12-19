@@ -3,6 +3,7 @@ import { html } from 'lit';
 
 import './tab';
 import './tab-group';
+import '../icon';
 
 export default {
   title: 'Components/Tabs',
