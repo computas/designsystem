@@ -71,12 +71,12 @@ export class TabGroup extends LitElement {
           >
             <input 
               class="cx-visually-hidden"
+              role="tab"
               type="radio"
               name="cx-tab-group"
+              id=${`tab-${index}`}
               aria-controls=${`tabpanel-${index}`}
               aria-selected=${this.activeTabIndex === index}
-              id=${`tab-${index}`}
-              role="tab"
               @click=${() => this.setActiveTabIndex(index)}
               ?checked=${this.activeTabIndex === index} />
               ${tabHeader}
