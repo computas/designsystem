@@ -36,8 +36,7 @@ export class Icon extends LitElement {
       display: inline-block;
       width: var(--_icon-size);
       height: var(--_icon-size);
-			min-width: var(--_icon-size);
-			min-height: var(--_icon-size);
+			flex: none;
       line-height: 0;
     }
 
