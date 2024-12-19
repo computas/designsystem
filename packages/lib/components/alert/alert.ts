@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { addIcons } from '../icon';
-import { errorCircle, infoCircle, warning, checkCircle } from '../icon/iconRegistry';
+import { type IconName, checkCircle, errorCircle, infoCircle, warning } from '../icon/iconRegistry';
 
 addIcons(errorCircle, infoCircle, warning, checkCircle);
 
@@ -64,7 +64,7 @@ export class Alert extends LitElement {
   @property({ type: String, reflect: true }) priority: AlertPriorityType = 'Info';
 
   render() {
-    let priorityIcon = 'info-circle';
+    let priorityIcon: IconName = 'info-circle';
     switch (this.priority) {
       case 'Danger':
         priorityIcon = 'error-circle';
