@@ -1,6 +1,10 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { addIcons } from '../icon';
+import { errorCircle, infoCircle, warning, checkCircle } from '../icon/iconRegistry';
+
+addIcons(errorCircle, infoCircle, warning, checkCircle);
 
 type AlertPriorityType = 'Info' | 'Danger' | 'Warning' | 'Success';
 @customElement('cx-alert')
