@@ -1,0 +1,122 @@
+label.cx-checkbox {
+  display: inline-flex;
+  gap: var(--cx-spacing-2);
+  align-items: center;
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--cx-color-text-primary);
+  line-height: 1rem;
+}
+
+label.cx-checkbox:is(:hover, :has(:focus-visible)) .cx-checkbox__checkmark {
+  --cx-gradient-highlight: var(--cx-color-blue);
+  --cx-gradient-background: var(--cx-color-grey-700);
+  --border-color: transparent;
+}
+
+label.cx-checkbox:has(:focus-visible) .cx-checkbox__checkmark {
+  outline: 2px auto var(--cx-color-border-accent-1);
+  outline-offset: 2px;
+}
+
+label.cx-checkbox:active .cx-checkbox__checkmark {
+  scale: 0.97;
+}
+
+label.cx-checkbox:has(input:checked) .cx-checkbox__checkmark {
+  --cx-gradient-highlight: var(--cx-color-background-accent-5);
+  --cx-gradient-background: var(--cx-color-background-accent-5);
+  --border-color: transparent;
+
+  &::before,
+  &::after {
+    scale: 1;
+  }
+
+  &::after {
+    transition-delay: 150ms;
+  }
+}
+
+label.cx-checkbox:has(input:invalid) .cx-checkbox__checkmark {
+  --border-color: var(--cx-color-signal-danger);
+  --border-thickness: 2px;
+}
+
+label.cx-checkbox.cx-checkbox--indeterminate {
+  .cx-checkbox__checkmark {
+    --cx-gradient-highlight: var(--cx-color-background-accent-5);
+    --cx-gradient-background: var(--cx-color-background-accent-5);
+    --border-color: transparent;
+    scale: 1;
+
+    &::before,
+    &::after {
+      scale: 1;
+      top: 11px;
+      rotate: 0deg;
+    }
+
+    &::before {
+      left: 6px;
+    }
+
+    &::after {
+      left: 7px;
+    }
+  }
+}
+
+.cx-checkbox__checkmark {
+  --border-color: var(--cx-color-border-primary);
+  --border-thickness: 1px;
+
+  position: relative;
+  width: var(--cx-spacing-6);
+  height: var(--cx-spacing-6);
+  border-radius: var(--cx-spacing-1);
+  box-shadow: inset 0 0 0 var(--border-thickness) var(--border-color);
+  background-image: linear-gradient(62deg, var(--cx-gradient-highlight) 5%, var(--cx-gradient-background) 91%);
+  transition: --cx-gradient-highlight 300ms ease, --cx-gradient-background 300ms ease, box-shadow 300ms ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-radius: 99px;
+    background-color: var(--cx-color-text-static-dark);
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-4);
+    transition-property: scale, rotate, left, top;
+    transform-origin: left center;
+    scale: 0 1;
+  }
+
+  &::before {
+    width: 6px;
+    rotate: 45deg;
+    top: 11px;
+    left: 7px;
+    transition-delay: 100ms;
+  }
+
+  &::after {
+    width: 11px;
+    rotate: -45deg;
+    top: 15px;
+    left: 10px;
+  }
+}
+
+label.cx-checkbox input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

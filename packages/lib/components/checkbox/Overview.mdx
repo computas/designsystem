@@ -1,0 +1,19 @@
+import { Canvas, Meta, Source, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./checkbox.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>
+  Checkbox
+</Subtitle>
+
+## Default
+<Canvas of={stories.Default} />
+
+## Indeterminate
+<Canvas of={stories.Indeterminate} />
+
+## Error
+<Canvas of={stories.ErrorState} />

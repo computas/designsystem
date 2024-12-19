@@ -67,15 +67,16 @@ export class TabGroup extends LitElement {
           (tabHeader, index) => html`
           <label
             class=${classMap({ 'cx-tab': true, 'cx-outline-on-focus-within': true, 'cx-tab--active': this.activeTabIndex === index })}
+            role="none"
           >
             <input 
               class="cx-visually-hidden"
-              role="tab"
               type="radio"
               name="cx-tab-group"
-              id=${`tab-${index}`}
               aria-controls=${`tabpanel-${index}`}
               aria-selected=${this.activeTabIndex === index}
+              id=${`tab-${index}`}
+              role="tab"
               @click=${() => this.setActiveTabIndex(index)}
               ?checked=${this.activeTabIndex === index} />
               ${tabHeader}
@@ -88,6 +89,7 @@ export class TabGroup extends LitElement {
         role="tabpanel"
         id=${`tabpanel-${this.activeTabIndex}`}
         aria-labelledby=${`tab-${this.activeTabIndex}`}
+        tabindex="0"
         >
         <slot class="content-container" @slotchange=${this.setTabContentIndexes}></slot>
       </div>
