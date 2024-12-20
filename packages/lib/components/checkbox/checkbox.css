@@ -128,3 +128,9 @@ label.cx-checkbox input[type="checkbox"] {
   white-space: nowrap;
   width: 1px;
 }
+
+.cx-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cx-spacing-2);
+}

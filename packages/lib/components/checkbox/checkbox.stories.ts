@@ -15,6 +15,28 @@ export const Default: StoryObj = {
   `,
 };
 
+export const CheckboxList: StoryObj = {
+  render: () => html`
+<fieldset class="cx-checkbox-list">
+  <label class="cx-checkbox">
+    <input type="checkbox" />
+    <div class="cx-checkbox__checkmark"></div>
+    Checkbox no 1
+  </label>
+  <label class="cx-checkbox">
+    <input type="checkbox" />
+    <div class="cx-checkbox__checkmark"></div>
+    Checkbox no 2
+  </label>
+  <label class="cx-checkbox">
+    <input type="checkbox" />
+    <div class="cx-checkbox__checkmark"></div>
+    Checkbox no 3
+  </label>
+</fieldset>
+  `,
+};
+
 export const Indeterminate: StoryObj = {
   render: () => html`
 <label class="cx-checkbox cx-checkbox--indeterminate">
