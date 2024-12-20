@@ -3,6 +3,7 @@
 body {
   font-family: "Open Sans", Arial, sans-serif;
   color: var(--cx-color-text-primary);
+  --cx-icon-color-accent: var(--cx-color-text-inverted);
 }
 
 a,
