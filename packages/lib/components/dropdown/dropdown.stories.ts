@@ -11,10 +11,10 @@ export default {
 
 export const Default: StoryObj = {
   render: () => html`
-<cx-dropdown>
-  <cx-option>Option 1</cx-option>
-  <cx-option>Option 2</cx-option>
-  <cx-option>Option 3</cx-option>
+<cx-dropdown value="norway" label="Countries">
+  <cx-option value="norway">Norway</cx-option>
+  <cx-option value="romania">Romania</cx-option>
+  <cx-option value="denmark">Denmark</cx-option>
 </cx-dropdown>
   `,
 };
