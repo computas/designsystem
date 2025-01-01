@@ -136,10 +136,17 @@ export class Dropdown extends LitElement {
 
     if (['ArrowDown', 'ArrowRight'].includes(event.key)) {
       event.preventDefault();
-      newIndex = (currentIndex + 1) % this.dropdownOptions.length;
+      newIndex = Math.min(this.dropdownOptions.length - 1, currentIndex + 1);
     } else if (['ArrowUp', 'ArrowLeft'].includes(event.key)) {
       event.preventDefault();
-      newIndex = (currentIndex - 1 + this.dropdownOptions.length) % this.dropdownOptions.length;
+      newIndex = Math.max(0, currentIndex - 1);
+    } else if (event.code === `Key${event.key.toUpperCase()}`) {
+      // Check if a key is pressed
+      event.preventDefault();
+      const firstMatchIndex = this.dropdownOptions.findIndex((opt) =>
+        opt.innerText.toLowerCase().startsWith(event.key.toLowerCase()),
+      );
+      newIndex = firstMatchIndex === -1 ? 0 : firstMatchIndex;
     }
 
     const newFocusedButton = this.dropdownOptions.at(newIndex)?.buttonElement;
