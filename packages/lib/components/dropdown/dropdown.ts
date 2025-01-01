@@ -1,13 +1,12 @@
-import { provide } from '@lit/context';
 import { LitElement, css, html, unsafeCSS } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import { valueContext } from './dropdown-context';
 
 import '../icon';
 
 import formFieldStyles from '../form-field/form-field.css?inline';
 import a11yStyles from '../../global-css/a11y.css?inline';
 import type { Option } from './option';
+import type { OptionValue } from './types';
 
 @customElement('cx-dropdown')
 export class Dropdown extends LitElement {
@@ -75,19 +74,83 @@ export class Dropdown extends LitElement {
    * @default 0
    */
   @property({ type: String, reflect: true })
-  @provide({ context: valueContext })
-  value = '';
+  value: OptionValue = '';
 
   @property({ type: String, reflect: true })
   label = '';
 
   @state()
-  dropdownOptions: Option[] = [];
+  private dropdownOptions: Option[] = [];
+
+  connectedCallback(): void {
+    this.addEventListener('option-select', this.setNewValue);
+    super.connectedCallback();
+  }
+
+  disconnectedCallback(): void {
+    this.removeEventListener('option-select', this.setNewValue);
+    super.disconnectedCallback();
+  }
 
   private onSlotChange(event: Event) {
     const slot = event.target as HTMLSlotElement;
     const tabContent = slot.assignedElements({ flatten: true }) as Option[];
     this.dropdownOptions = tabContent;
+  }
+
+  private onPopoverToggle(event: ToggleEvent) {
+    if (event.newState === 'open') {
+      this.changeFocusOnArrowKeys();
+
+      this.dropdownOptions.forEach((option) => {
+        option.selectedValue = this.value;
+
+        if (option.value === this.value && option.buttonElement) {
+          option.buttonElement.focus();
+          option.buttonElement.tabIndex = 0;
+        } else if (option.buttonElement) {
+          option.buttonElement.tabIndex = -1;
+        }
+      });
+    } else {
+      this.removeEventListener('keydown', this.onKeyDown);
+    }
+  }
+
+  private changeFocusOnArrowKeys() {
+    this.addEventListener('keydown', this.onKeyDown);
+  }
+
+  private onKeyDown(event: KeyboardEvent) {
+    event.preventDefault();
+    const currentIndex = this.dropdownOptions.findIndex((option) => option.buttonElement?.tabIndex === 0);
+    const currentFocusedButton = this.dropdownOptions.at(currentIndex)?.buttonElement;
+    if (currentFocusedButton) {
+      currentFocusedButton.tabIndex = -1;
+    }
+    let newIndex = currentIndex;
+
+    if (['ArrowDown', 'ArrowRight'].includes(event.key)) {
+      newIndex = (currentIndex + 1) % this.dropdownOptions.length;
+    } else if (['ArrowUp', 'ArrowLeft'].includes(event.key)) {
+      newIndex = (currentIndex - 1 + this.dropdownOptions.length) % this.dropdownOptions.length;
+    }
+
+    const newFocusedButton = this.dropdownOptions.at(newIndex)?.buttonElement;
+    if (newFocusedButton) {
+      newFocusedButton.tabIndex = 0;
+      newFocusedButton.focus();
+    }
+  }
+
+  private setNewValue(newValueEvent: Event) {
+    const newValue = (newValueEvent as CustomEvent).detail.value;
+    const event = new CustomEvent('change', { bubbles: true, composed: true, detail: { value: newValue } });
+    this.dispatchEvent(event);
+    this.value = newValue;
+    this.dropdownOptions.forEach((opt) => {
+      opt.selectedValue = newValue;
+    });
   }
 
   render() {
@@ -96,12 +159,12 @@ export class Dropdown extends LitElement {
     return html`
       <label class="cx-form-field">
         <div class="cx-form-field__label">${this.label}</div>
-        <button class="cx-form-field__input-container trigger" popovertarget="cx-popover">
+        <button class="cx-form-field__input-container trigger" popovertarget="popover">
           <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
           <cx-icon name="down"></cx-icon>
         </button>
         
-        <div popover id="cx-popover">
+        <div popover @toggle=${this.onPopoverToggle} id="popover">
           <slot @slotchange=${this.onSlotChange}></slot>
         </div>
     </label>

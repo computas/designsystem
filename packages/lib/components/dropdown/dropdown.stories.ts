@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { html } from 'lit';
 
 import './dropdown';
@@ -17,4 +18,10 @@ export const Default: StoryObj = {
   <cx-option value="denmark">Denmark</cx-option>
 </cx-dropdown>
   `,
+  parameters: {
+    actions: {
+      handles: ['change'],
+    },
+  },
+  decorators: [withActions],
 };
