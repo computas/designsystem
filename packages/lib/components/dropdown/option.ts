@@ -8,21 +8,9 @@ import type { OptionValue } from './types';
 export class Option extends LitElement {
   static styles = [
     css`
-      @property --gradient-start {
-        syntax: "<color>";
-        inherits: true;
-        initial-value: transparent;
-      }
-
-      @property --gradient-end {
-        syntax: "<color>";
-        inherits: true;
-        initial-value: transparent;
-      }
-      
       button {
-        --gradient-start: var(--cx-color-background-primary);
-        --gradient-end: var(--cx-color-background-primary);
+        --cx-gradient-highlight: var(--cx-color-background-primary);
+        --cx-gradient-background: var(--cx-color-background-primary);
 
         display: flex;
         gap: var(--cx-spacing-2);
@@ -35,9 +23,9 @@ export class Option extends LitElement {
         font-size: 0.875rem;
         font-weight: 400;
         width: 100%;
-        background-image: linear-gradient(62deg, var(--gradient-start) 28.33%, var(--gradient-end) 127.11%);
+        background-image: linear-gradient(62deg, var(--cx-gradient-highlight) 28.33%, var(--cx-gradient-background) 127.11%);
         transition: 200ms ease;
-        transition-property: color, --gradient-start, --gradient-end;
+        transition-property: color, --cx-gradient-highlight, --cx-gradient-background;
 
         &:where(:focus, :hover) {
           outline: none;
@@ -47,15 +35,15 @@ export class Option extends LitElement {
           cursor: pointer;
 
           &:not(.active):is(:focus, :hover) {
-            --gradient-start: var(--cx-color-grey-700);
-            --gradient-end: var(--cx-color-blue);
+            --cx-gradient-highlight: var(--cx-color-grey-700);
+            --cx-gradient-background: var(--cx-color-blue);
             color: var(--cx-color-text-static-light);
           }
         }
 
         &.active {
-          --gradient-start: var(--cx-color-background-accent-5);
-          --gradient-end: var(--cx-color-background-accent-5);
+          --cx-gradient-highlight: var(--cx-color-background-accent-5);
+          --cx-gradient-background: var(--cx-color-background-accent-5);
         }
       }
     `,
@@ -71,6 +59,7 @@ export class Option extends LitElement {
   buttonElement: HTMLButtonElement | undefined;
 
   private onSelect() {
+    console.log('Clicking');
     const event = new CustomEvent('option-select', {
       bubbles: true,
       composed: true,

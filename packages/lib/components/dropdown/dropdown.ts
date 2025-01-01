@@ -82,6 +82,8 @@ export class Dropdown extends LitElement {
   @state()
   private dropdownOptions: Option[] = [];
 
+  private isExpanded = false;
+
   connectedCallback(): void {
     this.addEventListener('option-select', this.setNewValue);
     super.connectedCallback();
@@ -100,6 +102,8 @@ export class Dropdown extends LitElement {
 
   private onPopoverToggle(event: ToggleEvent) {
     if (event.newState === 'open') {
+      this.isExpanded = true;
+
       this.changeFocusOnArrowKeys();
 
       this.dropdownOptions.forEach((option) => {
@@ -114,6 +118,7 @@ export class Dropdown extends LitElement {
       });
     } else {
       this.removeEventListener('keydown', this.onKeyDown);
+      this.isExpanded = false;
     }
   }
 
@@ -122,7 +127,6 @@ export class Dropdown extends LitElement {
   }
 
   private onKeyDown(event: KeyboardEvent) {
-    event.preventDefault();
     const currentIndex = this.dropdownOptions.findIndex((option) => option.buttonElement?.tabIndex === 0);
     const currentFocusedButton = this.dropdownOptions.at(currentIndex)?.buttonElement;
     if (currentFocusedButton) {
@@ -131,8 +135,10 @@ export class Dropdown extends LitElement {
     let newIndex = currentIndex;
 
     if (['ArrowDown', 'ArrowRight'].includes(event.key)) {
+      event.preventDefault();
       newIndex = (currentIndex + 1) % this.dropdownOptions.length;
     } else if (['ArrowUp', 'ArrowLeft'].includes(event.key)) {
+      event.preventDefault();
       newIndex = (currentIndex - 1 + this.dropdownOptions.length) % this.dropdownOptions.length;
     }
 
@@ -159,12 +165,26 @@ export class Dropdown extends LitElement {
     return html`
       <label class="cx-form-field">
         <div class="cx-form-field__label">${this.label}</div>
-        <button class="cx-form-field__input-container trigger" popovertarget="popover">
+        <button 
+          class="cx-form-field__input-container trigger" 
+          popovertarget="popover"
+          role="combobox"
+          aria-haspopup="listbox"
+          aria-expanded=${this.isExpanded}
+          aria-controls="popover"
+          id="popover-trigger"
+        >
           <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
           <cx-icon name="down"></cx-icon>
         </button>
         
-        <div popover @toggle=${this.onPopoverToggle} id="popover">
+        <div
+          role="listbox"
+          popover
+          @toggle=${this.onPopoverToggle}
+          id="popover"
+          aria-multiselectable="false"
+        >
           <slot @slotchange=${this.onSlotChange}></slot>
         </div>
     </label>

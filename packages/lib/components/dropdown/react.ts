@@ -7,6 +7,9 @@ export const CxDropdown = createComponent({
   tagName: 'cx-dropdown',
   elementClass: Dropdown,
   react: React,
+  events: {
+    onChange: 'change',
+  },
 });
 
 export const CxOption = createComponent({
