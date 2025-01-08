@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { addIcons } from '../icon';
+import { edit } from '../icon/iconRegistry';
+
+addIcons(edit);
 
 export default {
   title: 'Components/Link',
@@ -20,7 +24,7 @@ export const InlineLink: StoryObj = {
 
 export const IconLink: StoryObj = {
   render: () => html`
-<a class="cx-link" href="https://designsystem.computas.com/?path=/docs/basics-colors--overview">Link med ikon <cx-icon name="edit" class="cx-link__icon"></cx-icon></a>
-<a class="cx-link cx-link--sm" href="https://designsystem.computas.com/?path=/docs/basics-colors--overview">Link med ikon <cx-icon name="edit" class="cx-link__icon"></cx-icon></a>
+<a class="cx-link" href="https://designsystem.computas.com/?path=/docs/basics-colors--overview">Link med ikon <cx-icon name="edit"></cx-icon></a>
+<a class="cx-link cx-link--sm" href="https://designsystem.computas.com/?path=/docs/basics-colors--overview">Link med ikon <cx-icon name="edit"></cx-icon></a>
   `,
 };
