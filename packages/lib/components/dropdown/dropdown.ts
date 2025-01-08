@@ -94,6 +94,10 @@ export class Dropdown extends LitElement {
   private isExpanded = false;
 
   connectedCallback(): void {
+    /**
+     * The options emit an "option-select" event. We listen for it
+     * so that we can emit the selected value through the "change" event.
+     */
     this.addEventListener('option-select', this.setNewValue);
     super.connectedCallback();
   }
@@ -113,7 +117,7 @@ export class Dropdown extends LitElement {
     if (event.newState === 'open') {
       this.isExpanded = true;
 
-      this.changeFocusOnArrowKeys();
+      this.addEventListener('keydown', this.onKeyDown);
 
       this.dropdownOptions.forEach((option) => {
         option.selectedValue = this.value;
@@ -131,24 +135,29 @@ export class Dropdown extends LitElement {
     }
   }
 
-  private changeFocusOnArrowKeys() {
-    this.addEventListener('keydown', this.onKeyDown);
+  private onTriggerKeyDown(event: KeyboardEvent) {
+    if (event.key === 'ArrowDown' && !this.isExpanded) {
+      const buttonElement = event.target as HTMLButtonElement;
+      buttonElement.click();
+    }
   }
 
   private onKeyDown(event: KeyboardEvent) {
     const currentIndex = this.dropdownOptions.findIndex((option) => option.buttonElement?.tabIndex === 0);
     const currentFocusedButton = this.dropdownOptions.at(currentIndex)?.buttonElement;
+
+    // Set the currently focused tabindex to -1
     if (currentFocusedButton) {
       currentFocusedButton.tabIndex = -1;
     }
-    let newIndex = currentIndex;
 
+    let newIndex = currentIndex;
     if (['ArrowDown', 'ArrowRight'].includes(event.key)) {
       event.preventDefault();
-      newIndex = Math.min(this.dropdownOptions.length - 1, currentIndex + 1);
+      newIndex = (currentIndex + 1) % this.dropdownOptions.length;
     } else if (['ArrowUp', 'ArrowLeft'].includes(event.key)) {
       event.preventDefault();
-      newIndex = Math.max(0, currentIndex - 1);
+      newIndex = (currentIndex - 1 + this.dropdownOptions.length) % this.dropdownOptions.length;
     } else if (event.code === `Key${event.key.toUpperCase()}`) {
       // Check if a key is pressed
       event.preventDefault();
@@ -188,7 +197,7 @@ export class Dropdown extends LitElement {
           aria-haspopup="listbox"
           aria-expanded=${this.isExpanded}
           aria-controls="popover"
-          id="popover-trigger"
+          @keydown=${this.onTriggerKeyDown}
         >
           <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
           <cx-icon name="down"></cx-icon>
