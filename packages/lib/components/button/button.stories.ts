@@ -70,8 +70,8 @@ export const Danger: StoryObj = {
 
 export const WithIcon: StoryObj = {
   render: () => html`
-<button class="cx-btn__primary cx-btn__lg cx-mr-6">Primary button large<cx-icon name="edit"></cx-icon></button>
-<button class="cx-btn__secondary cx-mr-6">Primary button<cx-icon name="edit"></cx-icon></button>
-<button class="cx-btn__tertiary cx-btn__sm cx-mr-6">Primary button small<cx-icon name="edit"></cx-icon></button>
+<button class="cx-btn__primary cx-btn__lg cx-mr-6">Button large with icon<cx-icon name="edit"></cx-icon></button>
+<button class="cx-btn__secondary cx-mr-6">Button with icon<cx-icon name="edit"></cx-icon></button>
+<button class="cx-btn__tertiary cx-btn__sm cx-mr-6">Button small with icon<cx-icon name="edit"></cx-icon></button>
 <br /><br />`,
 };
