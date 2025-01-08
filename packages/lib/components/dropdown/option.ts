@@ -59,7 +59,6 @@ export class Option extends LitElement {
   buttonElement: HTMLButtonElement | undefined;
 
   private onSelect() {
-    console.log('Clicking');
     const event = new CustomEvent('option-select', {
       bubbles: true,
       composed: true,
