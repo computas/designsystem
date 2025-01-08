@@ -39,21 +39,23 @@ export class Dropdown extends LitElement {
 
       [popover] {
         position-anchor: --cx-trigger;
-        inset: unset;
         border: none;
         position: absolute;
         flex-direction: column;
         opacity: 0;
         translate: 0px 6px;
-        top: anchor(bottom);
+
+        inset: unset;
         left: anchor(left);
+        top: anchor(bottom);
+        margin: var(--cx-spacing-2) 0 0 0;
+        position-try-fallbacks: --top;
         width: anchor-size(width);
         transition: display 200ms allow-discrete, opacity 200ms ease, translate 200ms ease;
         border: 1px solid var(--cx-color-border-primary);
         background: var(--cx-color-background-primary);
         border-radius: var(--cx-radius-medium);
         padding: 0;
-        margin-block: var(--cx-spacing-2);
 
         &:popover-open {
           display: flex;
@@ -65,6 +67,13 @@ export class Dropdown extends LitElement {
             translate: 0px -6px;
           }
         }
+      }
+
+      @position-try --top {
+        inset: unset;
+        left: anchor(left);
+        bottom: anchor(top);
+        margin: 0 0 var(--cx-spacing-2) 0;
       }
   `,
   ];
