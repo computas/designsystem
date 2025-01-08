@@ -51,7 +51,7 @@ export class Dropdown extends LitElement {
         margin: var(--cx-spacing-2) 0 0 0;
         position-try-fallbacks: --top;
         width: anchor-size(width);
-        transition: display 200ms allow-discrete, opacity 200ms ease, translate 200ms ease;
+        transition: display 200ms allow-discrete, overlay 200ms allow-discrete, opacity 200ms ease, translate 200ms ease;
         border: 1px solid var(--cx-color-border-primary);
         background: var(--cx-color-background-primary);
         border-radius: var(--cx-radius-medium);
@@ -132,6 +132,7 @@ export class Dropdown extends LitElement {
     } else {
       this.removeEventListener('keydown', this.onKeyDown);
       this.isExpanded = false;
+      this.renderRoot.querySelector('button')?.focus();
     }
   }
 
@@ -182,6 +183,9 @@ export class Dropdown extends LitElement {
     this.dropdownOptions.forEach((opt) => {
       opt.selectedValue = newValue;
     });
+
+    const popoverElement = this.renderRoot.querySelector('[popover]') as HTMLElement;
+    popoverElement.hidePopover();
   }
 
   render() {
@@ -202,17 +206,17 @@ export class Dropdown extends LitElement {
           <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
           <cx-icon name="down"></cx-icon>
         </button>
-        
-        <div
-          role="listbox"
-          popover
-          @toggle=${this.onPopoverToggle}
-          id="popover"
-          aria-multiselectable="false"
-        >
-          <slot @slotchange=${this.onSlotChange}></slot>
-        </div>
-    </label>
+      </label>
+
+      <div
+        role="listbox"
+        popover
+        @toggle=${this.onPopoverToggle}
+        id="popover"
+        aria-multiselectable="false"
+      >
+        <slot @slotchange=${this.onSlotChange}></slot>
+      </div>
     `;
   }
 }
