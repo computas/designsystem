@@ -3,8 +3,8 @@ import { customElement, property, state } from 'lit/decorators.js';
 
 import '../icon';
 
-import formFieldStyles from '../form-field/form-field.css?inline';
 import a11yStyles from '../../global-css/a11y.css?inline';
+import formFieldStyles from '../form-field/form-field.css?inline';
 import type { Option } from './option';
 import type { OptionValue } from './types';
 
