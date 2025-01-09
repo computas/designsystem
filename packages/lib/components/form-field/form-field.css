@@ -33,6 +33,11 @@ label.cx-form-field {
       }
     }
   }
+
+  &.cx-form-field--focused .cx-form-field__input-container {
+    background-color: transparent;
+    --border-color: var(--cx-color-border-primary);
+  }
 }
 
 /* Adds margin bottom to either the label or the placeholder, depending on who's the neighbor to the input */
@@ -76,6 +81,8 @@ label.cx-form-field {
     --border-color: var(--cx-color-border-primary);
   }
 
+  /* The input-container can both be a child, and the element itself */
+  &:focus,
   &:has(:focus) {
     background-color: transparent;
     --border-color: var(--cx-color-border-primary);

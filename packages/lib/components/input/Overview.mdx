@@ -1,8 +1,8 @@
 import { Canvas, Meta, Subtitle, Title } from "@storybook/blocks";
 
-import * as inputStories from "./input.stories";
+import * as stories from "./input.stories";
 
-<Meta of={inputStories} />
+<Meta of={stories} />
 
 <Title />
 <Subtitle>
@@ -20,7 +20,7 @@ import * as inputStories from "./input.stories";
 For accessibility reasons, we never use the `placeholder` attribute on the `input` element.
 Instead, please use the `cx-form-field__placeholder` class which provides a placeholder that is placed above the input.
 
-<Canvas of={inputStories.WithPlaceholder} />
+<Canvas of={stories.WithPlaceholder} />
 
 ### Invalid
 
@@ -28,18 +28,26 @@ The `cx-form-field--invalid` class gives the form field an invalid appearance.
 The invalid styling is also applied automatically through the pseudo selector `:user-invalid`,
 which is active when the input is considered invalid, after the user has interacted with the input.
 
-<Canvas of={inputStories.Invalid} />
+<Canvas of={stories.Invalid} />
+
+### Manually controlling focused styling
+
+The `cx-form-field--focused` class gives the form field a focused appearance.
+This can be handy if e.g. you need the form field to have a focused style while e.g. a connected popover is open.
+Since the component handles focus styling automatically, this is rarely needed, and is primarily used internally by the web components.
+
+<Canvas of={stories.Focused} />
 
 ### Text area
 
 To create an input where the text wraps over multiple lines, simply use an `textarea` instead of an `input`.
 The text area is not resizable horizontally.
 
-<Canvas of={inputStories.TextArea} />
+<Canvas of={stories.TextArea} />
 
 ### Without label
 
 If you don't want a label over the input, please provide a label with the utility class `.cx-visually-hidden`.
 This way, screen readers will still have a descriptive label associated with the input.
 
-<Canvas of={inputStories.InputWithoutLabel} />
+<Canvas of={stories.InputWithoutLabel} />

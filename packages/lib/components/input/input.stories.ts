@@ -30,6 +30,17 @@ export const WithPlaceholder: StoryObj = {
   `,
 };
 
+export const Focused: StoryObj = {
+  render: () => html`
+    <label class="cx-form-field cx-form-field--focused">
+  <div class="cx-form-field__label">My label</div>
+  <div class="cx-form-field__input-container">
+    <input />
+  </div>
+</label>
+  `,
+};
+
 export const Invalid: StoryObj = {
   render: () => html`
     <label class="cx-form-field">
