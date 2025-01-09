@@ -1,5 +1,6 @@
 import { LitElement, css, html, unsafeCSS } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 
 import '../icon';
 
@@ -29,6 +30,15 @@ export class Dropdown extends LitElement {
         width: 100%;
         color: var(--cx-color-text-primary)
       }
+
+      cx-icon {
+        transition: rotate 200ms ease;
+
+        &.rotated {
+          rotate: 180deg;
+        }
+      }
+
 
       .trigger-content {
         display: flex;
@@ -99,6 +109,7 @@ export class Dropdown extends LitElement {
   @state()
   private dropdownOptions: Option[] = [];
 
+  @state()
   private isExpanded = false;
 
   connectedCallback(): void {
@@ -173,7 +184,7 @@ export class Dropdown extends LitElement {
       const firstMatchIndex = this.dropdownOptions.findIndex((opt) =>
         opt.innerText.toLowerCase().startsWith(event.key.toLowerCase()),
       );
-      newIndex = firstMatchIndex === -1 ? 0 : firstMatchIndex;
+      newIndex = firstMatchIndex === -1 ? currentIndex : firstMatchIndex;
     }
 
     const newFocusedButton = this.dropdownOptions.at(newIndex)?.buttonElement;
@@ -200,7 +211,7 @@ export class Dropdown extends LitElement {
     const selectedOption = this.dropdownOptions.find((option) => option.value === this.value);
 
     return html`
-      <label class="cx-form-field">
+      <label class=${classMap({ 'cx-form-field': true, 'cx-form-field--focused': this.isExpanded })}>
         <div class="cx-form-field__label">${this.label}</div>
         <button 
           class="cx-form-field__input-container trigger" 
@@ -212,7 +223,7 @@ export class Dropdown extends LitElement {
           @keydown=${this.onTriggerKeyDown}
         >
           <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
-          <cx-icon name="down"></cx-icon>
+          <cx-icon name="down" class=${classMap({ rotated: this.isExpanded })}></cx-icon>
         </button>
       </label>
 
