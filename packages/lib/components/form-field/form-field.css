@@ -81,8 +81,6 @@ label.cx-form-field {
     --border-color: var(--cx-color-border-primary);
   }
 
-  /* The input-container can both be a child, and the element itself */
-  &:focus,
   &:has(:focus) {
     background-color: transparent;
     --border-color: var(--cx-color-border-primary);

@@ -8,9 +8,10 @@ import a11yStyles from '../../global-css/a11y.css?inline';
 import formFieldStyles from '../form-field/form-field.css?inline';
 import type { Option } from './option';
 import type { OptionValue } from './types';
+import { FormControl } from './formControl';
 
 @customElement('cx-dropdown')
-export class Dropdown extends LitElement {
+export class Dropdown extends FormControl(LitElement) {
   static styles = [
     unsafeCSS(a11yStyles),
     unsafeCSS(formFieldStyles),
@@ -18,17 +19,32 @@ export class Dropdown extends LitElement {
       label {
         cursor: pointer;
         min-width: 200px;
+        font: inherit;
+      }
+
+      .cx-form-field__input-container {
+        anchor-name: --cx-trigger;
       }
 
       .trigger {
-        anchor-name: --cx-trigger;
         border: none;
+        background-color: transparent;
+        padding: 0;
+
         display: flex;
-        gap: var(--cx-spacing-2);
+        align-items: center;
         justify-content: space-between;
+        gap: var(--cx-spacing-2);
         cursor: inherit;
         width: 100%;
-        color: var(--cx-color-text-primary)
+        color: var(--cx-color-text-primary);
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 400;
+
+        &:focus {
+          outline: none;
+        }
       }
 
       cx-icon {
@@ -38,7 +54,6 @@ export class Dropdown extends LitElement {
           rotate: 180deg;
         }
       }
-
 
       .trigger-content {
         display: flex;
@@ -50,13 +65,11 @@ export class Dropdown extends LitElement {
       [popover] {
         --translate-curve: ease;
         --translate-duration: 200ms;
+        
         position-anchor: --cx-trigger;
-        border: none;
         position: absolute;
-        flex-direction: column;
         opacity: 0;
         translate: 0px 6px;
-
         inset: unset;
         left: anchor(left);
         top: anchor(bottom);
@@ -76,7 +89,6 @@ export class Dropdown extends LitElement {
         &:popover-open {
           --translate-curve: var(--ease-spring-3);
           --translate-duration: 500ms;
-          display: flex;
           opacity: 1;
           translate: 0px;
 
@@ -97,12 +109,16 @@ export class Dropdown extends LitElement {
   ];
 
   /**
-   * @description The selected value
-   * @default 0
+   * @description The selected value. The selected value must be defined as a value for one of the options.
+   * @default ''
    */
   @property({ type: String, reflect: true })
   value: OptionValue = '';
 
+  /**
+   * @description The dropdown label
+   * @default ''
+   */
   @property({ type: String, reflect: true })
   label = '';
 
@@ -213,18 +229,21 @@ export class Dropdown extends LitElement {
     return html`
       <label class=${classMap({ 'cx-form-field': true, 'cx-form-field--focused': this.isExpanded })}>
         <div class="cx-form-field__label">${this.label}</div>
-        <button 
-          class="cx-form-field__input-container trigger" 
-          popovertarget="popover"
-          role="combobox"
-          aria-haspopup="listbox"
-          aria-expanded=${this.isExpanded}
-          aria-controls="popover"
-          @keydown=${this.onTriggerKeyDown}
-        >
-          <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
-          <cx-icon name="down" class=${classMap({ rotated: this.isExpanded })}></cx-icon>
-        </button>
+        <div class="cx-form-field__input-container">
+          <button 
+            class="trigger" 
+            popovertarget="popover"
+            role="combobox"
+            aria-haspopup="listbox"
+            aria-expanded=${this.isExpanded}
+            aria-controls="popover"
+            type="button"
+            @keydown=${this.onTriggerKeyDown}
+          >
+            <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
+            <cx-icon name="down" class=${classMap({ rotated: this.isExpanded })}></cx-icon>
+          </button>
+        </div>
       </label>
 
       <div
