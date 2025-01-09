@@ -10,5 +10,20 @@ import * as stories from "./dropdown.stories";
   filter, in a menu and so on. 
 </Subtitle>
 
+## How to get started
+Start by importing the component. If you import the web component version, both the `<cx-dropdown>` component and `<cx-option>` is available for use
+from the point of the import and further down the application-tree.
+<Source
+  code={`
+// Web component
+import '@computas/designsystem/dropdown';
+
+// React
+import { CxDropdown, CxOption } from '@computas/designsystem/dropdown/react';
+`}
+language="typescript"
+dark
+/>
+
 ## Default
 <Canvas of={stories.Default} />
