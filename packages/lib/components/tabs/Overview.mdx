@@ -11,7 +11,7 @@ import * as stories from "./tabs.stories";
   It should always be one tab selected by default.
 </Subtitle>
 
-## Tab link
+### Tab link
 Tabs are most commonly used for top level navigation. The recommended way of doing this is by using routing,
 since this leverages URL state. In most cases you'll therefore have links in your application, styled
 as tabs. If you use Tanstack Router, this means using the `Link` component provided by Tanstack Router.
@@ -19,13 +19,13 @@ Simply put the `.cx-tab` class on there, and you're good to go. To set a tab as 
 `.cx-tab--active` class. 
 <Canvas of={stories.TabLink} />
 
-## Tab button
+### Tab button
 In some rare occasions, you'll want to route programmatically. This may be if you for instance need to do some
 other tasks before navigating. In these scenarios, it's recommended to use a `button` element with a click event.
 As with the `a` element, simply use the `.cx-tab` class.
 <Canvas of={stories.TabButton} />
 
-## Web component
+### Web component
 Sometimes, tabs are not used "top level", and are only used to shuffle between blocks of content on a part of the page.
 In these scenarios we provide a web component/React component. This component handles all of the accessibility and
 state for you, so you only need to provide the title for the tab, and the content that goes within.
