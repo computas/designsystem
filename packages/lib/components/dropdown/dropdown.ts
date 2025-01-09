@@ -38,6 +38,8 @@ export class Dropdown extends LitElement {
       }
 
       [popover] {
+        --translate-curve: ease;
+        --translate-duration: 200ms;
         position-anchor: --cx-trigger;
         border: none;
         position: absolute;
@@ -51,13 +53,19 @@ export class Dropdown extends LitElement {
         margin: var(--cx-spacing-2) 0 0 0;
         position-try-fallbacks: --top;
         width: anchor-size(width);
-        transition: display 200ms allow-discrete, overlay 200ms allow-discrete, opacity 200ms ease, translate 200ms ease;
+        transition:
+          display 200ms allow-discrete,
+          overlay 200ms allow-discrete,
+          opacity 200ms ease,
+          translate var(--translate-duration) var(--translate-curve);
         border: 1px solid var(--cx-color-border-primary);
         background: var(--cx-color-background-primary);
         border-radius: var(--cx-radius-medium);
         padding: 0;
 
         &:popover-open {
+          --translate-curve: var(--ease-spring-3);
+          --translate-duration: 500ms;
           display: flex;
           opacity: 1;
           translate: 0px;
