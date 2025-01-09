@@ -1,0 +1,24 @@
+import { Canvas, Meta, Source, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./checkbox.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>The checkbox component is implemented using only CSS.</Subtitle>
+
+### Default
+<Canvas of={stories.Default} />
+
+### Checkbox list
+If you need a vertical list of checkboxes, you can use the CSS class `.cx-checkbox-list`.
+<Canvas of={stories.CheckboxList} />
+
+### Indeterminate
+A checkbox is displayed as indeterminate if it is put in an indeterminate state. It can also be triggered by applying the CSS class `.cx-checkbox--indeterminate`.
+The indeterminate state is not something that is automatically applied to an native checkbox element, and requires use of JavaScript to be toggled.
+<Canvas of={stories.Indeterminate} />
+
+### Error
+A checkbox receives error styling when the input is considered invalid. It can also be triggered by applying the CSS class `.cx-checkbox--invalid`.
+<Canvas of={stories.ErrorState} />
