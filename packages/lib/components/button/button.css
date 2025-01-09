@@ -3,6 +3,7 @@
 .cx-btn__tertiary,
 .cx-btn__danger {
   --cx-gradient-highlight-size: 500%;
+  --icon-size: var(--cx-spacing-5);
 
   display: inline-flex;
   gap: var(--cx-spacing-2);
@@ -31,6 +32,11 @@
   );
   background-size: var(--cx-gradient-highlight-size) var(--cx-gradient-highlight-size);
   animation: cx-gradient-background-rotation 7s linear infinite;
+
+  cx-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
 
   &:active {
     scale: 0.99;
@@ -84,18 +90,24 @@
 }
 
 .cx-btn__sm {
+  --icon-size: var(--cx-spacing-4);
+
   padding: var(--cx-spacing-3) var(--cx-spacing-4);
   font-size: 0.75rem;
   min-width: 5rem;
 }
 
 .cx-btn__lg {
+  --icon-size: var(--cx-spacing-6);
+
   padding: var(--cx-spacing-6) var(--cx-spacing-8);
   font-size: 1.125rem;
+  gap: var(--cx-spacing-3);
 }
 
 .cx-btn__icon {
   --icon-size: var(--cx-spacing-6);
+
   padding: var(--cx-spacing-3);
   min-width: unset;
   width: fit-content;
@@ -109,10 +121,12 @@
 
 .cx-btn__icon.cx-btn__sm {
   --icon-size: var(--cx-spacing-4);
+
   padding: var(--cx-spacing-3);
 }
 
 .cx-btn__icon.cx-btn__lg {
   --icon-size: var(--cx-spacing-8);
+
   padding: var(--cx-spacing-4);
 }
