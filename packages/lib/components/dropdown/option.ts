@@ -34,7 +34,7 @@ export class Option extends LitElement {
         &:not(:disabled) {
           cursor: pointer;
 
-          &:not(.active):is(:focus, :hover) {
+          &:is(:focus, :hover) {
             --cx-gradient-highlight: var(--cx-color-grey-700);
             --cx-gradient-background: var(--cx-color-blue);
             color: var(--cx-color-text-static-light);
