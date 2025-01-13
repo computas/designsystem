@@ -186,6 +186,7 @@ export class Dropdown extends FormControl(LitElement) {
     } else {
       this.removeEventListener('keydown', this.onKeyDown);
       this.isExpanded = false;
+      this.updateValidState();
       this.dropdownTrigger.focus();
     }
   }
@@ -200,7 +201,7 @@ export class Dropdown extends FormControl(LitElement) {
   private updateValidState() {
     if (!this.isExpanded && this.required && !this.value) {
       this.dropdownTrigger.setCustomValidity('A dropdown value is required');
-      this.elementInternals.setValidity({ valueMissing: true }, 'A dropdown value is required', this);
+      this.elementInternals.setValidity({ valueMissing: true }, 'A dropdown value is required');
     } else {
       this.dropdownTrigger.setCustomValidity('');
       this.elementInternals.setValidity({});
