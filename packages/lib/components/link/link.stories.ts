@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
-import { addIcons } from '../icon';
-import { edit } from '../icon/iconRegistry';
-
-addIcons(edit);
 
 export default {
   title: 'Components/Link',
