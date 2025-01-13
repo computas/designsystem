@@ -5,10 +5,10 @@ import { classMap } from 'lit/directives/class-map.js';
 import '../icon';
 
 import a11yStyles from '../../global-css/a11y.css?inline';
+import { FormControl } from '../../shared/formControl';
 import formFieldStyles from '../form-field/form-field.css?inline';
 import type { Option } from './option';
 import type { OptionValue } from './types';
-import { FormControl } from '../../shared/formControl';
 
 @customElement('cx-dropdown')
 export class Dropdown extends FormControl(LitElement) {
