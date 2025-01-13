@@ -1,5 +1,5 @@
 import { LitElement, css, html, unsafeCSS } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import '../icon';
@@ -8,7 +8,7 @@ import a11yStyles from '../../global-css/a11y.css?inline';
 import formFieldStyles from '../form-field/form-field.css?inline';
 import type { Option } from './option';
 import type { OptionValue } from './types';
-import { FormControl } from './formControl';
+import { FormControl } from '../../shared/formControl';
 
 @customElement('cx-dropdown')
 export class Dropdown extends FormControl(LitElement) {
@@ -65,7 +65,7 @@ export class Dropdown extends FormControl(LitElement) {
       [popover] {
         --translate-curve: ease;
         --translate-duration: 200ms;
-        
+
         position-anchor: --cx-trigger;
         position: absolute;
         opacity: 0;
@@ -122,24 +122,43 @@ export class Dropdown extends FormControl(LitElement) {
   @property({ type: String, reflect: true })
   label = '';
 
+  /**
+   * @description Whether the dropdown is required or not
+   * @default false
+   */
+  @property({ type: Boolean, reflect: true })
+  required = false;
+
+  /**
+   * @description The text that is displayed below the dropdown if the element is in an invalid state.
+   * @default ''
+   */
+  @property({ type: String, reflect: true })
+  invalidText = '';
+
   @state()
   private dropdownOptions: Option[] = [];
 
   @state()
   private isExpanded = false;
 
+  @query('button')
+  private dropdownTrigger!: HTMLButtonElement;
+
   connectedCallback(): void {
+    super.connectedCallback();
+
     /**
      * The options emit an "option-select" event. We listen for it
      * so that we can emit the selected value through the "change" event.
      */
     this.addEventListener('option-select', this.setNewValue);
-    super.connectedCallback();
   }
 
   disconnectedCallback(): void {
-    this.removeEventListener('option-select', this.setNewValue);
     super.disconnectedCallback();
+
+    this.removeEventListener('option-select', this.setNewValue);
   }
 
   private onSlotChange(event: Event) {
@@ -167,7 +186,7 @@ export class Dropdown extends FormControl(LitElement) {
     } else {
       this.removeEventListener('keydown', this.onKeyDown);
       this.isExpanded = false;
-      this.renderRoot.querySelector('button')?.focus();
+      this.dropdownTrigger.focus();
     }
   }
 
@@ -175,6 +194,16 @@ export class Dropdown extends FormControl(LitElement) {
     if (event.key === 'ArrowDown' && !this.isExpanded) {
       const buttonElement = event.target as HTMLButtonElement;
       buttonElement.click();
+    }
+  }
+
+  private updateValidState() {
+    if (!this.isExpanded && this.required && !this.value) {
+      this.dropdownTrigger.setCustomValidity('A dropdown value is required');
+      this.elementInternals.setValidity({ valueMissing: true }, 'A dropdown value is required', this);
+    } else {
+      this.dropdownTrigger.setCustomValidity('');
+      this.elementInternals.setValidity({});
     }
   }
 
@@ -219,6 +248,10 @@ export class Dropdown extends FormControl(LitElement) {
       opt.selectedValue = newValue;
     });
 
+    /** Updates form validity, and sets the value on a form, if it exists. */
+    this.updateValidState();
+    this.elementInternals.setFormValue(newValue);
+
     const popoverElement = this.renderRoot.querySelector('[popover]') as HTMLElement;
     popoverElement.hidePopover();
   }
@@ -226,8 +259,21 @@ export class Dropdown extends FormControl(LitElement) {
   render() {
     const selectedOption = this.dropdownOptions.find((option) => option.value === this.value);
 
+    const errorHtml = this.invalidText
+      ? html`
+      <div class="cx-form-field__error" aria-live="polite" id="error-text">
+        <cx-icon name="error-circle" size="6"></cx-icon>
+        ${this.invalidText}
+      </div>
+    `
+      : '';
+
     return html`
-      <label class=${classMap({ 'cx-form-field': true, 'cx-form-field--focused': this.isExpanded })}>
+      <label class=${classMap({
+        'cx-form-field': true,
+        'cx-form-field--use-invalid': true,
+        'cx-form-field--focused': this.isExpanded,
+      })}>
         <div class="cx-form-field__label">${this.label}</div>
         <div class="cx-form-field__input-container">
           <button 
@@ -237,13 +283,18 @@ export class Dropdown extends FormControl(LitElement) {
             aria-haspopup="listbox"
             aria-expanded=${this.isExpanded}
             aria-controls="popover"
-            type="button"
+            type="submit"
+            required=${this.required}
+            value=${this.value}
             @keydown=${this.onTriggerKeyDown}
+            @blur=${this.updateValidState}
           >
             <span class="trigger-content" .innerHTML=${selectedOption?.innerHTML ?? ''}></span>
             <cx-icon name="down" class=${classMap({ rotated: this.isExpanded })}></cx-icon>
           </button>
         </div>
+
+        ${errorHtml}
       </label>
 
       <div

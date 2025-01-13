@@ -1,5 +1,9 @@
 import type { LitElement } from 'lit';
 
+declare class FormControlInterface {
+  elementInternals: ElementInternals;
+}
+
 // biome-ignore lint/complexity/noBannedTypes: <explanation>
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 type Constructor<T = {}> = new (...args: any[]) => T;
@@ -12,18 +16,14 @@ export const FormControl = <T extends Constructor<LitElement>>(superClass: T) =>
      **/
     static formAssociated = true;
 
-    public elementInternals: ElementInternals;
+    elementInternals: ElementInternals;
 
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     constructor(...args: any[]) {
       super(...args);
       this.elementInternals = this.attachInternals();
     }
-
-    formAssociatedCallback(form: HTMLFormElement) {
-      console.log('Connected! Form: ', form);
-    }
   }
 
-  return FormControlClass as T;
+  return FormControlClass as Constructor<FormControlInterface> & T;
 };

@@ -4,7 +4,15 @@ label.cx-form-field {
   /* This prevents layout jumping when the error label is animated in */
   vertical-align: top;
 
+  /** The cx-form-field--use-invalid class enables us to use the :invalid selector
+   * to check for invalid state. This is not turned on by default, since the :invalid
+   * selector returns true on init, which gives form fields that are e.g. required an
+   * invalid style before the user has interacted with them. We do however need the :invalid
+   * selector for web components that implement the "formAssociated" API. This class is
+   * therefore considered an internal API and is not documented.
+   */
   &.cx-form-field--invalid,
+  &.cx-form-field--use-invalid:has(:invalid),
   &:has(:user-invalid) {
     .cx-form-field__input-container {
       background-color: var(--cx-color-background-accent-4-soft);

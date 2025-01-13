@@ -26,4 +26,15 @@ dark
 />
 
 ## Default
+The default dropdown is an `cx-dropdown` component with a set of `cx-option` child components. Each `cx-option` needs a `value` that contains the
+value of the option. If the user selects an option, a `change` event is emitted, containing the selected value (if you use React, the event name is `onChange`).
 <Canvas of={stories.Default} />
+
+## Set a dropdown value
+To set a value in the dropdown, please use the `value` prop on the `cx-dropdown` component.
+<Canvas of={stories.WithValue} />
+
+## Required
+To make the dropdown required, please use the `required` attribute. It's also recommended to provide an invalid text that shows up if the dropdown
+enters an invalid state.
+<Canvas of={stories.Required} />
