@@ -80,3 +80,9 @@
     background-position: 76% 38%;
   }
 }
+
+@keyframes cx-waveline {
+  to {
+    background-position: 16px;
+  }
+}
