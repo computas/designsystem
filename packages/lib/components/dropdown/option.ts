@@ -3,6 +3,7 @@ import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 import type { OptionValue } from './types';
+import { InputModeDetector } from '../../shared/inputModeDetector';
 
 @customElement('cx-option')
 export class Option extends LitElement {
@@ -34,7 +35,7 @@ export class Option extends LitElement {
         &:not(:disabled) {
           cursor: pointer;
 
-          &:is(:focus, :hover) {
+          &:is(:not(.input-mode-mouse):focus, .input-mode-mouse:hover) {
             --cx-gradient-highlight: var(--cx-color-grey-700);
             --cx-gradient-background: var(--cx-color-blue);
             color: var(--cx-color-text-static-light);
@@ -58,6 +59,8 @@ export class Option extends LitElement {
   @query('button')
   buttonElement: HTMLButtonElement | undefined;
 
+  private inputModeDetector = new InputModeDetector(this);
+
   private onSelect() {
     const event = new CustomEvent('option-select', {
       bubbles: true,
@@ -76,7 +79,7 @@ export class Option extends LitElement {
         role="option"
         @click=${this.onSelect}
         aria-selected=${isSelected}
-        class=${classMap({ active: isSelected })}
+        class=${classMap({ active: isSelected, 'input-mode-mouse': this.inputModeDetector.inputMode === 'mouse' })}
       >
         <slot></slot>
       </button>
