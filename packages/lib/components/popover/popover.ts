@@ -1,19 +1,46 @@
 import { LitElement, css, html, unsafeCSS } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { customElement, property, query } from 'lit/decorators.js';
 
-import '../icon';
+import { addIcons } from "../icon";
+import { close } from "../icon/iconRegistry";
+addIcons(close);
 
 import a11yStyles from '../../global-css/a11y.css?inline';
+import buttonStyles from '../button/button.css?inline';
 
 @customElement('cx-popover')
 export class Popover extends LitElement {
   static styles = [
     unsafeCSS(a11yStyles),
+    unsafeCSS(buttonStyles),
     css`
       .trigger {
         anchor-name: --trigger;
         display: inline-flex;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--cx-spacing-2);
+        margin-bottom: var(--cx-spacing-4);
+        padding-block: var(--cx-spacing-4);
+      }
+
+      h1 {
+        /** From typography */
+        margin: 0;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 1rem;
+        color: var(--cx-color-text-primary);
+      }
+
+      button {
+        background: transparent;
+        border: none;
       }
 
       [popover] {
@@ -62,21 +89,54 @@ export class Popover extends LitElement {
   `,
   ];
 
+  @property({ type: String, reflect: true })
+  header = '';
+
+  @property({ type: Boolean, reflect: true })
+  hasCloseBtn = false;
+
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
 
-  @property({ type: String, reflect: true })
-  invalidText = '';
+  @query('button')
+  private closeButton!: HTMLButtonElement;
+
+  @query('slot[name="trigger"]')
+  private triggerWrapper!: HTMLSlotElement;
+
+  private isOpen = false;
 
   private onTriggerClick() {
-    this.popoverElement.togglePopover();
+    if (this.isOpen) {
+      this.popoverElement.hidePopover();
+    } else {
+      this.popoverElement.showPopover();
+    }
+  }
+
+  private popoverToggle(event: ToggleEvent) {
+    if (event.newState === 'open') {
+      this.closeButton.focus();
+      this.isOpen = true;
+    } else {
+      (this.triggerWrapper.assignedElements()[0] as HTMLElement).focus();
+      this.isOpen = false;
+    }
   }
 
   render() {
     return html`
       <slot class="trigger" name="trigger" @click=${this.onTriggerClick}></slot>
 
-      <div popover><slot></slot></div>
+      <div popover @toggle=${this.popoverToggle}>
+        <header>
+          <h1>${this.header}</h1>
+          <button class="cx-btn__tertiary cx-btn__icon">
+            <cx-icon name="close"></cx-icon>
+          </button>
+        </header>
+        <slot></slot>
+      </div>
     `;
   }
 }
