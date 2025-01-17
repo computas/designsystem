@@ -145,6 +145,9 @@ export class Dropdown extends FormControl(LitElement) {
   @query('button')
   private dropdownTrigger!: HTMLButtonElement;
 
+  @query('[popover]')
+  private popoverElement!: HTMLDivElement;
+
   connectedCallback(): void {
     super.connectedCallback();
 
@@ -173,28 +176,39 @@ export class Dropdown extends FormControl(LitElement) {
 
       this.addEventListener('keydown', this.onKeyDown);
 
-      this.dropdownOptions.forEach((option) => {
-        option.selectedValue = this.value;
-
-        if (option.value === this.value && option.buttonElement) {
-          option.buttonElement.focus();
-          option.buttonElement.tabIndex = 0;
-        } else if (option.buttonElement) {
-          option.buttonElement.tabIndex = -1;
-        }
-      });
+      if (this.value) {
+        this.dropdownOptions.forEach((option) => {
+          option.selectedValue = this.value;
+  
+          if (option.value === this.value && option.buttonElement) {
+            option.buttonElement.focus();
+            option.buttonElement.tabIndex = 0;
+          } else if (option.buttonElement) {
+            option.buttonElement.tabIndex = -1;
+          }
+        });
+      } else {
+        // Focus the first option on open, if no value is selected
+        this.dropdownOptions.forEach((option, index) => {
+          if (index === 0 && option.buttonElement) {
+            option.buttonElement.focus();
+            option.buttonElement.tabIndex = 0;
+          } else if (option.buttonElement) {
+            option.buttonElement.tabIndex = -1;
+          }
+        })
+      }
     } else {
       this.removeEventListener('keydown', this.onKeyDown);
       this.isExpanded = false;
       this.updateValidState();
-      this.dropdownTrigger.focus();
     }
   }
 
   private onTriggerKeyDown(event: KeyboardEvent) {
     if (event.key === 'ArrowDown' && !this.isExpanded) {
-      const buttonElement = event.target as HTMLButtonElement;
-      buttonElement.click();
+      event.preventDefault();
+      this.popoverElement.showPopover();
     }
   }
 
@@ -231,6 +245,9 @@ export class Dropdown extends FormControl(LitElement) {
         opt.innerText.toLowerCase().startsWith(event.key.toLowerCase()),
       );
       newIndex = firstMatchIndex === -1 ? currentIndex : firstMatchIndex;
+    } else if (event.key === 'Tab') {
+      // Close the dropdown if the user tabs out
+      this.popoverElement.hidePopover();
     }
 
     const newFocusedButton = this.dropdownOptions.at(newIndex)?.buttonElement;
@@ -253,8 +270,8 @@ export class Dropdown extends FormControl(LitElement) {
     this.updateValidState();
     this.elementInternals.setFormValue(newValue);
 
-    const popoverElement = this.renderRoot.querySelector('[popover]') as HTMLElement;
-    popoverElement.hidePopover();
+    this.popoverElement.hidePopover();
+    this.dropdownTrigger.focus();
   }
 
   render() {
