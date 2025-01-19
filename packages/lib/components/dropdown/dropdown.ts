@@ -95,7 +95,7 @@ export class Dropdown extends FormControl(LitElement) {
           @starting-style {
             opacity: 0;
             translate: 0px -6px;
-          }
+          } 
         }
       }
 
@@ -179,7 +179,7 @@ export class Dropdown extends FormControl(LitElement) {
       if (this.value) {
         this.dropdownOptions.forEach((option) => {
           option.selectedValue = this.value;
-  
+
           if (option.value === this.value && option.buttonElement) {
             option.buttonElement.focus();
             option.buttonElement.tabIndex = 0;
@@ -196,7 +196,7 @@ export class Dropdown extends FormControl(LitElement) {
           } else if (option.buttonElement) {
             option.buttonElement.tabIndex = -1;
           }
-        })
+        });
       }
     } else {
       this.removeEventListener('keydown', this.onKeyDown);
