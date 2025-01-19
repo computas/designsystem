@@ -13,20 +13,16 @@ import * as stories from "./dropdown.stories";
 ## How to get started
 Start by importing the component. If you import the web component version, both the `<cx-dropdown>` component and `<cx-option>` is available for use
 from the point of the import and further down the application-tree.
-<Source
-  code={`
+``` ts
 // Web component
 import '@computas/designsystem/dropdown';
 
 // React
 import { CxDropdown, CxOption } from '@computas/designsystem/dropdown/react';
-`}
-language="typescript"
-dark
-/>
+```
 
 ## Default
-The default dropdown is an `cx-dropdown` component with a set of `cx-option` child components. Each `cx-option` needs a `value` that contains the
+A dropdown consists of a `cx-dropdown` component used within a form-field, with a set of `cx-option` child components. Each `cx-option` needs a `value` that contains the
 value of the option. If the user selects an option, a `change` event is emitted, containing the selected value (if you use React, the event name is `onChange`).
 <Canvas of={stories.Default} />
 

@@ -57,7 +57,7 @@ export class Option extends LitElement {
   value: OptionValue | null = null;
 
   @query('button')
-  buttonElement: HTMLButtonElement | undefined;
+  buttonElement!: HTMLButtonElement;
 
   private inputModeDetector = new InputModeDetector(this);
 

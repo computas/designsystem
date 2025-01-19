@@ -18,6 +18,10 @@ export const FormControl = <T extends Constructor<LitElement>>(superClass: T) =>
 
     elementInternals: ElementInternals;
 
+    get label() {
+      return this.elementInternals.labels;
+    }
+
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     constructor(...args: any[]) {
       super(...args);

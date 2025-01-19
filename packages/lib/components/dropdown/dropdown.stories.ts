@@ -18,30 +18,50 @@ export default {
 
 export const Default: StoryObj = {
   render: () => html`
-<cx-dropdown label="Countries">
-  <cx-option value="norway">Norway</cx-option>
-  <cx-option value="romania">Romania</cx-option>
-  <cx-option value="denmark">Denmark</cx-option>
-</cx-dropdown>
+<label class="cx-form-field">
+  <div class="cx-form-field__label">Countries</div>
+  <div class="cx-form-field__input-container">
+    <cx-dropdown>
+      <cx-option value="norway">Norway</cx-option>
+      <cx-option value="romania">Romania</cx-option>
+      <cx-option value="denmark">Denmark</cx-option>
+    </cx-dropdown>
+  </div>
+</label>
   `,
 };
 
 export const WithValue: StoryObj = {
   render: () => html`
-<cx-dropdown label="Countries" value="romania">
-  <cx-option value="norway">Norway</cx-option>
-  <cx-option value="romania">Romania</cx-option>
-  <cx-option value="denmark">Denmark</cx-option>
-</cx-dropdown>
+<label class="cx-form-field">
+  <div class="cx-form-field__label">Countries</div>
+  <div class="cx-form-field__input-container">
+    <cx-dropdown value="romania">
+      <cx-option value="norway">Norway</cx-option>
+      <cx-option value="romania">Romania</cx-option>
+      <cx-option value="denmark">Denmark</cx-option>
+    </cx-dropdown>
+  </div>
+</label>
   `,
 };
 
 export const Required: StoryObj = {
   render: () => html`
-<cx-dropdown label="Countries" required invalidText="Please provide a value">
-  <cx-option value="norway">Norway</cx-option>
-  <cx-option value="romania">Romania</cx-option>
-  <cx-option value="denmark">Denmark</cx-option>
-</cx-dropdown>
+<label class="cx-form-field">
+  <div class="cx-form-field__label">Countries</div>
+  <div class="cx-form-field__input-container">
+    <cx-dropdown required aria-describedby="error-text">
+      <cx-option value="norway">Norway</cx-option>
+      <cx-option value="romania">Romania</cx-option>
+      <cx-option value="denmark">Denmark</cx-option>
+    </cx-dropdown>
+  </div>
+
+  <div class="cx-form-field__error" aria-live="polite" id="error-text">
+    <cx-icon name="error-circle" size="6"></cx-icon>
+    Please provide a value
+  </div>
+</label>
   `,
 };
