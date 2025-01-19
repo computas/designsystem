@@ -1,8 +1,8 @@
-import { LitElement, css, html, unsafeCSS } from 'lit';
+import { LitElement, css, html, nothing, unsafeCSS } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 
-import { addIcons } from "../icon";
-import { close } from "../icon/iconRegistry";
+import { addIcons } from '../icon';
+import { close } from '../icon/iconRegistry';
 addIcons(close);
 
 import a11yStyles from '../../global-css/a11y.css?inline';
@@ -25,7 +25,6 @@ export class Popover extends LitElement {
         justify-content: space-between;
         gap: var(--cx-spacing-2);
         margin-bottom: var(--cx-spacing-4);
-        padding-block: var(--cx-spacing-4);
       }
 
       h1 {
@@ -41,6 +40,10 @@ export class Popover extends LitElement {
       button {
         background: transparent;
         border: none;
+      }
+
+      [hidden] {
+        visibility: hidden;
       }
 
       [popover] {
@@ -93,13 +96,10 @@ export class Popover extends LitElement {
   header = '';
 
   @property({ type: Boolean, reflect: true })
-  hasCloseBtn = false;
+  withCloseBtn = false;
 
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
-
-  @query('button')
-  private closeButton!: HTMLButtonElement;
 
   @query('slot[name="trigger"]')
   private triggerWrapper!: HTMLSlotElement;
@@ -116,25 +116,35 @@ export class Popover extends LitElement {
 
   private popoverToggle(event: ToggleEvent) {
     if (event.newState === 'open') {
-      this.closeButton.focus();
       this.isOpen = true;
+      this.dispatchEvent(new CustomEvent('open', { bubbles: true, composed: true }));
     } else {
       (this.triggerWrapper.assignedElements()[0] as HTMLElement).focus();
       this.isOpen = false;
+      this.dispatchEvent(new CustomEvent('close', { bubbles: true, composed: true }));
     }
   }
 
   render() {
+    const closeBtn = html`
+      <button ?hidden=${!this.withCloseBtn} class="cx-btn__tertiary cx-btn__icon" @click=${() => this.popoverElement.hidePopover()}>
+        <cx-icon name="close"></cx-icon>
+      </button>`;
+
+    const header = this.header
+      ? html`
+      <header>
+        <h1>${this.header}</h1>
+        ${closeBtn}
+      </header>`
+      : nothing;
+
     return html`
       <slot class="trigger" name="trigger" @click=${this.onTriggerClick}></slot>
 
       <div popover @toggle=${this.popoverToggle}>
-        <header>
-          <h1>${this.header}</h1>
-          <button class="cx-btn__tertiary cx-btn__icon">
-            <cx-icon name="close"></cx-icon>
-          </button>
-        </header>
+        ${header}
+        
         <slot></slot>
       </div>
     `;
