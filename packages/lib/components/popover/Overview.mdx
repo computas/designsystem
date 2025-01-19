@@ -25,6 +25,19 @@ language="typescript"
 dark
 />
 
+## Browser support
+The popover component uses the new [Anchor Position API](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning/Using)
+to position the popover relative to the trigger. This API is not supported in Safari and Firefox as writing these docs. If you want to support
+all major browsers, please include the official anchor position API polyfill in the `<head>` of your application:
+``` html
+<script type="module">
+  if (!("anchorName" in document.documentElement.style)) {
+    import("https://unpkg.com/@oddbird/css-anchor-positioning");
+  }
+</script>
+```
+Read more about this polyfill [here](https://github.com/oddbird/css-anchor-positioning).
+
 ## Default
 The default dropdown is an `cx-dropdown` component with a set of `cx-option` child components. Each `cx-option` needs a `value` that contains the
 value of the option. If the user selects an option, a `change` event is emitted, containing the selected value (if you use React, the event name is `onChange`).
