@@ -4,7 +4,15 @@ label.cx-form-field {
   /* This prevents layout jumping when the error label is animated in */
   vertical-align: top;
 
+  /** The :has(cx-select) selector enables us to use the :invalid selector
+   * to check for invalid state. This is not turned on by default, since the :invalid
+   * selector returns true on init, which gives form fields that are e.g. required an
+   * invalid style before the user has interacted with them. We do however need the :invalid
+   * selector for web components that implement the "formAssociated" API. This selector is
+   * therefore considered an internal API and is not documented.
+   */
   &.cx-form-field--invalid,
+  &:has(cx-select):has(:invalid),
   &:has(:user-invalid) {
     .cx-form-field__input-container {
       background-color: var(--cx-color-background-accent-4-soft);
@@ -33,6 +41,15 @@ label.cx-form-field {
       }
     }
   }
+
+  &:has(cx-select) {
+    cursor: pointer;
+
+    /** Padding is added to the trigger, to make the whole element clickable */
+    .cx-form-field__input-container {
+      padding: 0;
+    }
+  }
 }
 
 /* Adds margin bottom to either the label or the placeholder, depending on who's the neighbor to the input */
@@ -58,13 +75,16 @@ label.cx-form-field {
 }
 
 .cx-form-field__input-container {
+  --cx-form-field__inline-padding: var(--cx-spacing-6);
+  --cx-form-field__block-padding: var(--cx-spacing-3);
   --border-color: transparent;
+
   display: flex;
   align-items: center;
   border-radius: var(--cx-radius-medium);
   background-color: var(--cx-color-background-accent-1-soft);
   gap: var(--cx-spacing-2);
-  padding: var(--cx-spacing-3) var(--cx-spacing-6);
+  padding: var(--cx-form-field__block-padding) var(--cx-form-field__inline-padding);
   box-shadow: inset 0 0 0 1px var(--border-color);
   transition: background-color 200ms ease, box-shadow 200ms ease;
 

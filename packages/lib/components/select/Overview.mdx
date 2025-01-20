@@ -1,0 +1,36 @@
+import { Canvas, Meta, Source, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./select.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>
+  A select presents a list of options the user can select from and can be used to submit data,
+  filter, in a menu and so on. 
+</Subtitle>
+
+## How to get started
+Start by importing the component. If you import the web component version, both the `<cx-select>` component and `<cx-option>` is available for use
+from the point of the import and further down the application-tree.
+``` ts
+// Web component
+import '@computas/designsystem/select';
+
+// React
+import { CxSelect, CxOption } from '@computas/designsystem/select/react';
+```
+
+## Default
+A select consists of a `cx-select` component used within a form-field, with a set of `cx-option` child components. Each `cx-option` needs a `value` that contains the
+value of the option. If the user selects an option, a `change` event is emitted, containing the selected value (if you use React, the event name is `onChange`).
+<Canvas of={stories.Default} />
+
+## Set a select value
+To set a value in the select, please use the `value` prop on the `cx-select` component.
+<Canvas of={stories.WithValue} />
+
+## Required
+To make the select required, please use the `required` attribute. It's also recommended to provide an invalid text that shows up if the select
+enters an invalid state.
+<Canvas of={stories.Required} />
