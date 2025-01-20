@@ -7,6 +7,7 @@ addIcons(close);
 
 import a11yStyles from '../../global-css/a11y.css?inline';
 import buttonStyles from '../button/button.css?inline';
+import { getFocusableElements } from '../../shared/getFocusableElement';
 
 @customElement('cx-popover')
 export class Popover extends LitElement {
@@ -55,10 +56,9 @@ export class Popover extends LitElement {
         opacity: 0;
         translate: 0px 6px;
         inset: unset;
-        left: anchor(left);
-        top: anchor(bottom);
         margin: var(--cx-spacing-2) 0 0 0;
-        position-try-fallbacks: --top;
+        position-area: bottom span-right;
+        position-try-fallbacks: --bottom-left, --top-right, --top-left, --center-right, --center-left;
         transition:
           display 200ms allow-discrete,
           overlay 200ms allow-discrete,
@@ -83,11 +83,29 @@ export class Popover extends LitElement {
         }
       }
 
-      @position-try --top {
-        inset: unset;
-        left: anchor(left);
-        bottom: anchor(top);
+      @position-try --bottom-left {
+        position-area: bottom span-left;
+        margin: var(--cx-spacing-2) 0 0 0;
+      }
+
+      @position-try --top-right {
+        position-area: top span-right;
         margin: 0 0 var(--cx-spacing-2) 0;
+      }
+
+      @position-try --top-left {
+        position-area: top span-left;
+        margin: 0 0 var(--cx-spacing-2) 0;
+      }
+
+      @position-try --center-right {
+        position-area: span-bottom right;
+        margin: 0 0 0 var(--cx-spacing-2);
+      }
+
+      @position-try --center-left {
+        position-area: span-bottom left;
+        margin: 0 var(--cx-spacing-2) 0 0;
       }
   `,
   ];
@@ -100,6 +118,12 @@ export class Popover extends LitElement {
 
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
+
+  @query('button')
+  private closeButton!: HTMLButtonElement;
+
+  @query('#dialog-content')
+  private dialogContent!: HTMLSlotElement;
 
   @query('slot[name="trigger"]')
   private triggerWrapper!: HTMLSlotElement;
@@ -118,10 +142,25 @@ export class Popover extends LitElement {
     if (event.newState === 'open') {
       this.isOpen = true;
       this.dispatchEvent(new CustomEvent('open', { bubbles: true, composed: true }));
+
+      if (this.autofocus) {
+        this.focusFirstElement();
+      }
     } else {
       (this.triggerWrapper.assignedElements()[0] as HTMLElement).focus();
       this.isOpen = false;
       this.dispatchEvent(new CustomEvent('close', { bubbles: true, composed: true }));
+    }
+  }
+
+  private focusFirstElement() {
+    if (this.withCloseBtn) {
+      this.closeButton.focus();
+    } else {
+      const focusableElements = getFocusableElements(this.dialogContent);
+      if (focusableElements.length) {
+        (focusableElements.at(0) as HTMLElement).focus();
+      }
     }
   }
 
@@ -144,8 +183,7 @@ export class Popover extends LitElement {
 
       <div popover @toggle=${this.popoverToggle}>
         ${header}
-        
-        <slot></slot>
+        <slot id="dialog-content"></slot>
       </div>
     `;
   }

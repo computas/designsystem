@@ -22,13 +22,7 @@ export const Default: StoryObj = {
     <cx-icon name="edit"></cx-icon>
   </button>
 
-  <p>Edit the settings below:</p>
-  <label class="cx-form-field">
-    <div class="cx-form-field__label">E-mail</div>
-    <div class="cx-form-field__input-container">
-      <input autofocus type="email">
-    </div>
-  </label>
+  <p>Here comes the popover content</p>
 </cx-popover>
   `,
 };
@@ -40,13 +34,20 @@ export const WithHeader: StoryObj = {
     <cx-icon name="edit"></cx-icon>
   </button>
 
-  <p>Edit the settings below:</p>
-  <label class="cx-form-field">
+  <label class="cx-form-field cx-mb-4">
     <div class="cx-form-field__label">E-mail</div>
     <div class="cx-form-field__input-container">
-      <input autofocus type="email">
+      <input type="email">
     </div>
   </label>
+  <div>
+    <button class="cx-btn__secondary cx-btn__sm cx-mr-2">
+      Cancel
+    </button>
+    <button class="cx-btn__primary cx-btn__sm">
+      Save
+    </button>
+  </div>
 </cx-popover>
   `,
 };
@@ -58,13 +59,31 @@ export const WithCloseBtn: StoryObj = {
     <cx-icon name="edit"></cx-icon>
   </button>
 
-  <p>Edit the settings below:</p>
-  <label class="cx-form-field">
-    <div class="cx-form-field__label">E-mail</div>
-    <div class="cx-form-field__input-container">
-      <input autofocus type="email">
-    </div>
-  </label>
+  <p class="cx-mb-4">Would you like to save the changes?</p>
+  <button class="cx-btn__secondary cx-btn__sm cx-mr-2">
+    Cancel
+  </button>
+  <button class="cx-btn__primary cx-btn__sm">
+    Save
+  </button>
+</cx-popover>
+  `,
+};
+
+export const Autofocus: StoryObj = {
+  render: () => html`
+<cx-popover autofocus>
+  <button slot="trigger" class="cx-btn__secondary cx-btn__icon">
+    <cx-icon name="edit"></cx-icon>
+  </button>
+
+  <p class="cx-mb-4">Would you like to save the changes?</p>
+  <button class="cx-btn__secondary cx-btn__sm cx-mr-2">
+    Cancel
+  </button>
+  <button class="cx-btn__primary cx-btn__sm">
+    Save
+  </button>
 </cx-popover>
   `,
 };
