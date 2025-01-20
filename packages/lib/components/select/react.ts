@@ -1,7 +1,7 @@
 import { createComponent } from '@lit/react';
 import * as React from 'react';
 
-import { Select, Option } from './index';
+import { Option, Select } from './index';
 
 export const CxSelect = createComponent({
   tagName: 'cx-select',
