@@ -1,4 +1,4 @@
-import { Canvas, Meta, Subtitle, Title } from '@storybook/blocks';
+import { Canvas, Meta, Source, Subtitle, Title } from '@storybook/blocks';
 
 import * as stories from './alert.stories';
 
@@ -9,6 +9,18 @@ import * as stories from './alert.stories';
 	Alerts convey information or warnings to the users and should grab their
 	attention to help make informed actions and decisions.
 </Subtitle>
+
+## How to get started
+Start by importing the component. If you import the web component version, the `<cx-alert>` component is available for use
+from the point of the import and further down the application-tree.
+
+``` ts
+// Web component
+import '@computas/designsystem/alert';
+
+// React
+import { CxAlert } from '@computas/designsystem/alert/react';
+```
 
 ### Local alert
 
