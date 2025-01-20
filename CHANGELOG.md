@@ -7,6 +7,7 @@
 - Lagt til checkbox-komponent
 - Lagt til alert-komponent
 - Støtte for ikoner i knapper
+- Lagt til lenker
 
 # 0.0.7 - 19.12.2024
 

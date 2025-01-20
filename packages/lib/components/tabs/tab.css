@@ -1,22 +1,21 @@
 .cx-tab {
+  --line-height: 1.5rem;
+  --underline-squiggle-height: 7px;
   --underline-height: 6px;
+  --underline-squiggle-offset: calc(
+    var(--line-height) +
+    (var(--cx-spacing-1) * 2) +
+    (var(--underline-height) / 2)
+  );
+
   display: inline-flex;
   position: relative;
   padding: 7px 0px calc(var(--cx-spacing-1) + var(--underline-height));
-
   color: var(--cx-color-text-primary);
-  line-height: 1rem;
+  line-height: var(--line-height);
   font-size: 1rem;
   font-weight: 500;
-
-  text-decoration-thickness: 2px;
-  text-decoration-style: wavy;
-  text-decoration-line: underline;
-  text-decoration-skip-ink: none;
-  text-underline-offset: 0.125rem;
-  text-underline-position: from-font;
-  text-decoration-color: transparent;
-  transition: text-decoration-color 100ms ease, text-underline-offset 100ms ease;
+  text-decoration: none;
   user-select: none;
 
   &:hover {
@@ -24,28 +23,43 @@
     text-decoration-color: var(--cx-color-text-primary);
   }
 
-  &:active {
-    text-underline-offset: 0.5rem;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    transition: background-color 0.3s ease;
+    height: var(--underline-height);
+    background: transparent;
+    border-radius: var(--cx-radius-mini) var(--cx-radius-mini) 0px 0px;
   }
-}
 
-.cx-tab::before {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  transition: background-color 0.3s ease;
-  height: var(--underline-height);
-  background: transparent;
-  border-radius: var(--cx-radius-mini) var(--cx-radius-mini) 0px 0px;
+  &::after {
+    position: absolute;
+    opacity: 0;
+    content: "";
+    top: calc(var(--underline-squiggle-offset));
+    left: 0;
+    width: 100%;
+    height: var(--underline-squiggle-height);
+    background-size: 1rem;
+    background-position: 0;
+    animation: cx-waveline 0.5s linear infinite;
+    transition: all ease 0.5s;
+    background-image: url('data:image/svg+xml,<svg width="18" height="7" viewBox="0 0 18 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.57715 4.17283C4.4006 5.46648 2.86064 7 0 7V5C1.96863 5 3.00041 4.03352 4.09755 2.82717C4.18247 2.7338 4.26911 2.63679 4.3579 2.53738C5.35523 1.42077 6.62422 0 8.78049 0C10.9089 0 12.2699 1.38741 13.3632 2.50189C13.4613 2.6018 13.5571 2.69953 13.6512 2.79386C14.8672 4.01314 16.0118 5 18 5V7C15.1589 7 13.5123 5.48686 12.2351 4.20614C12.1748 4.14575 12.1157 4.08635 12.0576 4.02798C10.814 2.77827 10.0395 2 8.78049 2C7.54894 2 6.87361 2.74423 5.73842 3.99523C5.68569 4.05335 5.63196 4.11255 5.57715 4.17283Z" fill="%2329CFF5"/></svg>');
+    background-repeat: repeat-x;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
 }
 
 .cx-tab--active {
-  &:hover {
-    text-decoration-color: transparent;
-  }
-
   &::before {
     background-color: var(--cx-color-background-accent-5);
+  }
+  &:hover::after {
+    opacity: 0;
   }
 }
 

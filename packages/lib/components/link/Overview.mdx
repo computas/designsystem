@@ -1,0 +1,15 @@
+import { Canvas, Meta, Title } from '@storybook/blocks';
+
+import * as linkStories from './link.stories';
+
+<Meta of={linkStories} />
+
+<Title>Link</Title>
+
+### Basic link
+
+<Canvas of={linkStories.Link} />
+
+### Standalone link
+
+<Canvas of={linkStories.StandaloneLink} />
