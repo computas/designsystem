@@ -8,9 +8,9 @@ import { FormControl } from '../../shared/formControl';
 import type { Option } from './option';
 import type { OptionValue } from './types';
 
-@customElement('cx-dropdown')
-export class Dropdown extends FormControl(LitElement) {
-  // `delegateFocus` allows focus to be passed to the dropdown trigger when placed inside a `<label>` element.
+@customElement('cx-select')
+export class Select extends FormControl(LitElement) {
+  // `delegateFocus` allows focus to be passed to the select trigger when placed inside a `<label>` element.
   static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
   static styles = css`
@@ -102,14 +102,7 @@ export class Dropdown extends FormControl(LitElement) {
   value: OptionValue = '';
 
   /**
-   * @description The dropdown label
-   * @default ''
-   */
-  @property({ type: String, reflect: true })
-  label = '';
-
-  /**
-   * @description Whether the dropdown is required or not
+   * @description Whether the select is required or not
    * @default false
    */
   @property({ type: Boolean, reflect: true })
@@ -119,13 +112,13 @@ export class Dropdown extends FormControl(LitElement) {
   'aria-describedby' = '';
 
   @state()
-  private dropdownOptions: Option[] = [];
+  private selectOptions: Option[] = [];
 
   @state()
   private isExpanded = false;
 
   @query('button')
-  private dropdownTrigger!: HTMLButtonElement;
+  private selectTrigger!: HTMLButtonElement;
 
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
@@ -148,7 +141,7 @@ export class Dropdown extends FormControl(LitElement) {
   private onSlotChange(event: Event) {
     const slot = event.target as HTMLSlotElement;
     const tabContent = slot.assignedElements({ flatten: true }) as Option[];
-    this.dropdownOptions = tabContent;
+    this.selectOptions = tabContent;
   }
 
   private onPopoverToggle(event: ToggleEvent) {
@@ -158,7 +151,7 @@ export class Dropdown extends FormControl(LitElement) {
       this.addEventListener('keydown', this.onKeyDown);
 
       if (this.value) {
-        this.dropdownOptions.forEach((option) => {
+        this.selectOptions.forEach((option) => {
           option.selectedValue = this.value;
 
           if (option.value === this.value) {
@@ -170,7 +163,7 @@ export class Dropdown extends FormControl(LitElement) {
         });
       } else {
         // Focus the first option on open, if no value is selected
-        this.dropdownOptions.forEach((option, index) => {
+        this.selectOptions.forEach((option, index) => {
           if (index === 0) {
             option.buttonElement.focus();
             option.buttonElement.tabIndex = 0;
@@ -195,17 +188,17 @@ export class Dropdown extends FormControl(LitElement) {
 
   private updateValidState() {
     if (!this.isExpanded && this.required && !this.value) {
-      this.dropdownTrigger.setCustomValidity('A dropdown value is required');
-      this.elementInternals.setValidity({ valueMissing: true }, 'A dropdown value is required');
+      this.selectTrigger.setCustomValidity('A value is required');
+      this.elementInternals.setValidity({ valueMissing: true }, 'A value is required');
     } else {
-      this.dropdownTrigger.setCustomValidity('');
+      this.selectTrigger.setCustomValidity('');
       this.elementInternals.setValidity({});
     }
   }
 
   private onKeyDown(event: KeyboardEvent) {
-    const currentIndex = this.dropdownOptions.findIndex((option) => option.buttonElement.tabIndex === 0);
-    const currentFocusedButton = this.dropdownOptions.at(currentIndex)?.buttonElement;
+    const currentIndex = this.selectOptions.findIndex((option) => option.buttonElement.tabIndex === 0);
+    const currentFocusedButton = this.selectOptions.at(currentIndex)?.buttonElement;
 
     // Set the currently focused tabindex to -1
     if (currentFocusedButton) {
@@ -215,27 +208,27 @@ export class Dropdown extends FormControl(LitElement) {
     let newIndex = currentIndex;
     if (['ArrowDown', 'ArrowRight'].includes(event.key)) {
       event.preventDefault();
-      newIndex = (currentIndex + 1) % this.dropdownOptions.length;
+      newIndex = (currentIndex + 1) % this.selectOptions.length;
     } else if (['ArrowUp', 'ArrowLeft'].includes(event.key)) {
       event.preventDefault();
-      newIndex = (currentIndex - 1 + this.dropdownOptions.length) % this.dropdownOptions.length;
+      newIndex = (currentIndex - 1 + this.selectOptions.length) % this.selectOptions.length;
     } else if (event.code === `Key${event.key.toUpperCase()}`) {
       // Focus on the first option that starts with the pressed letter
       event.preventDefault();
-      const firstMatchIndex = this.dropdownOptions.findIndex((opt) =>
+      const firstMatchIndex = this.selectOptions.findIndex((opt) =>
         opt.innerText.toLowerCase().startsWith(event.key.toLowerCase()),
       );
       newIndex = firstMatchIndex === -1 ? currentIndex : firstMatchIndex;
     } else if (event.key === 'Tab') {
-      // Close the dropdown if the user tabs out
+      // Close the select if the user tabs out
       this.popoverElement.hidePopover();
     } else if (event.key === 'Escape') {
-      // Close dropdown and focus the trigger
+      // Close select and focus the trigger
       this.popoverElement.hidePopover();
-      this.dropdownTrigger.focus();
+      this.selectTrigger.focus();
     }
 
-    const newFocusedButton = this.dropdownOptions.at(newIndex)?.buttonElement;
+    const newFocusedButton = this.selectOptions.at(newIndex)?.buttonElement;
     if (newFocusedButton) {
       newFocusedButton.tabIndex = 0;
       newFocusedButton.focus();
@@ -247,7 +240,7 @@ export class Dropdown extends FormControl(LitElement) {
     const event = new CustomEvent('change', { bubbles: true, composed: true, detail: { value: newValue } });
     this.dispatchEvent(event);
     this.value = newValue;
-    this.dropdownOptions.forEach((opt) => {
+    this.selectOptions.forEach((opt) => {
       opt.selectedValue = newValue;
     });
 
@@ -256,19 +249,19 @@ export class Dropdown extends FormControl(LitElement) {
     this.elementInternals.setFormValue(newValue);
 
     this.popoverElement.hidePopover();
-    this.dropdownTrigger.focus();
+    this.selectTrigger.focus();
   }
 
   /**
    * We need to stop click events on the popover, since they will bubble to the
-   * label element that wraps the dropdown-component and trigger an "showPopover" event.
+   * label element that wraps the select-component and trigger an "showPopover" event.
    */
   private stopOptionClickEventPropagation(event: PointerEvent) {
     event.stopPropagation();
   }
 
   render() {
-    const selectedOption = this.dropdownOptions.find((option) => option.value === this.value);
+    const selectedOption = this.selectOptions.find((option) => option.value === this.value);
 
     return html`
       <button 
@@ -305,6 +298,6 @@ export class Dropdown extends FormControl(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cx-dropdown': Dropdown;
+    'cx-select': Select;
   }
 }

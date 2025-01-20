@@ -1,11 +1,11 @@
 import { createComponent } from '@lit/react';
 import * as React from 'react';
 
-import { Dropdown, Option } from './index';
+import { Select, Option } from './index';
 
-export const CxDropdown = createComponent({
-  tagName: 'cx-dropdown',
-  elementClass: Dropdown,
+export const CxSelect = createComponent({
+  tagName: 'cx-select',
+  elementClass: Select,
   react: React,
   events: {
     onChange: 'change',
