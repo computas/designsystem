@@ -6,8 +6,8 @@ import { close } from '../icon/iconRegistry';
 addIcons(close);
 
 import a11yStyles from '../../global-css/a11y.css?inline';
-import buttonStyles from '../button/button.css?inline';
 import { getFocusableElements } from '../../shared/getFocusableElement';
+import buttonStyles from '../button/button.css?inline';
 
 @customElement('cx-popover')
 export class Popover extends LitElement {
