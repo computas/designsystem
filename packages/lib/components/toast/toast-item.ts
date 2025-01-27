@@ -1,8 +1,8 @@
 import { LitElement, css, html, unsafeCSS } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 
-import animationStyles from '../../global-css/animations.css?inline';
 import a11yStyles from '../../global-css/a11y.css?inline';
+import animationStyles from '../../global-css/animations.css?inline';
 import buttonStyles from '../button/button.css?inline';
 import { addIcons } from '../icon';
 import { close } from '../icon/iconRegistry';
