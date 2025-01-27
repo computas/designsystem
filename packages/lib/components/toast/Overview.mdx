@@ -1,0 +1,44 @@
+import { Canvas, Meta, Source, Subtitle, Title } from '@storybook/blocks';
+
+import * as stories from './toast.stories';
+
+<Meta of={stories} />
+
+<Title>Toast</Title>
+<Subtitle>
+  Toastie
+</Subtitle>
+
+## How to get started
+Start by importing the component.
+``` ts
+// Web component
+import '@computas/designsystem/toast';
+
+// React
+import { CxToast } from '@computas/designsystem/toast/react';
+```
+
+Then add it to the root of your app:
+``` jsx
+<!-- Web component -->
+<cx-toast />
+
+<!-- React -->
+<CxToast />
+```
+
+To display a toast in your app, please import and call the `showToast` function.
+``` ts
+import { showToast } from '@computas/designsystem/toast';
+
+function triggerToast() {
+  showToast({
+    title: 'Foo',
+    body: 'This is the alert body',
+    duration: 5000
+  })
+}
+```
+
+<Canvas of={stories.Default} />
