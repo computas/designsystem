@@ -1,0 +1,16 @@
+import { Canvas, Meta, Subtitle, Title } from '@storybook/blocks';
+
+import * as stories from './modal.stories';
+
+<Meta of={stories} />
+
+<Title>Modal</Title>
+<Subtitle>Modal does stuff a modal should do.</Subtitle>
+
+### Modal stuff
+
+This modal is a modal.
+
+<Canvas of={stories.Modal1} />
+
+<Canvas of={stories.Modal2} />
