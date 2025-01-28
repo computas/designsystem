@@ -1,5 +1,5 @@
 import { LitElement, css, html, nothing, unsafeCSS } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 
 import { addIcons } from '../icon';
 import { close } from '../icon/iconRegistry';
@@ -116,6 +116,9 @@ export class Popover extends LitElement {
   @property({ type: Boolean, reflect: true })
   withCloseBtn = false;
 
+  @property({ type: Boolean, reflect: true })
+  autofocus = false;
+
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
 
@@ -166,7 +169,7 @@ export class Popover extends LitElement {
 
   render() {
     const closeBtn = html`
-      <button ?hidden=${!this.withCloseBtn} class="cx-btn__tertiary cx-btn__icon" @click=${() => this.popoverElement.hidePopover()}>
+      <button aria-label="Close" ?hidden=${!this.withCloseBtn} class="cx-btn__tertiary cx-btn__icon" @click=${() => this.popoverElement.hidePopover()}>
         <cx-icon name="close"></cx-icon>
       </button>`;
 
@@ -181,7 +184,7 @@ export class Popover extends LitElement {
     return html`
       <slot class="trigger" name="trigger" @click=${this.onTriggerClick}></slot>
 
-      <div popover @toggle=${this.popoverToggle}>
+      <div role="dialog" popover @toggle=${this.popoverToggle}>
         ${header}
         <slot id="dialog-content"></slot>
       </div>
