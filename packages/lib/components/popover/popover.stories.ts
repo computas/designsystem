@@ -52,9 +52,9 @@ export const WithHeader: StoryObj = {
   `,
 };
 
-export const WithCloseBtn: StoryObj = {
+export const Autofocus: StoryObj = {
   render: () => html`
-<cx-popover header="Edit settings" withCloseBtn>
+<cx-popover autofocus>
   <button slot="trigger" class="cx-btn__secondary cx-btn__icon">
     <cx-icon name="edit"></cx-icon>
   </button>
@@ -70,18 +70,18 @@ export const WithCloseBtn: StoryObj = {
   `,
 };
 
-export const Autofocus: StoryObj = {
+export const CloseOnClick: StoryObj = {
   render: () => html`
-<cx-popover autofocus>
+<cx-popover>
   <button slot="trigger" class="cx-btn__secondary cx-btn__icon">
     <cx-icon name="edit"></cx-icon>
   </button>
 
   <p class="cx-mb-4">Would you like to save the changes?</p>
-  <button class="cx-btn__secondary cx-btn__sm cx-mr-2">
+  <button data-cx-popover-close class="cx-btn__secondary cx-btn__sm cx-mr-2">
     Cancel
   </button>
-  <button class="cx-btn__primary cx-btn__sm">
+  <button data-cx-popover-close class="cx-btn__primary cx-btn__sm">
     Save
   </button>
 </cx-popover>

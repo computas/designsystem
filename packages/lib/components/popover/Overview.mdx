@@ -43,11 +43,11 @@ slot by adding the attribute `slot="trigger"`. The remaining content inside the 
 Add a `header` attribute to the `cx-popover` to display a header.
 <Canvas of={stories.WithHeader} />
 
-## With close button
-Add the `withCloseBtn` attribute to display a close button in the popover.
-<Canvas of={stories.WithCloseBtn} />
-
 ## Autofocus
 By default, the popover does not move focus into the popover when it opens. To automatically move the focus into the popover when it opens, 
 simply add the `autofocus` attribute.
 <Canvas of={stories.Autofocus} />
+
+## Close popover on click
+If you want to close the popover from within the popover itself, add the attribute `[data-cx-popover-close]` to the element that should close the popover when clicked.
+<Canvas of={stories.CloseOnClick} />

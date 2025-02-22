@@ -6,7 +6,7 @@ import { SwipeAway } from '../../shared/swipeAway';
 
 @customElement('cx-popover')
 export class Popover extends LitElement {
-  private swipeEventsAbortSignal: AbortController | null = null;
+  private popoverAbortController: AbortController | null = null;
   private swiper = new SwipeAway(this);
 
   static styles = [
@@ -187,7 +187,7 @@ export class Popover extends LitElement {
 
   private popoverToggle(event: ToggleEvent) {
     if (event.newState === 'open') {
-      this.swipeEventsAbortSignal = new AbortController();
+      this.popoverAbortController = new AbortController();
       this.isOpen = true;
       this.dispatchEvent(new CustomEvent('open', { bubbles: true, composed: true }));
 
@@ -195,15 +195,16 @@ export class Popover extends LitElement {
         this.focusFirstElement();
       }
 
+      this.listenForCloseClicks();
       this.swiper.startSwipeAwayListener(
         this.popoverElement,
         () => {
           this.popoverElement.hidePopover();
         },
-        { signal: this.swipeEventsAbortSignal.signal },
+        { signal: this.popoverAbortController.signal },
       );
     } else {
-      this.swipeEventsAbortSignal?.abort();
+      this.popoverAbortController?.abort();
       (this.triggerWrapper.assignedElements()[0] as HTMLElement).focus();
       this.isOpen = false;
       this.dispatchEvent(new CustomEvent('close', { bubbles: true, composed: true }));
@@ -215,6 +216,17 @@ export class Popover extends LitElement {
     if (focusableElements.length) {
       (focusableElements.at(0) as HTMLElement).focus();
     }
+  }
+
+  private listenForCloseClicks() {
+    const closeTriggers = this.dialogContent
+      .assignedElements()
+      .filter((el) => el.matches('[data-cx-popover-close]'));
+    closeTriggers.forEach((element) => {
+      element.addEventListener('click', () => this.popoverElement.hidePopover(), {
+        signal: this.popoverAbortController?.signal,
+      });
+    });
   }
 
   render() {
