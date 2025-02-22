@@ -85,7 +85,7 @@ export class Popover extends LitElement {
           }
         }
 
-        @media (max-width: 360px) {
+        @media (pointer: coarse) {
           position: fixed;
           inset: auto 0 0 0;
           translate: 0px 100%;
@@ -106,6 +106,10 @@ export class Popover extends LitElement {
               translate: 0px 100%;
             }
           }
+
+          .drag-handle {
+            display: flex;
+          }
         }
 
         &.dragging {
@@ -125,10 +129,6 @@ export class Popover extends LitElement {
           width: var(--cx-spacing-10);
           border-radius: var(--cx-radius-pill);
           background: var(--cx-color-border-soft);
-        }
-
-        @media (max-width: 360px) {
-          display: flex;
         }
       }
 
@@ -163,16 +163,10 @@ export class Popover extends LitElement {
   header = '';
 
   @property({ type: Boolean, reflect: true })
-  withCloseBtn = false;
-
-  @property({ type: Boolean, reflect: true })
   autofocus = false;
 
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
-
-  @query('button')
-  private closeButton!: HTMLButtonElement;
 
   @query('#dialog-content')
   private dialogContent!: HTMLSlotElement;
@@ -216,13 +210,9 @@ export class Popover extends LitElement {
   }
 
   private focusFirstElement() {
-    if (this.withCloseBtn) {
-      this.closeButton.focus();
-    } else {
-      const focusableElements = getFocusableElements(this.dialogContent);
-      if (focusableElements.length) {
-        (focusableElements.at(0) as HTMLElement).focus();
-      }
+    const focusableElements = getFocusableElements(this.dialogContent);
+    if (focusableElements.length) {
+      (focusableElements.at(0) as HTMLElement).focus();
     }
   }
 
