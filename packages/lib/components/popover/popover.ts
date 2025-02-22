@@ -1,19 +1,15 @@
-import { LitElement, css, html, nothing, unsafeCSS } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
+import { LitElement, css, html, nothing } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 
-import { addIcons } from '../icon';
-import { close } from '../icon/iconRegistry';
-addIcons(close);
-
-import a11yStyles from '../../global-css/a11y.css?inline';
 import { getFocusableElements } from '../../shared/getFocusableElement';
-import buttonStyles from '../button/button.css?inline';
+import { SwipeAway } from '../../shared/swipeAway';
 
 @customElement('cx-popover')
 export class Popover extends LitElement {
+  private swipeEventsAbortSignal: AbortController | null = null;
+  private swiper = new SwipeAway(this);
+
   static styles = [
-    unsafeCSS(a11yStyles),
-    unsafeCSS(buttonStyles),
     css`
       .trigger {
         anchor-name: --trigger;
@@ -21,10 +17,6 @@ export class Popover extends LitElement {
       }
 
       header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--cx-spacing-2);
         margin-bottom: var(--cx-spacing-4);
       }
 
@@ -34,41 +26,44 @@ export class Popover extends LitElement {
         font-family: inherit;
         font-weight: 600;
         font-size: 1.125rem;
-        line-height: 1rem;
+        line-height: 1.6rem;
         color: var(--cx-color-text-primary);
-      }
-
-      button {
-        background: transparent;
-        border: none;
-      }
-
-      [hidden] {
-        visibility: hidden;
       }
 
       [popover] {
         --translate-curve: ease;
         --translate-duration: 200ms;
+        --bottom-transition-duration: 400ms;
         
         position-anchor: --trigger;
+        box-sizing: border-box;
         position: absolute;
         opacity: 0;
         translate: 0px 6px;
         inset: unset;
         margin: var(--cx-spacing-2) 0 0 0;
         position-area: bottom span-right;
-        position-try-fallbacks: --bottom-left, --top-right, --top-left, --center-right, --center-left;
+        position-try: --bottom-left, --top-right, --top-left, --center-right, --center-left;
         transition:
           display 200ms allow-discrete,
           overlay 200ms allow-discrete,
           opacity 200ms ease,
-          translate var(--translate-duration) var(--translate-curve);
+          translate var(--translate-duration) var(--translate-curve),
+          bottom var(--bottom-transition-duration) ease;
         background: var(--cx-color-background-primary);
         border: 1px solid var(--cx-color-border-primary);
         border-radius: var(--cx-radius-medium);
         max-height: 500px;
         padding: var(--cx-spacing-6) var(--cx-spacing-8);
+
+        &::backdrop {
+          opacity: 0;
+
+          transition:
+            display 300ms allow-discrete,
+            overlay 300ms allow-discrete,
+            opacity 300ms ease;
+        }
 
         &:popover-open {
           --translate-curve: var(--ease-spring-3);
@@ -76,10 +71,64 @@ export class Popover extends LitElement {
           opacity: 1;
           translate: 0px;
 
+          &::backdrop {
+            opacity: 1;
+          }
+
           @starting-style {
             opacity: 0;
             translate: 0px -6px;
+
+            &::backdrop {
+              opacity: 0;
+            }
           }
+        }
+
+        @media (max-width: 360px) {
+          position: fixed;
+          inset: auto 0 0 0;
+          translate: 0px 100%;
+          position-anchor: unset;
+          margin: 0;
+          width: 100vw;
+          border-radius: var(--cx-radius-medium) var(--cx-radius-medium) 0 0;
+
+          &::backdrop {
+            background-color: var(--cx-color-background-backdrop);
+          }
+
+          &:popover-open {
+            --translate-curve: var(--ease-out-5);
+
+            @starting-style {
+              opacity: 0.5;
+              translate: 0px 100%;
+            }
+          }
+        }
+
+        &.dragging {
+					--bottom-transition-duration: 0ms;
+				}
+      }
+
+
+      .drag-handle {
+        display: none;
+        justify-content: center;
+        padding-block: 16px;
+        margin-top: -16px;
+        
+        .pill {
+          height: var(--cx-spacing-1);
+          width: var(--cx-spacing-10);
+          border-radius: var(--cx-radius-pill);
+          background: var(--cx-color-border-soft);
+        }
+
+        @media (max-width: 360px) {
+          display: flex;
         }
       }
 
@@ -143,13 +192,23 @@ export class Popover extends LitElement {
 
   private popoverToggle(event: ToggleEvent) {
     if (event.newState === 'open') {
+      this.swipeEventsAbortSignal = new AbortController();
       this.isOpen = true;
       this.dispatchEvent(new CustomEvent('open', { bubbles: true, composed: true }));
 
       if (this.autofocus) {
         this.focusFirstElement();
       }
+
+      this.swiper.startSwipeAwayListener(
+        this.popoverElement,
+        () => {
+          this.popoverElement.hidePopover();
+        },
+        { signal: this.swipeEventsAbortSignal.signal },
+      );
     } else {
+      this.swipeEventsAbortSignal?.abort();
       (this.triggerWrapper.assignedElements()[0] as HTMLElement).focus();
       this.isOpen = false;
       this.dispatchEvent(new CustomEvent('close', { bubbles: true, composed: true }));
@@ -168,16 +227,10 @@ export class Popover extends LitElement {
   }
 
   render() {
-    const closeBtn = html`
-      <button aria-label="Close" ?hidden=${!this.withCloseBtn} class="cx-btn__tertiary cx-btn__icon" @click=${() => this.popoverElement.hidePopover()}>
-        <cx-icon name="close"></cx-icon>
-      </button>`;
-
     const header = this.header
       ? html`
       <header>
         <h1>${this.header}</h1>
-        ${closeBtn}
       </header>`
       : nothing;
 
@@ -185,6 +238,10 @@ export class Popover extends LitElement {
       <slot class="trigger" name="trigger" @click=${this.onTriggerClick}></slot>
 
       <div role="dialog" popover @toggle=${this.popoverToggle}>
+        <div class="drag-handle" data-drag-handle>
+          <div class="pill"></div>
+        </div>
+
         ${header}
         <slot id="dialog-content"></slot>
       </div>
