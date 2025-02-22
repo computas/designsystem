@@ -4,11 +4,11 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import a11yStyles from '../../global-css/a11y.css?inline';
 import animationStyles from '../../global-css/animations.css?inline';
+import { BreakpointObserver } from '../../shared/breakpointObserver';
 import buttonStyles from '../button/button.css?inline';
 import { addIcons } from '../icon';
-import { type IconName, checkCircle, errorCircle, infoCircle, warning, close } from '../icon/iconRegistry';
+import { type IconName, checkCircle, close, errorCircle, infoCircle, warning } from '../icon/iconRegistry';
 import type { ToastWithId } from './types';
-import { BreakpointObserver } from '../../shared/breakpointObserver';
 
 addIcons(errorCircle, infoCircle, warning, checkCircle, close);
 
