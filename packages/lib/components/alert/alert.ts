@@ -16,7 +16,8 @@ export class Alert extends LitElement {
 			background-color: var(--cx-color-background-accent-5-soft);
 			border: 1px solid var(--cx-color-signal-info);
 			display: flex;
-			align-items: center;
+      flex-direction: row;
+			align-items: flex-start;
 			gap: var(--cx-spacing-6);
 
 			color: var(--cx-color-text-primary);
@@ -44,6 +45,7 @@ export class Alert extends LitElement {
 		.cx-alert__content {
 			display: flex;
 			flex-direction: column;
+      gap: 0;
 		}
 
 		.cx-alert__header {
@@ -99,7 +101,6 @@ export class Alert extends LitElement {
           ${header}
 					<slot class="cx-alert__body"></slot>
 				</div>
-        <slot name="close-btn"></slot>
 			</div>
 		`;
   }
