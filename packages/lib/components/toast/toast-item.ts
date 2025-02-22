@@ -109,7 +109,7 @@ export class ToastItem extends LitElement {
 
     return html`
       <output
-        role="status"
+        role="alert"
         class=${classMap({
           'fade-out': this.startFadeOutAnimation,
           success: this.toastConfig.severity === 'success',
