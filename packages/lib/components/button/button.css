@@ -17,6 +17,8 @@
   min-width: 6rem;
   height: fit-content;
   border-radius: var(--cx-radius-pill);
+  background: transparent;
+  border: none;
   transition:
     scale 20ms ease,
     color 300ms ease,
