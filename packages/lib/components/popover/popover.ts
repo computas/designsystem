@@ -88,6 +88,7 @@ export class Popover extends LitElement {
         @media (pointer: coarse) {
           position: fixed;
           inset: auto 0 0 0;
+          border-bottom-width: 0px;
           translate: 0px 100%;
           position-anchor: unset;
           margin: 0;
