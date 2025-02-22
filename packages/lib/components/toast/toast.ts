@@ -12,25 +12,35 @@ export class Toast extends LitElement {
   private abortController = new AbortController();
 
   static styles = css`
-      .toast-list-container {
-        position: fixed;
-        inset: var(--cx-spacing-4) var(--cx-spacing-4) auto auto;
+    .toast-list-container {
+      position: fixed;
+      display: grid;
+      justify-items: flex-end;
+      inset: 0 0 auto auto;
 
-        margin: 0;
-        border: none;
-        background: transparent;
-        padding: 0;
-        overflow: unset;
-      }
+      margin: var(--cx-spacing-4);
+      border: none;
+      background: transparent;
+      padding: 0;
+      overflow: unset;
 
-      cx-toast-item {
-        position: absolute;
-        right: 0;
-        width: max-content;
-        transform-origin: right bottom;
-        transition: scale 200ms ease, top 200ms ease;
+      @media only screen and (max-width: 360px) {
+        inset: auto auto 88px auto;
+        margin-inline: 40px;
+
+        cx-toast-item {
+          transform-origin: center bottom;
+        }
       }
-	  `;
+    }
+
+    cx-toast-item {
+      grid-area: 1 / 1; 
+      position: relative;
+      transform-origin: right bottom;
+      transition: scale 200ms ease, top 200ms ease;
+    }
+  `;
 
   @state()
   toastQueue: ToastWithId[] = [];
