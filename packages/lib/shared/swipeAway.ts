@@ -2,7 +2,7 @@ import type { ReactiveController, ReactiveControllerHost } from 'lit';
 
 type SwipeState = {
   yPos: number;
-  time: Date;
+  time: number;
 };
 
 type Options = {
@@ -44,38 +44,32 @@ export class SwipeAway implements ReactiveController {
       ? AbortSignal.any([opts.signal, this.abortController.signal])
       : this.abortController.signal;
 
+    /** Use either the element with the attribute [data-drag-handle], or the element itself */
     const dragHandle = el.querySelector<HTMLElement>('[data-drag-handle]') ?? el;
-    dragHandle.addEventListener('mousemove', (event) => this.onMouseMove(event), { signal: abortSignal });
     dragHandle.addEventListener('touchmove', (event) => this.onMouseMove(event), { signal: abortSignal });
-    dragHandle.addEventListener('mouseup', () => this.onMouseUp(), { signal: abortSignal });
     dragHandle.addEventListener('touchend', () => this.onMouseUp(), { signal: abortSignal });
   }
 
-  private onMouseMove(event: MouseEvent | TouchEvent) {
-    console.log('Here');
-    if ((event as MouseEvent).buttons === 1 || (event as TouchEvent).type === 'touchmove') {
-      event.preventDefault();
+  private onMouseMove(event: TouchEvent) {
+    /** Prevent default, to prevent swipe event to result in scrolling the background */
+    event.preventDefault();
 
-      const time = new Date();
-      const y = (event as MouseEvent).screenY || (event as TouchEvent).touches[0].screenY;
-      this.velocity =
-        this.prevEvent !== null
-          ? (y - this.prevEvent.yPos) / (this.prevEvent.time.getTime() - time.getTime())
-          : 0;
+    const time = Date.now();
+    const y = event.touches[0].screenY;
+    this.velocity = this.prevEvent !== null ? (y - this.prevEvent.yPos) / (this.prevEvent.time - time) : 0;
 
-      if (this.startYPos === null) {
-        this.startYPos = y;
-        this.draggedElement?.classList.add('dragging');
-      }
+    if (this.startYPos === null) {
+      this.startYPos = y;
+      this.draggedElement?.classList.add('dragging');
+    }
 
-      this.prevEvent = {
-        yPos: y,
-        time: time,
-      };
+    this.prevEvent = {
+      yPos: y,
+      time: time,
+    };
 
-      if (this.draggedElement) {
-        this.draggedElement.style.bottom = `${Math.min(0, this.startYPos - y)}px`;
-      }
+    if (this.draggedElement) {
+      this.draggedElement.style.bottom = `${Math.min(0, this.startYPos - y)}px`;
     }
   }
 
@@ -87,7 +81,6 @@ export class SwipeAway implements ReactiveController {
       this.draggedElement.style.bottom = '0px';
     }
 
-    console.log(this.velocity);
     if (this.velocity < -0.1) {
       this.abortController?.abort();
       this.callbackFn?.();
