@@ -51,3 +51,6 @@ simply add the `autofocus` attribute.
 ## Close popover on click
 If you want to close the popover from within the popover itself, add the attribute `[data-cx-popover-close]` to the element that should close the popover when clicked.
 <Canvas of={stories.CloseOnClick} />
+
+## Events
+The popover emits an event `open` (`onOpen` in React) when opened, and `close` (`onClose` in React) when closed.
