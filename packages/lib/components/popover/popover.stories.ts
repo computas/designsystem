@@ -40,14 +40,14 @@ export const WithHeader: StoryObj = {
       <input type="email">
     </div>
   </label>
-  <div>
+  <footer>
     <button class="cx-btn__secondary cx-btn__sm cx-mr-2">
       Cancel
     </button>
     <button class="cx-btn__primary cx-btn__sm">
       Save
     </button>
-  </div>
+  </footer>
 </cx-popover>
   `,
 };
@@ -60,12 +60,14 @@ export const Autofocus: StoryObj = {
   </button>
 
   <p class="cx-mb-4">Would you like to save the changes?</p>
-  <button class="cx-btn__secondary cx-btn__sm cx-mr-2">
-    Cancel
-  </button>
-  <button class="cx-btn__primary cx-btn__sm">
-    Save
-  </button>
+  <footer>
+    <button class="cx-btn__secondary cx-btn__sm cx-mr-2">
+      Cancel
+    </button>
+    <button class="cx-btn__primary cx-btn__sm">
+      Save
+    </button>
+  </footer>
 </cx-popover>
   `,
 };
@@ -78,12 +80,14 @@ export const CloseOnClick: StoryObj = {
   </button>
 
   <p class="cx-mb-4">Would you like to save the changes?</p>
-  <button data-cx-popover-close class="cx-btn__secondary cx-btn__sm cx-mr-2">
-    Cancel
-  </button>
-  <button data-cx-popover-close class="cx-btn__primary cx-btn__sm">
-    Save
-  </button>
+  <footer>
+    <button data-cx-popover-close class="cx-btn__secondary cx-btn__sm cx-mr-2">
+      Cancel
+    </button>
+    <button data-cx-popover-close class="cx-btn__primary cx-btn__sm">
+      Save
+    </button>
+  </footer>
 </cx-popover>
   `,
 };

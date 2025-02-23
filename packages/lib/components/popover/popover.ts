@@ -33,7 +33,7 @@ export class Popover extends LitElement {
       [popover] {
         --translate-curve: ease;
         --translate-duration: 200ms;
-        --bottom-transition-duration: 400ms;
+        --bottom-transition-duration: 200ms;
         
         position-anchor: --trigger;
         box-sizing: border-box;
@@ -192,7 +192,7 @@ export class Popover extends LitElement {
       this.dispatchEvent(new CustomEvent('open', { bubbles: true, composed: true }));
 
       if (this.autofocus) {
-        this.focusFirstElement();
+        this.focusFirstElementInPopover();
       }
 
       this.listenForCloseClicks();
@@ -211,7 +211,7 @@ export class Popover extends LitElement {
     }
   }
 
-  private focusFirstElement() {
+  private focusFirstElementInPopover() {
     const focusableElements = getFocusableElements(this.dialogContent);
     if (focusableElements.length) {
       (focusableElements.at(0) as HTMLElement).focus();
@@ -220,13 +220,18 @@ export class Popover extends LitElement {
 
   private listenForCloseClicks() {
     const closeTriggers = this.dialogContent
-      .assignedElements()
-      .filter((el) => el.matches('[data-cx-popover-close]'));
+      .assignedElements({ flatten: true })
+      .flatMap((child) => Array.from(child.querySelectorAll('[data-cx-popover-close]')));
+
     closeTriggers.forEach((element) => {
       element.addEventListener('click', () => this.popoverElement.hidePopover(), {
         signal: this.popoverAbortController?.signal,
       });
     });
+  }
+
+  private onTouchMove(event: TouchEvent) {
+    event.preventDefault();
   }
 
   render() {
@@ -240,7 +245,7 @@ export class Popover extends LitElement {
     return html`
       <slot class="trigger" name="trigger" @click=${this.onTriggerClick}></slot>
 
-      <div role="dialog" popover @toggle=${this.popoverToggle}>
+      <div role="dialog" popover @toggle=${this.popoverToggle} @touchmove=${this.onTouchMove}>
         <div class="drag-handle" data-drag-handle>
           <div class="pill"></div>
         </div>
