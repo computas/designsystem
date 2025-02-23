@@ -7,4 +7,8 @@ export const CxPopover = createComponent({
   tagName: 'cx-popover',
   elementClass: Popover,
   react: React,
+  events: {
+    onOpen: 'open',
+    onClose: 'close',
+  },
 });
