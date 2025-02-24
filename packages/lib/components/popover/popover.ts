@@ -94,6 +94,7 @@ export class Popover extends LitElement {
           margin: 0;
           width: 100vw;
           border-radius: var(--cx-radius-medium) var(--cx-radius-medium) 0 0;
+          min-height: 200px;
 
           &::backdrop {
             background-color: var(--cx-color-background-backdrop);
@@ -117,7 +118,6 @@ export class Popover extends LitElement {
 					--bottom-transition-duration: 0ms;
 				}
       }
-
 
       .drag-handle {
         display: none;
