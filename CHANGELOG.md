@@ -1,8 +1,13 @@
-# 0.0.8 - 19.12.2024
+# 0.0.9 - xx.01.2025
+
+- Lagt til select-komponent
+
+# 0.0.8 - 13.01.2025
 
 - Lagt til checkbox-komponent
 - Lagt til alert-komponent
 - Støtte for ikoner i knapper
+- Lagt til lenker
 
 # 0.0.7 - 19.12.2024
 

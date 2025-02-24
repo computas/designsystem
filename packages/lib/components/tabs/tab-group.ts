@@ -4,6 +4,7 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import { provide } from '@lit/context';
 import a11yStyles from '../../global-css/a11y.css?inline';
+import animationStyles from '../../global-css/animations.css?inline';
 import type { Tab } from './tab';
 import { activeIndexContext } from './tab-context';
 import tabStyles from './tab.css?inline';
@@ -13,6 +14,7 @@ export class TabGroup extends LitElement {
   static styles = [
     unsafeCSS(tabStyles),
     unsafeCSS(a11yStyles),
+    unsafeCSS(animationStyles),
     css`
       :host {
         display: flex;

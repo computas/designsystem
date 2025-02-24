@@ -19,5 +19,5 @@ esbuild.build({
    * We do not want to bundle the web component into the react entry point,
    * so we exclude all imports of "./index" from the bundle.
    */
-  external: [...Object.keys(dependencies), ...Object.keys(peerDependencies), './index*'],
+  external: [...Object.keys(dependencies), ...Object.keys(peerDependencies), './index*', '../icon*'],
 });

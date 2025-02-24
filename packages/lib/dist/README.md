@@ -27,22 +27,22 @@ Import the components that you need for your application.
 
 ```ts
 // React
-import { CxDropdown } from "@computas/designsystem/dropdown/react";
+import { CxSelect } from "@computas/designsystem/select/react";
 ```
 
 ```ts
 // Web Component (Angular, Vue etc.)
-import "@computas/designsystem/dropdown";
+import "@computas/designsystem/select";
 ```
 
 Finally, use your component in your template.
 
 ```tsx
 // React
-<CxDropdown>...</CxDropdown>
+<CxSelect>...</CxSelect>
 ```
 
 ```html
 <!-- Web Component (Angular, Vue etc.) -->
-<cx-dropdown> ... </cx-dropdown>
+<cx-select> ... </cx-select>
 ```
