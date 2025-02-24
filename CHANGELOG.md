@@ -1,6 +1,7 @@
 # 0.0.9 - xx.01.2025
 
 - Lagt til select-komponent
+- Lagt til typografi
 
 # 0.0.8 - 13.01.2025
 

@@ -21,7 +21,6 @@ export class Alert extends LitElement {
 			gap: var(--cx-spacing-6);
 
 			color: var(--cx-color-text-primary);
-			font-family: 'Open Sans', Arial, sans-serif;
 
 			@media only screen and (max-width: 360px) {
 				flex-direction: column;
