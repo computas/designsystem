@@ -1,6 +1,7 @@
 # 0.0.9 - xx.01.2025
 
 - Lagt til select-komponent
+- Lagt til typografi
 - Lagt til toast-komponent
 - Endret verdien på propen "prioritet" på alert-komponenten fra 'Info' | 'Danger' | 'Warning' | 'Success' til 'info' | 'danger' | 'warning' | 'success'
 - Fjernet default header verdi på alert-komponenten.
