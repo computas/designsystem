@@ -83,7 +83,8 @@
   time,
   mark,
   audio,
-  video {
+  video,
+  [popover] {
     margin: 0;
     padding: 0;
     border: 0;
@@ -137,6 +138,7 @@
     border: none;
     color: inherit;
     -webkit-tap-highlight-color: transparent;
+    font-family: inherit;
   }
 
   button::-moz-focus-inner {

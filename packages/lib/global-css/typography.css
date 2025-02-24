@@ -11,74 +11,144 @@ button {
   font-family: inherit;
 }
 
-.cx-headline-jumbo,
-.cx-headline-1,
-.cx-headline-2,
-.cx-headline-3,
-.cx-headline-4,
-.cx-headline-5 {
+.cx-title-1,
+.cx-title-2,
+.cx-title-3,
+.cx-title-4,
+.cx-title-5 {
   text-wrap: balance;
 }
 
-.cx-headline-jumbo {
-  font-size: 4.375rem;
-  font-weight: 700;
-  font-style: normal;
-  line-height: normal;
-}
-
-.cx-headline-1 {
-  font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 1.33;
-}
-
-.cx-headline-2 {
-  font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.cx-headline-3 {
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.625;
-}
-
-.cx-headline-4 {
+.cx-title-1 {
   font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.625;
+  font-size: 2.75rem;
+  line-height: 1.6;
 }
 
-.cx-headline-5 {
-  font-weight: 700;
+.cx-title-2 {
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 1.6;
+}
+
+.cx-title-3 {
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.6;
+}
+
+.cx-title-4 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.cx-title-5 {
+  font-weight: 600;
   font-size: 0.875rem;
-  line-height: 1.7;
+  line-height: 1.125;
 }
 
-:is(p, div, span):where(.cx-body-1, .cx-body-2, .cx-body-3) {
+:is(p, div, span):where(.cx-text-1, .cx-text-2, .cx-text-3, .cx-text-4, .cx-text-micro) {
   max-width: 65ch;
   text-wrap: pretty;
   word-break: auto-phrase;
 }
 
-.cx-body-1 {
+.cx-text-1 {
   font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.5rem;
+  line-height: 1.6;
 }
 
-.cx-body-2 {
+.cx-text-2 {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.cx-text-2-strong {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.cx-text-2-light {
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.cx-text-3 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cx-text-3-strong {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cx-text-3-light {
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cx-text-4 {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.6;
 }
 
-.cx-body-3 {
+.cx-text-4-strong {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.cx-text-4-light {
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.cx-text-jumbo {
+  font-weight: 900;
+  font-size: 3.75rem;
+  line-height: 1.6;
+}
+
+.cx-text-micro {
   font-weight: 400;
   font-size: 0.75rem;
-  line-height: 1.8;
+  line-height: 1.6;
+}
+
+.cx-text-micro-strong {
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.cx-text-clickable-1 {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+.cx-text-clickable-2 {
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.cx-text-clickable-3 {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1;
 }
 
 .cx-overflow-ellipsis {
