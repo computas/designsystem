@@ -20,35 +20,30 @@ button {
 }
 
 .cx-title-1 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 400;
   font-size: 2.75rem;
   line-height: 1.6;
 }
 
 .cx-title-2 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 2.25rem;
   line-height: 1.6;
 }
 
 .cx-title-3 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 1.75rem;
   line-height: 1.6;
 }
 
 .cx-title-4 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 1.6;
 }
 
 .cx-title-5 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.125;
@@ -61,112 +56,96 @@ button {
 }
 
 .cx-text-1 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.6;
 }
 
 .cx-text-2 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 400;
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .cx-text-2-strong {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .cx-text-2-light {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
 .cx-text-3 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.6;
 }
 
 .cx-text-3-strong {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.6;
 }
 
 .cx-text-3-light {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.6;
 }
 
 .cx-text-4 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.6;
 }
 
 .cx-text-4-strong {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.6;
 }
 
 .cx-text-4-light {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 300;
   font-size: 0.875rem;
   line-height: 1.6;
 }
 
 .cx-text-jumbo {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 900;
   font-size: 3.75rem;
   line-height: 1.6;
 }
 
 .cx-text-micro {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 400;
   font-size: 0.75rem;
   line-height: 1.6;
 }
 
 .cx-text-micro-strong {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 600;
   font-size: 0.75rem;
   line-height: 1.6;
 }
 
 .cx-text-clickable-1 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 500;
   font-size: 1.125rem;
   line-height: 1;
 }
 
 .cx-text-clickable-2 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1;
 }
 
 .cx-text-clickable-3 {
-  font-family: "Open Sans", Arial, sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1;
