@@ -9,7 +9,6 @@ label.cx-form-field :is(input, textarea) {
   min-width: 0;
   text-overflow: ellipsis;
   color: var(--cx-color-text-primary);
-  font-family: "Open Sans", Arial, sans-serif;
 
   &::placeholder {
     color: var(--cx-color-text-less-important);

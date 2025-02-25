@@ -25,8 +25,9 @@ export const addIcons = (...icons: SVGIcon[]) => {
 export const getIcon = (name: IconName | null): SVGIcon | undefined => {
   // Need to check `name` because it can be `undefined` on initial render depending on property vs attribute
   if (name && !_cxGlobalIconsStore[name]) {
-    throw new Error(
-      `Icon "${name}" not found. Ensure the icon name is correct and that it has been added to the global icon store using \`addIcons\`.`,
+    console.error(
+      `The icon "${name}" was not found. Ensure that the icon name is correct and that it has been added to the global icon store by calling the \`addIcons\` function.
+Check out the documentation for further details: https://designsystem.computas.com/?path=/docs/components-icon--overview, or ask for support in the Slack channel #designsystemet.`,
     );
   }
   return _cxGlobalIconsStore[name ?? ''];
