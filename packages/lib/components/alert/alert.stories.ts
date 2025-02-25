@@ -9,25 +9,25 @@ export default {
 
 export const AlertInfo: StoryObj = {
   render: () =>
-    html` <cx-alert header=${'Info alert'}>
+    html` <cx-alert header="Info alert">
 	Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis. Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis.
 </cx-alert>`,
 };
 export const AlertDanger: StoryObj = {
   render: () =>
-    html` <cx-alert header=${'Danger alert'} priority=${'Danger'}>
+    html` <cx-alert header="Danger alert" priority="danger">
 	Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis. Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis.
 </cx-alert>`,
 };
 export const AlertWarning: StoryObj = {
   render: () =>
-    html` <cx-alert header=${'Warning alert'} priority=${'Warning'}>
+    html` <cx-alert header="Warning alert" priority="warning">
 	Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis. Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis.
 </cx-alert>`,
 };
 export const AlertSuccess: StoryObj = {
   render: () =>
-    html` <cx-alert header=${'Success alert'} priority=${'Success'}>
+    html` <cx-alert header="Success alert" priority="success">
 	Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis. Lorem ipsum dolor sit amet consectetur. Justo orci pellentesque magna quis.
 </cx-alert>`,
 };

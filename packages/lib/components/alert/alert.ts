@@ -1,4 +1,4 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { addIcons } from '../icon';
@@ -6,7 +6,7 @@ import { type IconName, checkCircle, errorCircle, infoCircle, warning } from '..
 
 addIcons(errorCircle, infoCircle, warning, checkCircle);
 
-type AlertPriorityType = 'Info' | 'Danger' | 'Warning' | 'Success';
+type AlertPriorityType = 'info' | 'danger' | 'warning' | 'success';
 @customElement('cx-alert')
 export class Alert extends LitElement {
   static styles = css`
@@ -16,7 +16,7 @@ export class Alert extends LitElement {
 			background-color: var(--cx-color-background-accent-5-soft);
 			border: 1px solid var(--cx-color-signal-info);
 			display: flex;
-			flex-direction: row;
+      flex-direction: row;
 			align-items: flex-start;
 			gap: var(--cx-spacing-6);
 
@@ -44,13 +44,15 @@ export class Alert extends LitElement {
 		.cx-alert__content {
 			display: flex;
 			flex-direction: column;
-			gap: 0;
+      gap: 0;
 		}
+
 		.cx-alert__header {
 			font-weight: 600;
 			font-size: 1.125rem;
 			line-height: 1.6;
 		}
+    
 		.cx-alert__body {
 			font-weight: 400;
 			font-size: 1rem;
@@ -58,40 +60,44 @@ export class Alert extends LitElement {
 		}
 	`;
 
-  @property({ type: String, reflect: true }) header = 'Tab title';
+  @property({ type: String, reflect: true })
+  header = '';
 
-  @property({ type: String, reflect: true }) priority: AlertPriorityType = 'Info';
+  @property({ type: String, reflect: true })
+  priority: AlertPriorityType = 'info';
 
   render() {
     let priorityIcon: IconName = 'info-circle';
     switch (this.priority) {
-      case 'Danger':
+      case 'danger':
         priorityIcon = 'error-circle';
         break;
-      case 'Warning':
+      case 'warning':
         priorityIcon = 'warning';
         break;
-      case 'Success':
+      case 'success':
         priorityIcon = 'check-circle';
         break;
       default:
         priorityIcon = 'info-circle';
         break;
     }
+
+    const header = this.header ? html`<div class="cx-alert__header">${this.header}</div>` : nothing;
     return html`
 			<div
 				role="alert"
 				class=${classMap({
           'cx-alert': true,
-          'cx-alert--info': this.priority === 'Info',
-          'cx-alert--danger': this.priority === 'Danger',
-          'cx-alert--warning': this.priority === 'Warning',
-          'cx-alert--success': this.priority === 'Success',
+          'cx-alert--info': this.priority === 'info',
+          'cx-alert--danger': this.priority === 'danger',
+          'cx-alert--warning': this.priority === 'warning',
+          'cx-alert--success': this.priority === 'success',
         })}
 			>
 				<cx-icon name=${priorityIcon} size="8"></cx-icon>
 				<div class="cx-alert__content">
-					<div class="cx-alert__header">${this.header}</div>
+          ${header}
 					<slot class="cx-alert__body"></slot>
 				</div>
 			</div>
