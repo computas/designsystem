@@ -1,8 +1,8 @@
 import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 
-import { getFocusableElements } from '../../shared/getFocusableElement';
-import { SwipeAway } from '../../shared/swipeAway';
+import { getFocusableElements } from '../shared/getFocusableElement';
+import { SwipeAway } from '../shared/swipeAway';
 
 @customElement('cx-popover')
 export class Popover extends LitElement {
