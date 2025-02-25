@@ -23,8 +23,7 @@
     "esbuild-plugin-lit": "^0.1.1",
     "svg-to-ts": "^12.0.0",
     "tsup": "^8.3.6",
-    "vite": "^6.1.1",
-    "vite-plugin-dts": "^4.5.0"
+    "vite": "^6.1.1"
   },
   "svg-to-ts": {
     "srcFiles": ["components/icon/svg/*.svg"],
