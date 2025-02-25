@@ -115,8 +115,8 @@ export class Popover extends LitElement {
         }
 
         &.dragging {
-					--bottom-transition-duration: 0ms;
-				}
+          --bottom-transition-duration: 0ms;
+        }
       }
 
       .drag-handle {
