@@ -11,22 +11,6 @@ import * as stories from './tooltip.stories';
   element, such as a description of its function.
 </Subtitle>
 
-## Browser support
-
-The popover component uses the new [Anchor Position API](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning/Using)
-to position the popover relative to the trigger. This API is not supported in Safari and Firefox as of 22th February 2025. If you want to support
-all major browsers, please include the official anchor position API polyfill in the `<head>` of your document:
-
-```html
-<script type="module">
-  if (!('anchorName' in document.documentElement.style)) {
-    import('https://unpkg.com/@oddbird/css-anchor-positioning');
-  }
-</script>
-```
-
-Read more about this polyfill [here](https://github.com/oddbird/css-anchor-positioning).
-
 ## How to use
 
 Start by importing the component.
@@ -46,3 +30,19 @@ Then, make sure to assign the "slot" prop of the trigger element to "trigger".
 Check the code below to see an example.
 
 <Canvas of={stories.Default} />
+
+## Browser support
+
+The popover component uses the new [Anchor Position API](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning/Using)
+to position the popover relative to the trigger. This API is not supported in Safari and Firefox as of 22th February 2025. If you want to support
+all major browsers, please include the official anchor position API polyfill in the `<head>` of your document:
+
+```html
+<script type="module">
+  if (!('anchorName' in document.documentElement.style)) {
+    import('https://unpkg.com/@oddbird/css-anchor-positioning');
+  }
+</script>
+```
+
+Read more about this polyfill [here](https://github.com/oddbird/css-anchor-positioning).
