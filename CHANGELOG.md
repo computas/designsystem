@@ -1,3 +1,7 @@
+# 0.0.10 - 27.02.2025
+
+- Nye ikoner lagt til
+
 # 0.0.9 - 25.02.2025
 
 - Lagt til select-komponent
