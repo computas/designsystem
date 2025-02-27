@@ -61,9 +61,6 @@ export class Tooltip extends LitElement {
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
 
-  @query('slot[name="trigger"]')
-  private triggerWrapper!: HTMLSlotElement;
-
   private isTouchDevice() {
     return navigator.maxTouchPoints > 0;
   }
