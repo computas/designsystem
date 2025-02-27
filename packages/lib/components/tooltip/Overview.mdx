@@ -1,0 +1,32 @@
+import { Canvas, Meta, Subtitle, Title } from '@storybook/blocks';
+
+import * as stories from './tooltip.stories';
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>
+  Tooltips display informative text when users hover over, focus on, or tap an
+  element. <br /> When activated, Tooltips display a text identifying an
+  element, such as a description of its function.
+</Subtitle>
+
+## How to get started
+
+Start by importing the component.
+
+```ts
+// Web component
+import '@computas/designsystem/tooltip';
+
+// React
+import { CxTooltip } from '@computas/designsystem/tooltip/react';
+```
+
+To display a tooltip in your app, wrap whatever you want to function as your trigger for the tooltip, as well as the tooltip content,
+within the tooltip element.
+Then, make sure to assign the "slot" prop of the trigger element to "trigger".
+
+Check the code below to see an example.
+
+<Canvas of={stories.Default} />
