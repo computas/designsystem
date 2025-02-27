@@ -27,6 +27,8 @@ To display a tooltip in your app, wrap whatever you want to function as your tri
 within the tooltip element.
 Then, make sure to assign the "slot" prop of the trigger element to "trigger".
 
+Also, make sure to add the 'aria-describedby' prop to the trigger and link it to the ID of your tooltip content to be compliant with WCAG recommendations for tooltips.
+
 Check the code below to see an example.
 
 <Canvas of={stories.Default} />

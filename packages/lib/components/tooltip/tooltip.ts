@@ -61,6 +61,9 @@ export class Tooltip extends LitElement {
   @query('[popover]')
   private popoverElement!: HTMLDivElement;
 
+  @query('slot[name="trigger"]')
+  private triggerWrapper!: HTMLSlotElement;
+
   private isTouchDevice() {
     return navigator.maxTouchPoints > 0;
   }
@@ -69,12 +72,15 @@ export class Tooltip extends LitElement {
     if (this.isTouchDevice()) {
       return;
     }
+
+    this.popoverElement.removeAttribute('inert');
     this.popoverElement.showPopover();
   }
   private hideTooltip() {
     if (this.isTouchDevice()) {
       return;
     }
+    this.popoverElement.setAttribute('inert', '');
     this.popoverElement.hidePopover();
   }
 
@@ -83,14 +89,13 @@ export class Tooltip extends LitElement {
       <slot
         class="trigger"
         name="trigger"
-        aria-describedby="tooltip-content"
         @mouseenter=${this.showTooltip}
         @focusin=${this.showTooltip}
         @focusout=${this.hideTooltip}
         @mouseleave=${this.hideTooltip}
       ></slot>
 
-      <div role="tooltip" id="tooltip-content" popover>
+      <div role="tooltip" id="tooltip-content" popover aria-live="polite">
         <slot></slot>
       </div>
     `;

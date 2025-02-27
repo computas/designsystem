@@ -10,9 +10,15 @@ export default {
 export const Default: StoryObj = {
   render: () => html`
     <cx-tooltip>
-      <button slot="trigger" class="cx-btn__primary">Hover me</button>
+      <button
+        aria-describedby="tooltip-content"
+        slot="trigger"
+        class="cx-btn__primary"
+      >
+        Hover or focus me
+      </button>
 
-      <p>This is a tooltip!</p>
+      <p id="tooltip-content">This is a tooltip!</p>
     </cx-tooltip>
   `,
 };
