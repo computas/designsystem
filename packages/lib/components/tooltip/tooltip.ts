@@ -70,14 +70,12 @@ export class Tooltip extends LitElement {
       return;
     }
 
-    this.popoverElement.removeAttribute('inert');
     this.popoverElement.showPopover();
   }
   private hideTooltip() {
     if (this.isTouchDevice()) {
       return;
     }
-    this.popoverElement.setAttribute('inert', '');
     this.popoverElement.hidePopover();
   }
 
