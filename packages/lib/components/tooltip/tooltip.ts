@@ -90,7 +90,7 @@ export class Tooltip extends LitElement {
         @mouseleave=${this.hideTooltip}
       ></slot>
 
-      <div role="tooltip" id="tooltip-content" popover aria-live="polite">
+      <div role="tooltip" popover>
         <slot></slot>
       </div>
     `;
