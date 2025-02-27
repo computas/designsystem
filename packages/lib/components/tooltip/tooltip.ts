@@ -83,13 +83,14 @@ export class Tooltip extends LitElement {
       <slot
         class="trigger"
         name="trigger"
+        aria-describedby="tooltip-content"
         @mouseenter=${this.showTooltip}
         @focusin=${this.showTooltip}
         @focusout=${this.hideTooltip}
         @mouseleave=${this.hideTooltip}
       ></slot>
 
-      <div role="tooltip" popover>
+      <div role="tooltip" id="tooltip-content" popover>
         <slot></slot>
       </div>
     `;
