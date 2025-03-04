@@ -1,3 +1,7 @@
+# 0.0.10 - 04.03.2025
+
+- Lagt til tooltip-komponent
+
 # 0.0.9 - 25.02.2025
 
 - Lagt til select-komponent
