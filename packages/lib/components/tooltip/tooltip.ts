@@ -33,6 +33,7 @@ export class Tooltip extends LitElement {
         line-height: 1.6;
 
         &:popover-open {
+          transition-delay: 250ms;
           opacity: 1;
 
           @starting-style {
