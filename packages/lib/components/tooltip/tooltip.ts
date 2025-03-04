@@ -12,11 +12,13 @@ export class Tooltip extends LitElement {
 
       [popover] {
         position-anchor: --trigger;
-        position-area: bottom span-right;
-        position-try: --bottom-left, --top-right, --top-left, --center-right,
-          --center-left;
+        position-area: bottom center;
+        position-try: --top-center, --center-left, --center-right;
         position: absolute;
         margin: var(--cx-spacing-2) 0 0 0;
+        opacity: 0;
+
+        transition: all 200ms ease-in-out allow-discrete;
 
         background-color: var(--cx-color-background-primary);
         color: var(--cx-color-text-primary);
@@ -29,31 +31,29 @@ export class Tooltip extends LitElement {
         font-weight: 400;
         font-size: 0.875rem;
         line-height: 1.6;
+
+        &:popover-open {
+          opacity: 1;
+
+          @starting-style {
+            opacity: 0;
+          }
+        }
       }
 
-      @position-try --bottom-left {
-        position-area: bottom span-left;
-        margin: var(--cx-spacing-2) 0 0 0;
-      }
-
-      @position-try --top-right {
-        position-area: top span-right;
+      @position-try --top-center {
+        position-area: top center;
         margin: 0 0 var(--cx-spacing-2) 0;
-      }
-
-      @position-try --top-left {
-        position-area: top span-left;
-        margin: 0 0 var(--cx-spacing-2) 0;
-      }
-
-      @position-try --center-right {
-        position-area: span-bottom right;
-        margin: 0 0 0 var(--cx-spacing-2);
       }
 
       @position-try --center-left {
-        position-area: span-bottom left;
+        position-area: center left;
         margin: 0 var(--cx-spacing-2) 0 0;
+      }
+
+      @position-try --center-right {
+        position-area: center right;
+        margin: 0 0 0 var(--cx-spacing-2);
       }
     `,
   ];
