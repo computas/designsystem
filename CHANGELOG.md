@@ -1,3 +1,7 @@
+# 0.0.11 - x.03.2025
+
+- Select komponenten lukkes når man klikker på bakgrunnen
+
 # 0.0.10 - 27.02.2025
 
 - Nye ikoner lagt til

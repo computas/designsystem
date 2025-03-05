@@ -29,7 +29,7 @@ export const WebComponent: StoryObj = {
   render: () => html`
     <cx-tab-group>
   <cx-tab header="General">
-    <h2 class="cx-headline-jumbo">Heading</h2>
+    <h2 class="cx-title-2">Heading</h2>
     <p>This is the content of the first tab</p>
   </cx-tab>
 
