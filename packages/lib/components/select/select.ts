@@ -284,7 +284,7 @@ export class Select extends FormControl(LitElement) {
 
       <div
         role="listbox"
-        popover="manual"
+        popover
         @toggle=${this.onPopoverToggle}
         id="popover"
         aria-multiselectable="false"
