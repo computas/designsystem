@@ -8,7 +8,7 @@ export const CxTabGroup = createComponent({
   elementClass: TabGroup,
   react: React,
   events: {
-    activeTabIndexChange: 'onActiveTabIndexChange',
+    onActiveTabIndexChange: 'activeTabIndexChange',
   },
 });
 
