@@ -47,7 +47,8 @@ Then use it as follows:
 <Canvas of={stories.WebComponent} />
 
 ### Active tab index
-If you need to set the tab index programmatically, please use the `activeTabIndex` prop on the `cx-tab-group` element:
+If you need to set the tab index programmatically, please use the `activeTabIndex` prop on the `cx-tab-group` element. When the user changes the active tab through interaction,
+the event `activeTabIndexChange` (`onActiveTabIndexChange` in React) is emitted, containing the new tab index.
 
 <Source
   code={`

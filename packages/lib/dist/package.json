@@ -1,6 +1,6 @@
 {
   "name": "@computas/designsystem",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "The Computas design system",
   "type": "module",
   "license": "MIT",
@@ -9,7 +9,6 @@
     "url": "git+https://github.com/computas/designsystem.git"
   },
   "dependencies": {
-    "@lit/context": "^1.1.4",
     "@lit/react": "^1.0.7",
     "lit": "^3.2.1"
   },

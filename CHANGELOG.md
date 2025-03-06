@@ -1,6 +1,12 @@
-# 0.0.10 - 04.03.2025
+# 0.0.11 - 06.03.2025
 
+- Select komponenten lukkes når man klikker på bakgrunnen
+- Fikset en feil i tabs-komponenten hvor innholdet i en tab ikke kunne klikkes på
 - Lagt til tooltip-komponent
+
+# 0.0.10 - 27.02.2025
+
+- Nye ikoner lagt til
 
 # 0.0.9 - 25.02.2025
 
