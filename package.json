@@ -27,6 +27,6 @@
     "storybook": "^8.6.4",
     "ts-lit-plugin": "^2.0.2",
     "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "vite": "^6.2.1"
   }
 }
