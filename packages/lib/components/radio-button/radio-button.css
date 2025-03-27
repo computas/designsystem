@@ -74,13 +74,13 @@ label.cx-radio-button.cx-radio-button--invalid {
   white-space: nowrap;
 }
 
-.cx-radio-button-vertical-list {
+.cx-radio-button-group-vertical {
   display: flex;
   flex-direction: column;
   gap: var(--cx-spacing-2);
 }
 
-.cx-radio-button-horizontal-list {
+.cx-radio-button-group-horizontal {
   display: flex;
   column-gap: var(--cx-spacing-4);
   row-gap: var(--cx-spacing-2);

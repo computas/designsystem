@@ -15,7 +15,7 @@ export const Default: StoryObj = {
 
 export const RadioButtonVertical: StoryObj = {
   render: () => html`
-    <div class="cx-radio-button-vertical-list">
+    <div class="cx-radio-button-group-vertical">
       <label class="cx-radio-button">
         <input type="radio" name="vertical" />
         <div class="cx-radio-button__mark"></div>
@@ -39,7 +39,7 @@ export const RadioButtonVertical: StoryObj = {
 
 export const RadioButtonHorizontal: StoryObj = {
   render: () => html`
-    <div class="cx-radio-button-horizontal-list">
+    <div class="cx-radio-button-group-horizontal">
       <label class="cx-radio-button">
         <input type="radio" name="horizontal" />
         <div class="cx-radio-button__mark"></div>
