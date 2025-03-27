@@ -1,0 +1,30 @@
+import { Canvas, Meta, Source, Subtitle, Title } from '@storybook/blocks';
+
+import * as stories from './radio-button.stories';
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>The radio button component is implemented using only CSS.</Subtitle>
+
+### Default
+
+<Canvas of={stories.Default} />
+
+### Radio button vertical list
+
+If you need a vertical list of radio buttons, you can use the CSS class `.cx-radio-button-vertical-list`.
+
+<Canvas of={stories.RadioButtonVertical} />
+
+### Radio button horizontal list
+
+If you need a horizontal list of radio buttons, you can use the CSS class `.cx-radio-button-horizontal-list`.
+
+<Canvas of={stories.RadioButtonHorizontal} />
+
+### Error
+
+A radio button receives error styling when the input is considered invalid. It can also be triggered by applying the CSS class `.cx-radio-button--invalid`
+
+<Canvas of={stories.RadioButtonError} />
