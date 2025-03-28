@@ -24,7 +24,7 @@ label.cx-radio-button:has(:focus-visible) .cx-radio-button__mark {
   outline-offset: 4px;
 }
 
-input[type='radio']:checked + .cx-radio-button__mark {
+input[type="radio"]:checked + .cx-radio-button__mark {
   --cx-gradient-highlight: var(--cx-color-text-static-dark);
   --cx-gradient-background: var(--cx-color-text-static-dark);
   border: 7px solid var(--cx-color-background-accent-5);
@@ -32,16 +32,16 @@ input[type='radio']:checked + .cx-radio-button__mark {
 
 label.cx-radio-button:has(input:user-invalid),
 label.cx-radio-button.cx-radio-button--invalid {
-  input[type='radio']:not(:checked) + .cx-radio-button__mark {
+  input[type="radio"]:not(:checked) + .cx-radio-button__mark {
     border: 2px solid var(--cx-color-signal-danger);
   }
 
-  input[type='radio']:checked + .cx-radio-button__mark {
+  input[type="radio"]:checked + .cx-radio-button__mark {
     outline: 2px auto var(--cx-color-signal-danger);
     outline-offset: 1px;
   }
 
-  &:hover input[type='radio']:not(:checked) + .cx-radio-button__mark {
+  &:hover input[type="radio"]:not(:checked) + .cx-radio-button__mark {
     border: transparent;
   }
 }
@@ -53,18 +53,12 @@ label.cx-radio-button.cx-radio-button--invalid {
   width: var(--cx-spacing-6);
   height: var(--cx-spacing-6);
   border-radius: 50%;
-  background-image: linear-gradient(
-    62deg,
-    var(--cx-gradient-highlight) 5%,
-    var(--cx-gradient-background) 91%
-  );
-  transition:
-    --cx-gradient-highlight 300ms ease,
-    --cx-gradient-background 300ms ease,
-    border 0.3s var(--ease-in-1);
+  background-image: linear-gradient(62deg, var(--cx-gradient-highlight) 5%, var(--cx-gradient-background) 91%);
+  transition: --cx-gradient-highlight 300ms ease, --cx-gradient-background 300ms ease, border 0.3s
+    var(--ease-in-1);
 }
 
-.cx-radio-button input[type='radio'] {
+.cx-radio-button input[type="radio"] {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
