@@ -1,6 +1,6 @@
 # 0.0.12 - 08.05.2025
 
-- Typography fix - Feil font-size
+- Typography fix, feil font-size på cx-title-5
 
 # 0.0.11 - 06.03.2025
 
