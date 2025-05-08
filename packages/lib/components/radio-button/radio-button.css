@@ -1,0 +1,82 @@
+label.cx-radio-button {
+  display: inline-flex;
+  gap: var(--cx-spacing-2);
+  align-items: center;
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--cx-color-text-primary);
+  line-height: 1rem;
+}
+
+label.cx-radio-button:is(:hover, :has(:focus-visible)) .cx-radio-button__mark {
+  --cx-gradient-highlight: var(--cx-color-blue);
+  --cx-gradient-background: var(--cx-color-grey-700);
+}
+
+label.cx-radio-button:is(:active, :has(:focus-visible)) .cx-radio-button__mark {
+  border: none;
+}
+
+label.cx-radio-button:has(:focus-visible) .cx-radio-button__mark {
+  outline: 2px auto var(--cx-color-border-accent-1);
+  outline-offset: 4px;
+}
+
+input[type="radio"]:checked + .cx-radio-button__mark {
+  --cx-gradient-highlight: var(--cx-color-text-static-dark);
+  --cx-gradient-background: var(--cx-color-text-static-dark);
+  border: 7px solid var(--cx-color-background-accent-5);
+}
+
+label.cx-radio-button:has(input:user-invalid),
+label.cx-radio-button.cx-radio-button--invalid {
+  input[type="radio"]:not(:checked) + .cx-radio-button__mark {
+    border: 2px solid var(--cx-color-signal-danger);
+  }
+
+  input[type="radio"]:checked + .cx-radio-button__mark {
+    outline: 2px auto var(--cx-color-signal-danger);
+    outline-offset: 1px;
+  }
+
+  &:hover input[type="radio"]:not(:checked) + .cx-radio-button__mark {
+    border: transparent;
+  }
+}
+
+.cx-radio-button__mark {
+  border: 1px solid var(--cx-color-border-primary);
+
+  position: relative;
+  width: var(--cx-spacing-6);
+  height: var(--cx-spacing-6);
+  border-radius: 50%;
+  background-image: linear-gradient(62deg, var(--cx-gradient-highlight) 5%, var(--cx-gradient-background) 91%);
+  transition: --cx-gradient-highlight 300ms ease, --cx-gradient-background 300ms ease, border 0.3s
+    var(--ease-in-1);
+}
+
+.cx-radio-button input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.cx-radio-button-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cx-spacing-2);
+}
+
+.cx-radio-button-group-horizontal {
+  display: flex;
+  column-gap: var(--cx-spacing-4);
+  row-gap: var(--cx-spacing-2);
+  flex-wrap: wrap;
+}

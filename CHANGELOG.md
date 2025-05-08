@@ -1,3 +1,7 @@
+# 0.0.12 - 27.03.2025
+
+- Lagt til radio button komponent
+
 # 0.0.11 - 06.03.2025
 
 - Select komponenten lukkes når man klikker på bakgrunnen
