@@ -1,6 +1,7 @@
 # 0.0.12 - 08.05.2025
 
 - Typography fix, feil font-size på cx-title-5
+- Lagt til radio button komponent
 
 # 0.0.11 - 06.03.2025
 
