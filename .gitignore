@@ -9,10 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist-ssr
-packages/lib/dist/*
-!packages/lib/dist/package.json
-!packages/lib/dist/LICENSE.md
-!packages/lib/dist/README.md
+packages/lib/dist/
 *.local
 
 # Editor directories and files

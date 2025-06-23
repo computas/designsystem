@@ -2,10 +2,10 @@ import { LitElement, css, html, unsafeCSS } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
+import tabStyles from './tab.css?inline';
 import a11yStyles from '../../global-css/a11y.css?inline';
 import animationStyles from '../../global-css/animations.css?inline';
 import type { Tab } from './tab';
-import tabStyles from './tab.css?inline';
 
 @customElement('cx-tab-group')
 export class TabGroup extends LitElement {
