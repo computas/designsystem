@@ -1,3 +1,6 @@
+# 0.1.0 - 09.09.2025
+- Fjerner div og span fra selector som styrer bredde på cx-text (brekker potensielt layout i enkelte tilfeller)
+
 # 0.0.12 - 08.05.2025
 
 - Typography fix, feil font-size på cx-title-5
