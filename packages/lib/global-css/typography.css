@@ -49,7 +49,7 @@ button {
   line-height: 1.125;
 }
 
-:is(p, div, span):where(.cx-text-1, .cx-text-2, .cx-text-3, .cx-text-4, .cx-text-micro) {
+:is(p):where(.cx-text-1, .cx-text-2, .cx-text-3, .cx-text-4, .cx-text-micro) {
   max-width: 65ch;
   text-wrap: pretty;
   word-break: auto-phrase;
