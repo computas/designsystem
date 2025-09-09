@@ -1,6 +1,26 @@
-# 0.0.9 - xx.01.2025
+# 0.0.12 - 08.05.2025
+
+- Typography fix, feil font-size på cx-title-5
+- Lagt til radio button komponent
+
+# 0.0.11 - 06.03.2025
+
+- Select komponenten lukkes når man klikker på bakgrunnen
+- Fikset en feil i tabs-komponenten hvor innholdet i en tab ikke kunne klikkes på
+- Lagt til tooltip-komponent
+
+# 0.0.10 - 27.02.2025
+
+- Nye ikoner lagt til
+
+# 0.0.9 - 25.02.2025
 
 - Lagt til select-komponent
+- Lagt til typografi
+- Lagt til toast-komponent
+- Endret verdien på propen "prioritet" på alert-komponenten fra 'Info' | 'Danger' | 'Warning' | 'Success' til 'info' | 'danger' | 'warning' | 'success'
+- Fjernet default header verdi på alert-komponenten.
+- Lagt til popover-komponent
 
 # 0.0.8 - 13.01.2025
 

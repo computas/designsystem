@@ -4,7 +4,7 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import '../icon';
 
-import { FormControl } from '../../shared/formControl';
+import { FormControl } from '../shared/formControl';
 import type { Option } from './option';
 import type { OptionValue } from './types';
 
@@ -284,7 +284,7 @@ export class Select extends FormControl(LitElement) {
 
       <div
         role="listbox"
-        popover="manual"
+        popover
         @toggle=${this.onPopoverToggle}
         id="popover"
         aria-multiselectable="false"
