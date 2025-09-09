@@ -57,7 +57,7 @@ button {
   line-height: 1.7;
 }
 
-:is(p, div, span):where(.cx-body-1, .cx-body-2, .cx-body-3) {
+:is(p):where(.cx-body-1, .cx-body-2, .cx-body-3) {
   max-width: 65ch;
   text-wrap: pretty;
   word-break: auto-phrase;
