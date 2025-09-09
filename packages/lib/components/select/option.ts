@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
-import { InputModeDetector } from '../../shared/inputModeDetector';
+import { InputModeDetector } from '../shared/inputModeDetector';
 import type { OptionValue } from './types';
 
 @customElement('cx-option')
