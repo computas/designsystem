@@ -14,6 +14,11 @@ const preview: Preview = {
     docs: {
       toc: true,
     },
+    options: {
+      storySort: {
+        order: ['Designsystemet vårt', 'Basics', 'Components'],
+      },
+    },
   },
   decorators: [
     withThemeByClassName({
