@@ -55,7 +55,7 @@
     --cx-color-text-accent-2: var(--cx-color-blue);
     --cx-color-text-accent-3: var(--cx-color-purple);
     --cx-color-text-inverted: var(--cx-color-grey-100);
-    --cx-color-text-less-important: var(--cx-color-grey-500);
+    --cx-color-text-less-important: var(--cx-color-grey-300);
     --cx-color-text-disabled: var(--cx-color-grey-300);
     --cx-color-text-static-dark: var(--cx-color-grey-700);
     --cx-color-text-static-light: var(--cx-color-grey-100);
