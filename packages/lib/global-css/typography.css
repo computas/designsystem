@@ -116,9 +116,15 @@ button {
 }
 
 .cx-text-jumbo {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 3.75rem;
   line-height: 1.6;
+}
+
+.cx-text-jumbo-mobile {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.4;
 }
 
 .cx-text-micro {
