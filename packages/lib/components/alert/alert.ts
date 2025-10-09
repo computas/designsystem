@@ -2,7 +2,7 @@ import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { addIcons } from '../icon';
-import { checkCircle, errorCircle, infoCircle, warning, type IconName } from '../icon/iconRegistry';
+import { type IconName, checkCircle, errorCircle, infoCircle, warning } from '../icon/iconRegistry';
 
 addIcons(errorCircle, infoCircle, warning, checkCircle);
 
