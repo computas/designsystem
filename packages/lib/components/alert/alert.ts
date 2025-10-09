@@ -2,7 +2,7 @@ import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { addIcons } from '../icon';
-import { type IconName, checkCircle, errorCircle, infoCircle, warning } from '../icon/iconRegistry';
+import { checkCircle, errorCircle, infoCircle, warning, type IconName } from '../icon/iconRegistry';
 
 addIcons(errorCircle, infoCircle, warning, checkCircle);
 
@@ -21,8 +21,9 @@ export class Alert extends LitElement {
 			gap: var(--cx-spacing-6);
 
 			color: var(--cx-color-text-primary);
-
-			@media only screen and (max-width: 360px) {
+		}
+		@media only screen and (max-width: 768px) {
+				.cx-alert {
 				flex-direction: column;
 				align-items: center;
 				gap: var(--cx-spacing-3);
