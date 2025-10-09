@@ -22,7 +22,7 @@ export class Alert extends LitElement {
 
 			color: var(--cx-color-text-primary);
 		}
-		@media only screen and (max-width: 768px) {
+		@media only screen and (max-width: 360px) {
 				.cx-alert {
 				flex-direction: column;
 				align-items: center;
