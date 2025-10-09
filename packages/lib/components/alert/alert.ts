@@ -21,9 +21,7 @@ export class Alert extends LitElement {
 			gap: var(--cx-spacing-6);
 
 			color: var(--cx-color-text-primary);
-		}
-		@media only screen and (max-width: 360px) {
-				.cx-alert {
+			@media only screen and (max-width: 576px) {
 				flex-direction: column;
 				align-items: center;
 				gap: var(--cx-spacing-3);
