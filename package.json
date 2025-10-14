@@ -23,6 +23,8 @@
     "@storybook/theming": "^8.5.8",
     "@storybook/web-components": "^8.5.8",
     "@storybook/web-components-vite": "^8.5.8",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "lit-analyzer": "^2.0.3",
     "storybook": "^8.5.8",
     "ts-lit-plugin": "^2.0.2",
