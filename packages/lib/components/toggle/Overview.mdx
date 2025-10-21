@@ -1,0 +1,11 @@
+import { Canvas, Meta, Source, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./toggle.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>The toggle component is implemented using only CSS.</Subtitle>
+
+### Default
+<Canvas of={stories.Default} />

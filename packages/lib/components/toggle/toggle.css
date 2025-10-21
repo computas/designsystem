@@ -1,0 +1,62 @@
+label.cx-toggle {
+  display: inline-flex;
+  gap: var(--cx-spacing-2);
+  align-items: center;
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--cx-color-text-primary);
+  line-height: 1rem;
+}
+
+label.cx-toggle input[type="checkbox"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.cx-toggle__slider {
+  --background-color: var(--cx-color-background-inactive);
+
+  position: relative;
+  background-color: var(--background-color);
+  width: var(--cx-spacing-6);
+  height: var(--cx-spacing-6);
+  border-radius: var(--cx-spacing-1);
+  background-image: linear-gradient(62deg, var(--cx-gradient-highlight) 5%, var(--cx-gradient-background) 91%);
+  transition: --cx-gradient-highlight 300ms ease, --cx-gradient-background 300ms ease, box-shadow 300ms ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-radius: 99px;
+    background-color: var(--cx-color-text-static-dark);
+    transition-duration: 200ms;
+    transition-timing-function: var(--ease-4);
+    transition-property: scale, rotate, left, top;
+    transform-origin: left center;
+    scale: 0 1;
+  }
+
+  &::before {
+    width: 6px;
+    rotate: 45deg;
+    top: 11px;
+    left: 7px;
+    transition-delay: 100ms;
+  }
+
+  &::after {
+    width: 11px;
+    rotate: -45deg;
+    top: 15px;
+    left: 10px;
+  }
+}
