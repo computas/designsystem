@@ -75,7 +75,6 @@ export class Toast extends LitElement {
   }
 
   private removeToast(toastId: ToastWithId['id']) {
-    console.log('removing');
     const listClone = [...this.toastQueue];
     const index = listClone.findIndex((toast) => toast.id === toastId);
     if (index !== -1) {
