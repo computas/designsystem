@@ -1,0 +1,37 @@
+import { Canvas, Meta, Source, Subtitle, Title } from "@storybook/blocks";
+
+import * as stories from "./card.stories";
+
+<Meta of={stories} />
+
+<Title />
+<Subtitle>
+  A card is used to display content and actions on a single topic. They provide a flexible and extensible content container that groups related information in an easily scannable format.
+</Subtitle>
+
+## How to get started
+Start by importing the component. Once imported, the `<cx-card>` component is ready to use.
+``` ts
+// Web component
+import '@computas/designsystem/card';
+
+// React
+import { CxCard } from '@computas/designsystem/card/react';
+```
+
+## Default
+A card can consist of an **image**, **title**, **subtitle** and **other**. The **title** and **image** can be set as properties, while **subtitle** and **other** use slots for maximum flexibility. To make a card clickable, provide an `href` property which will wrap the entire card in a link.
+<Canvas of={stories.Default} />
+
+## Content slots
+The card supports several content slots for customization:
+
+- **`subtitle`** - For metadata like time, location, or categories
+- **`other`** - For additional content like buttons, tags, or other actions
+
+<Source
+  code={`<cx-card image="https://example.com/image.jpg" title="Card Title">
+  <span slot="subtitle">14:00 - 16:00 • Oslo, Norway</span>
+  <button slot="other" class="cx-btn__secondary">Learn more</button>
+</cx-card>`}
+/>
