@@ -19,6 +19,10 @@ export class Card extends LitElement {
       flex-direction: column;
     }
 
+    .card.clickable {
+      cursor: pointer;
+    }
+
     .card-image {
       width: 100%;
       height: 50%;
@@ -145,33 +149,44 @@ export class Card extends LitElement {
   @property({ type: String, reflect: true })
   image = '';
 
+  @property({ type: String, reflect: true })
+  href = '';
+
   render() {
-    return html`
-      <div class="card">
-        <div class="card-image">
-          ${this.image ? html`
-            <img src="${this.image}" alt="" />
+    const cardContent = html`
+      <div class="card-image">
+        ${this.image ? html`
+          <img src="${this.image}" alt="" />
+        ` : html`
+          <slot name="image"></slot>
+        `}
+      </div>
+      <div class="card-info-wrapper">
+        <div class="card-info">
+          <div class="card-subtitle">
+            <slot name="subtitle"></slot>
+          </div>
+          ${this.title ? html`
+            <div class="card-title">${this.title}</div>
           ` : html`
-            <slot name="image"></slot>
+            <div class="card-title">
+              <slot name="title"></slot>
+            </div>
           `}
-        </div>
-        <div class="card-info-wrapper">
-          <div class="card-info">
-            <div class="card-subtitle">
-              <slot name="subtitle"></slot>
-            </div>
-            ${this.title ? html`
-              <div class="card-title">${this.title}</div>
-            ` : html`
-              <div class="card-title">
-                <slot name="title"></slot>
-              </div>
-            `}
-            <div class="card-other">
-              <slot name="other"></slot>
-            </div>
+          <div class="card-other">
+            <slot name="other"></slot>
           </div>
         </div>
+      </div>
+    `;
+
+    return this.href ? html`
+      <a href="${this.href}" class="card clickable">
+        ${cardContent}
+      </a>
+    ` : html`
+      <div class="card">
+        ${cardContent}
       </div>
     `;
   }

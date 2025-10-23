@@ -11,6 +11,7 @@ const meta: Meta = {
   argTypes: {
     title: { control: 'text' },
     image: { control: 'text' },
+    href: { control: 'text' },
   },
 };
 
@@ -23,7 +24,7 @@ export const Default: Story = {
     image: 'https://picsum.photos/500/220',
   },
   render: (args) => html`
-    <cx-card title="${args.title}" image="${args.image}">
+    <cx-card title="${args.title}" image="${args.image}" href="${args.href || ''}">
       <span slot="subtitle">14:00 - 16:00 • Oslo, Norway</span>
       <span slot="other">Other content</span>
     </cx-card>
