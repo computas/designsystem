@@ -17,6 +17,8 @@ export class Card extends LitElement {
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      text-decoration: none;
+      color: inherit;
     }
 
     .card.clickable {
