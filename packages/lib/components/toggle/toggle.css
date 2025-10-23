@@ -1,53 +1,47 @@
 label.cx-toggle {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: var(--cx-spacing-11);
-  height: var(--cx-spacing-6);
+  gap: var(--cx-spacing-1);
   cursor: pointer;
 }
 
 label.cx-toggle input[type="checkbox"] {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-label .cx-toggle__slider {
-  position: absolute;
+  appearance: none;
+  display: flex;
+  align-items: center;
   width: var(--cx-spacing-11);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  height: var(--cx-spacing-6);
+  padding-inline: 2px;
   background-color: var(--cx-color-background-inactive);
-  -webkit-transition: .4s;
-  transition: .4s;
   border-radius: var(--cx-radius-pill);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-label .cx-toggle__slider:before {
-  position: absolute;
+label.cx-toggle input[type="checkbox"]::before {
   content: "";
-  height: var(--cx-spacing-5);
+  display: block;
   width: var(--cx-spacing-5);
-  left: 2px;
-  bottom: 2px;
+  height: var(--cx-spacing-5);
   background-color: var(--cx-color-white);
-  -webkit-transition: .4s;
-  transition: .4s;
   border-radius: var(--cx-radius-pill);
+  transition: 0.3s;
 }
 
-label.cx-toggle input[type="checkbox"]:checked + .cx-toggle__slider {
+label.cx-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+label.cx-toggle input[type="checkbox"]:checked {
   background-color: var(--cx-color-background-accent-5);
 }
 
-label.cx-toggle input[type="checkbox"]:checked + .cx-toggle__slider:before {
-  transform: translateX(20px);
+label.cx-toggle input[type="checkbox"]:focus-visible {
+  outline: none;
 }
 
 label.cx-toggle:has(:focus-visible) {
   outline: 2px auto var(--cx-color-border-accent-1);
-  outline-offset: 4px;
+  outline-offset: var(--cx-spacing-1);
 }

@@ -8,8 +8,7 @@ export default {
 export const Default: StoryObj = {
   render: () => html`
 <label class="cx-toggle">
-  <input type="checkbox" />
-  <div class="cx-toggle__slider"></div>
+  <input type="checkbox">
   Toggle me
 </label>
   `,
