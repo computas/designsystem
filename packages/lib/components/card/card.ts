@@ -15,25 +15,28 @@ export class Card extends LitElement {
       max-width: 500px;
       border-radius: 24px;
       overflow: hidden;
-      padding: 0;
-      border: none;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
     }
 
     .card-image {
       width: 100%;
       height: 50%;
       position: relative;
+      flex-shrink: 0;
     }
 
     .card-image img,
-    .card-image ::slotted(img) {
+    .card-image ::slotted(img),
+    .card-image ::slotted(video),
+    .card-image ::slotted(*) {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: filter 0.3s ease;
     }
 
+    /* Blue filter on img for hover */
     .card-image::after {
       content: "";
       position: absolute;
@@ -42,40 +45,30 @@ export class Card extends LitElement {
       width: 100%;
       height: 100%;
       mix-blend-mode: multiply;
-      background: var(--cx-color-background-accent-5, #4a90e2);
+      background: var(--cx-color-background-accent-5);
       opacity: 0;
       transition: opacity 0.3s ease;
-      pointer-events: none;
     }
 
     .card-info-wrapper {
-      position: absolute;
-      width: 100%;
-      bottom: -74px;
-      padding: var(--cx-spacing-6, 24px);
-      color: var(--cx-color-text-primary, #333);
-      transition: bottom 0.3s ease;
-      background-color: var(--cx-color-background-accent-1-soft, rgba(255, 255, 255, 0.9));
+      flex: 1;
+      padding: var(--cx-spacing-6);
+      color: var(--cx-color-text-primary);
+      background-color: var(--cx-color-background-accent-1-soft);
     }
 
     .card-info {
       display: flex;
       flex-direction: column;
+      height: 100%;
     }
 
-    .card-metadata {
+    .card-subtitle {
       display: flex;
       flex-wrap: wrap;
-      color: var(--cx-color-text-less-important, #666);
-      gap: var(--cx-spacing-2, 8px);
-      margin-bottom: var(--cx-spacing-4, 16px);
-    }
-
-    .card-metadata-section {
-      display: inline-flex;
-      flex: 1 1 100%;
-      align-items: center;
-      gap: var(--cx-spacing-2, 8px);
+      color: var(--cx-color-text-less-important);
+      gap: var(--cx-spacing-2);
+      margin-bottom: var(--cx-spacing-4);
     }
 
     .card-title {
@@ -88,14 +81,23 @@ export class Card extends LitElement {
       overflow: hidden;
       font-size: 24px;
       font-weight: 400;
-      margin: 0;
+      margin-bottom: var(--cx-spacing-2);
       line-height: 2rem;
       align-content: center;
-      color: var(--cx-color-text-primary, #333);
     }
 
+    .card-other {
+      display: flex;
+      gap: var(--cx-spacing-2);
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    /* Hover effects - only on image */
     .card:hover .card-image img,
-    .card:hover .card-image ::slotted(img) {
+    .card:hover .card-image ::slotted(img),
+    .card:hover .card-image ::slotted(video),
+    .card:hover .card-image ::slotted(*) {
       filter: grayscale(1);
     }
 
@@ -103,41 +105,29 @@ export class Card extends LitElement {
       opacity: 1;
     }
 
-    .card:hover .card-info-wrapper {
-      bottom: 0;
-    }
-
     @media (max-width: 750px) {
       .card {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        width: 100%;
-        max-width: 343px;
+        flex-direction: column;
         height: auto;
-        min-height: unset;
-        max-height: unset;
+        max-width: 343px;
       }
 
       .card-image {
-        flex: 0 0 35%;
-        height: auto;
+        width: 100%;
+        height: 242px;
       }
 
       .card-info-wrapper {
-        position: relative;
-        width: 65%;
-        bottom: unset;
-        align-self: flex-end;
-        padding: var(--cx-spacing-4, 16px);
+        width: 100%;
+        padding: var(--cx-spacing-4);
       }
 
       .card-info {
         flex-direction: column-reverse;
-        gap: var(--cx-spacing-2, 8px);
+        gap: var(--cx-spacing-2);
       }
 
-      .card-metadata-section {
+      .card-subtitle {
         font-size: 12px;
       }
 
@@ -153,42 +143,33 @@ export class Card extends LitElement {
   title = '';
 
   @property({ type: String, reflect: true })
-  subtitle1 = '';
-
-  @property({ type: String, reflect: true })
-  subtitle2 = '';
-
-  @property({ type: String, reflect: true })
   image = '';
-
-  @property({ type: String, reflect: true })
-  imageAlt = 'Card image';
 
   render() {
     return html`
       <div class="card">
         <div class="card-image">
           ${this.image ? html`
-            <img src="${this.image}" alt="${this.imageAlt}" />
+            <img src="${this.image}" alt="" />
           ` : html`
             <slot name="image"></slot>
           `}
         </div>
         <div class="card-info-wrapper">
           <div class="card-info">
-            <div class="card-metadata">
-              ${this.subtitle1 ? html`
-                <div class="card-metadata-section">
-                  ${this.subtitle1}
-                </div>
-              ` : ''}
-              ${this.subtitle2 ? html`
-                <div class="card-metadata-section">
-                  ${this.subtitle2}
-                </div>
-              ` : ''}
+            <div class="card-subtitle">
+              <slot name="subtitle"></slot>
             </div>
-            ${this.title ? html`<h3 class="card-title">${this.title}</h3>` : ''}
+            ${this.title ? html`
+              <div class="card-title">${this.title}</div>
+            ` : html`
+              <div class="card-title">
+                <slot name="title"></slot>
+              </div>
+            `}
+            <div class="card-other">
+              <slot name="other"></slot>
+            </div>
           </div>
         </div>
       </div>

@@ -10,10 +10,7 @@ const meta: Meta = {
   },
   argTypes: {
     title: { control: 'text' },
-    subtitle1: { control: 'text' },
-    subtitle2: { control: 'text' },
     image: { control: 'text' },
-    imageAlt: { control: 'text' },
   },
 };
 
@@ -23,19 +20,12 @@ type Story = StoryObj;
 export const Default: Story = {
   args: {
     title: 'Title',
-    subtitle1: '14:00 - 16:00',
-    subtitle2: 'Oslo, Norway',
     image: 'https://picsum.photos/500/220',
-    imageAlt: 'Image',
   },
   render: (args) => html`
-    <cx-card 
-      title="${args.title}"
-      subtitle1="${args.subtitle1}"
-      subtitle2="${args.subtitle2}"
-      image="${args.image}"
-      image-alt="${args.imageAlt}"
-    >
+    <cx-card title="${args.title}" image="${args.image}">
+      <span slot="subtitle">14:00 - 16:00 • Oslo, Norway</span>
+      <span slot="other">Other content</span>
     </cx-card>
   `,
 };
