@@ -9,7 +9,7 @@ export const Default: StoryObj = {
   render: () => html`
 <label class="cx-toggle">
   <input type="checkbox" />
-  <span class="cx-toggle__slider"></span>
+  <div class="cx-toggle__slider"></div>
   Toggle me
 </label>
   `,
