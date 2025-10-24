@@ -2,8 +2,8 @@ import { LitElement, css, html } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 
-import type { ToastConfig, ToastWithId } from './types';
 import './toast-item';
+import type { ToastConfig, ToastWithId } from './types';
 
 let CX_TOAST_ID = 1;
 
@@ -51,7 +51,6 @@ export class Toast extends LitElement {
   connectedCallback(): void {
     super.connectedCallback();
 
-    setTimeout(() => this.toastContainerElement.showPopover());
     document.addEventListener('cx-show-toast', (event) => this.addToastToQueue(event), {
       signal: this.abortController.signal,
     });
@@ -70,6 +69,9 @@ export class Toast extends LitElement {
     const toastWithId: ToastWithId = { ...payload, id: newToastId };
     listClone.push(toastWithId);
     this.toastQueue = listClone.slice();
+    if (this.toastQueue.length === 1) {
+      this.toastContainerElement.showPopover();
+    }
   }
 
   private removeToast(toastId: ToastWithId['id']) {
@@ -78,6 +80,9 @@ export class Toast extends LitElement {
     if (index !== -1) {
       listClone.splice(index, 1);
       this.toastQueue = listClone;
+    }
+    if (this.toastQueue.length === 0) {
+      this.toastContainerElement.hidePopover();
     }
   }
 

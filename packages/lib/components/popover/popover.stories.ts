@@ -1,9 +1,8 @@
-import { withActions } from '@storybook/addon-actions/decorator';
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 
-import './popover';
 import '../icon';
+import './popover';
 
 export default {
   title: 'Components/Popover',
@@ -12,7 +11,6 @@ export default {
       handles: ['open', 'close'],
     },
   },
-  decorators: [withActions],
 } satisfies Meta;
 
 export const Default: StoryObj = {
