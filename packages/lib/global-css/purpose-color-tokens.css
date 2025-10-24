@@ -24,6 +24,7 @@
     /* Background */
     --cx-color-background-primary: var(--cx-color-white);
     --cx-color-background-backdrop: var(--cx-color-grey-900-o-60);
+    --cx-color-background-inactive: var(--cx-color-grey-300);
     --cx-color-background-accent-1-soft: var(--cx-color-dark-blue-100);
     --cx-color-background-accent-1: var(--cx-color-dark-blue);
     --cx-color-background-accent-2-soft: var(--cx-color-green-100);
@@ -66,6 +67,7 @@
       /* Background */
       --cx-color-background-primary: var(--cx-color-grey-800);
       --cx-color-background-backdrop: var(--cx-color-grey-900-o-60);
+      --cx-color-background-inactive: var(--cx-color-grey-600);
       --cx-color-background-accent-1-soft: var(--cx-color-dark-blue-900);
       --cx-color-background-accent-1: var(--cx-color-dark-blue-100);
       --cx-color-background-accent-2-soft: var(--cx-color-green-900);
