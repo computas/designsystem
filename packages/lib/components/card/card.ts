@@ -143,34 +143,44 @@ export class Card extends LitElement {
   render() {
     const cardContent = html`
       <div class="card-image">
-        ${this.image ? html`
+        ${
+          this.image
+            ? html`
           <img src="${this.image}" alt="" />
-        ` : html`
+        `
+            : html`
           <slot name="image"></slot>
-        `}
+        `
+        }
       </div>
       <div class="card-info">
         <div class="card-subtitle">
           <slot name="subtitle"></slot>
         </div>
-        ${this.title ? html`
+        ${
+          this.title
+            ? html`
           <div class="card-title">${this.title}</div>
-        ` : html`
+        `
+            : html`
           <div class="card-title">
             <slot name="title"></slot>
           </div>
-        `}
+        `
+        }
         <div class="card-other">
           <slot name="other"></slot>
         </div>
       </div>
     `;
 
-    return this.href ? html`
+    return this.href
+      ? html`
       <a href="${this.href}" class="card clickable">
         ${cardContent}
       </a>
-    ` : html`
+    `
+      : html`
       <div class="card">
         ${cardContent}
       </div>
