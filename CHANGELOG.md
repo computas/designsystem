@@ -1,3 +1,7 @@
+# 0.2.0 - 30.10.2025
+- Lagt til Toggle komponent
+- Endret Toast container til å kun ta top layer når den har toast i køen, for å hindre layering issues dersom andre komponenter også bruker top layer.
+
 # 0.1.1 - 14.10.2025
 - Endret font style "cx-text-jumbo" fra font-weight 900 til 700, slik at det samsvarer med Figma
 - Lagt til en ny font style "cx-text-jumbo-mobile"
