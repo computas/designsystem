@@ -76,9 +76,9 @@ export class Card extends LitElement {
     max-height: 65px;
     min-height: 65px;
     overflow: hidden;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 2rem;
+    font-size: var(--cx-text-1-font-size);
+    font-weight: var(--cx-text-1-font-weight);
+    line-height: var(--cx-text-1-line-height);
     margin-bottom: var(--cx-spacing-2);
     align-content: center;
   }
@@ -120,7 +120,9 @@ export class Card extends LitElement {
     }
 
     .card-subtitle {
-      font-size: 12px;
+      font-size: var(--cx-text-4-font-size);
+      font-weight: var(--cx-text-4-font-weight);
+      line-height: var(--cx-text-4-line-height);
     }
 
     .card-title {
