@@ -1,5 +1,75 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
+:root {
+  /* Title tokens */
+  --cx-title-1-font-size: 2.75rem;
+  --cx-title-1-font-weight: 400;
+  --cx-title-1-line-height: 1.6;
+
+  --cx-title-2-font-size: 2.25rem;
+  --cx-title-2-font-weight: 600;
+  --cx-title-2-line-height: 1.6;
+
+  --cx-title-3-font-size: 1.75rem;
+  --cx-title-3-font-weight: 600;
+  --cx-title-3-line-height: 1.6;
+
+  --cx-title-4-font-size: 1.5rem;
+  --cx-title-4-font-weight: 600;
+  --cx-title-4-line-height: 1.6;
+
+  --cx-title-5-font-size: 1.125rem;
+  --cx-title-5-font-weight: 600;
+  --cx-title-5-line-height: 1.125;
+
+  /* Text tokens */
+  --cx-text-1-font-size: 1.5rem;
+  --cx-text-1-font-weight: 400;
+  --cx-text-1-line-height: 1.6;
+
+  --cx-text-2-font-size: 1.125rem;
+  --cx-text-2-font-weight: 400;
+  --cx-text-2-line-height: 1.6;
+
+  --cx-text-3-font-size: 1rem;
+  --cx-text-3-font-weight: 400;
+  --cx-text-3-line-height: 1.6;
+
+  --cx-text-4-font-size: 0.875rem;
+  --cx-text-4-font-weight: 400;
+  --cx-text-4-line-height: 1.6;
+
+  --cx-text-micro-font-size: 0.75rem;
+  --cx-text-micro-font-weight: 400;
+  --cx-text-micro-line-height: 1.6;
+
+  --cx-text-jumbo-font-size: 3.75rem;
+  --cx-text-jumbo-font-weight: 900;
+  --cx-text-jumbo-line-height: 1.6;
+
+  /* Text variant tokens */
+  --cx-text-2-strong-font-weight: 600;
+  --cx-text-2-light-font-weight: 300;
+  --cx-text-3-strong-font-weight: 600;
+  --cx-text-3-light-font-weight: 300;
+  --cx-text-4-strong-font-weight: 600;
+  --cx-text-4-light-font-weight: 300;
+  --cx-text-micro-strong-font-weight: 600;
+
+  /* Clickable text tokens */
+  --cx-text-clickable-1-font-size: 1.125rem;
+  --cx-text-clickable-1-font-weight: 500;
+  --cx-text-clickable-1-line-height: 1;
+
+  --cx-text-clickable-2-font-size: 1rem;
+  --cx-text-clickable-2-font-weight: 500;
+  --cx-text-clickable-2-line-height: 1;
+
+  --cx-text-clickable-3-font-size: 0.875rem;
+  --cx-text-clickable-3-font-weight: 500;
+  --cx-text-clickable-3-line-height: 1;
+}
+
 body {
   font-family: "Open Sans", Arial, sans-serif;
   color: var(--cx-color-text-primary);
@@ -20,33 +90,33 @@ button {
 }
 
 .cx-title-1 {
-  font-weight: 400;
-  font-size: 2.75rem;
-  line-height: 1.6;
+  font-weight: var(--cx-title-1-font-weight);
+  font-size: var(--cx-title-1-font-size);
+  line-height: var(--cx-title-1-line-height);
 }
 
 .cx-title-2 {
-  font-weight: 600;
-  font-size: 2.25rem;
-  line-height: 1.6;
+  font-weight: var(--cx-title-2-font-weight);
+  font-size: var(--cx-title-2-font-size);
+  line-height: var(--cx-title-2-line-height);
 }
 
 .cx-title-3 {
-  font-weight: 600;
-  font-size: 1.75rem;
-  line-height: 1.6;
+  font-weight: var(--cx-title-3-font-weight);
+  font-size: var(--cx-title-3-font-size);
+  line-height: var(--cx-title-3-line-height);
 }
 
 .cx-title-4 {
-  font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 1.6;
+  font-weight: var(--cx-title-4-font-weight);
+  font-size: var(--cx-title-4-font-size);
+  line-height: var(--cx-title-4-line-height);
 }
 
 .cx-title-5 {
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.125;
+  font-weight: var(--cx-title-5-font-weight);
+  font-size: var(--cx-title-5-font-size);
+  line-height: var(--cx-title-5-line-height);
 }
 
 :is(p):where(.cx-text-1, .cx-text-2, .cx-text-3, .cx-text-4, .cx-text-micro) {
@@ -56,99 +126,99 @@ button {
 }
 
 .cx-text-1 {
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-1-font-weight);
+  font-size: var(--cx-text-1-font-size);
+  line-height: var(--cx-text-1-line-height);
 }
 
 .cx-text-2 {
-  font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-2-font-weight);
+  font-size: var(--cx-text-2-font-size);
+  line-height: var(--cx-text-2-line-height);
 }
 
 .cx-text-2-strong {
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-2-strong-font-weight);
+  font-size: var(--cx-text-2-font-size);
+  line-height: var(--cx-text-2-line-height);
 }
 
 .cx-text-2-light {
-  font-weight: 300;
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-2-light-font-weight);
+  font-size: var(--cx-text-2-font-size);
+  line-height: var(--cx-text-2-line-height);
 }
 
 .cx-text-3 {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-3-font-weight);
+  font-size: var(--cx-text-3-font-size);
+  line-height: var(--cx-text-3-line-height);
 }
 
 .cx-text-3-strong {
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-3-strong-font-weight);
+  font-size: var(--cx-text-3-font-size);
+  line-height: var(--cx-text-3-line-height);
 }
 
 .cx-text-3-light {
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-3-light-font-weight);
+  font-size: var(--cx-text-3-font-size);
+  line-height: var(--cx-text-3-line-height);
 }
 
 .cx-text-4 {
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-4-font-weight);
+  font-size: var(--cx-text-4-font-size);
+  line-height: var(--cx-text-4-line-height);
 }
 
 .cx-text-4-strong {
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-4-strong-font-weight);
+  font-size: var(--cx-text-4-font-size);
+  line-height: var(--cx-text-4-line-height);
 }
 
 .cx-text-4-light {
-  font-weight: 300;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-4-light-font-weight);
+  font-size: var(--cx-text-4-font-size);
+  line-height: var(--cx-text-4-line-height);
 }
 
 .cx-text-jumbo {
-  font-weight: 900;
-  font-size: 3.75rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-jumbo-font-weight);
+  font-size: var(--cx-text-jumbo-font-size);
+  line-height: var(--cx-text-jumbo-line-height);
 }
 
 .cx-text-micro {
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-micro-font-weight);
+  font-size: var(--cx-text-micro-font-size);
+  line-height: var(--cx-text-micro-line-height);
 }
 
 .cx-text-micro-strong {
-  font-weight: 600;
-  font-size: 0.75rem;
-  line-height: 1.6;
+  font-weight: var(--cx-text-micro-strong-font-weight);
+  font-size: var(--cx-text-micro-font-size);
+  line-height: var(--cx-text-micro-line-height);
 }
 
 .cx-text-clickable-1 {
-  font-weight: 500;
-  font-size: 1.125rem;
-  line-height: 1;
+  font-weight: var(--cx-text-clickable-1-font-weight);
+  font-size: var(--cx-text-clickable-1-font-size);
+  line-height: var(--cx-text-clickable-1-line-height);
 }
 
 .cx-text-clickable-2 {
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1;
+  font-weight: var(--cx-text-clickable-2-font-weight);
+  font-size: var(--cx-text-clickable-2-font-size);
+  line-height: var(--cx-text-clickable-2-line-height);
 }
 
 .cx-text-clickable-3 {
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1;
+  font-weight: var(--cx-text-clickable-3-font-weight);
+  font-size: var(--cx-text-clickable-3-font-size);
+  line-height: var(--cx-text-clickable-3-line-height);
 }
 
 .cx-overflow-ellipsis {
