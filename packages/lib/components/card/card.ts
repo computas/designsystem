@@ -66,6 +66,9 @@ export class Card extends LitElement {
     color: var(--cx-color-text-less-important);
     gap: var(--cx-spacing-2);
     margin-bottom: var(--cx-spacing-4);
+    font-size: var(--cx-text-4-font-size);
+    font-weight: var(--cx-text-4-font-weight);
+    line-height: var(--cx-text-4-line-height);
   }
 
   .card-title {
@@ -73,8 +76,6 @@ export class Card extends LitElement {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    max-height: 65px;
-    min-height: 65px;
     overflow: hidden;
     font-size: var(--cx-text-1-font-size);
     font-weight: var(--cx-text-1-font-weight);
@@ -120,15 +121,17 @@ export class Card extends LitElement {
     }
 
     .card-subtitle {
-      font-size: var(--cx-text-4-font-size);
-      font-weight: var(--cx-text-4-font-weight);
-      line-height: var(--cx-text-4-line-height);
+      font-size: var(--cx-text-micro-font-size);
+      font-weight: var(--cx-text-micro-font-weight);
+      line-height: var(--cx-text-micro-line-height);
     }
 
     .card-title {
       margin-top: unset;
       min-height: unset;
-      font-size: 18px;
+      font-size: var(--cx-text-2-font-size);
+      font-weight: var(--cx-text-2-font-weight);
+      line-height: var(--cx-text-2-line-height);
     }
   }
 `;
