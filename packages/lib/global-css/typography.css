@@ -44,8 +44,12 @@
   --cx-text-micro-line-height: 1.6;
 
   --cx-text-jumbo-font-size: 3.75rem;
-  --cx-text-jumbo-font-weight: 900;
+  --cx-text-jumbo-font-weight: 700;
   --cx-text-jumbo-line-height: 1.6;
+
+  --cx-text-jumbo-mobile-font-size: 2rem;
+  --cx-text-jumbo-mobile-font-weight: 700;
+  --cx-text-jumbo-mobile-line-height: 1.4;
 
   /* Text variant tokens */
   --cx-text-2-strong-font-weight: 600;
@@ -189,6 +193,12 @@ button {
   font-weight: var(--cx-text-jumbo-font-weight);
   font-size: var(--cx-text-jumbo-font-size);
   line-height: var(--cx-text-jumbo-line-height);
+}
+
+.cx-text-jumbo-mobile {
+  font-weight: var(--cx-text-jumbo-mobile-font-weight);
+  font-size: var(--cx-text-jumbo-mobile-font-size);
+  line-height: var(--cx-text-jumbo-mobile-line-height);
 }
 
 .cx-text-micro {
