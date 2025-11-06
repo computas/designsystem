@@ -119,7 +119,8 @@ export class Card extends LitElement {
       box-sizing: border-box;
     }
   }
-`];
+`,
+  ];
 
   @property({ type: String, reflect: true })
   title = '';
@@ -133,19 +134,17 @@ export class Card extends LitElement {
   render() {
     const cardContent = html`
       <div class="card-image">
-        ${this.image
-        ? html`<img src="${this.image}" alt="" />`
-        : html`<slot name="image"></slot>`
-      }
+        ${this.image ? html`<img src="${this.image}" alt="" />` : html`<slot name="image"></slot>`}
       </div>
       <div class="card-info">
         <div class="card-subtitle cx-text-4">
           <slot name="subtitle"></slot>
         </div>
-        ${this.title
-        ? html`<div class="card-title cx-text-1">${this.title}</div>`
-        : html`<div class="card-title cx-text-1"><slot name="title"></slot></div>`
-      }
+        ${
+          this.title
+            ? html`<div class="card-title cx-text-1">${this.title}</div>`
+            : html`<div class="card-title cx-text-1"><slot name="title"></slot></div>`
+        }
         <div class="card-other">
           <slot name="other"></slot>
         </div>
