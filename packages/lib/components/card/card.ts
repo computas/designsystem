@@ -13,7 +13,6 @@ export class Card extends LitElement {
     position: relative;
     height: 100%;
     width: 100%;
-    max-width: 500px;
     border-radius: 24px;
     overflow: hidden;
     display: flex;
@@ -103,7 +102,6 @@ export class Card extends LitElement {
     .card {
       flex-direction: column;
       height: auto;
-      max-width: 343px;
     }
 
     .card-image {
