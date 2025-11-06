@@ -6,7 +6,7 @@ export class Card extends LitElement {
   static styles = css`
   .card {
     position: relative;
-    height: 440px;
+    height: 100%;
     width: 100%;
     max-width: 500px;
     border-radius: 24px;
@@ -23,7 +23,7 @@ export class Card extends LitElement {
 
   .card-image {
     width: 100%;
-    height: 50%;
+    height: 192px;
     position: relative;
     flex-shrink: 0;
   }
@@ -109,7 +109,7 @@ export class Card extends LitElement {
 
     .card-image {
       width: 100%;
-      height: 242px;
+      height: 125px;
     }
 
     .card-info {
