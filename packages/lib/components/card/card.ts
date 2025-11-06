@@ -1,9 +1,14 @@
-import { LitElement, css, html } from 'lit';
+import { LitElement, css, html, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import text1CSS from '../../global-css/typography/text-1.css?inline';
+import text4CSS from '../../global-css/typography/text-4.css?inline';
 
 @customElement('cx-card')
 export class Card extends LitElement {
-  static styles = css`
+  static styles = [
+    unsafeCSS(text1CSS),
+    unsafeCSS(text4CSS),
+    css`
   .card {
     position: relative;
     height: 100%;
@@ -66,9 +71,6 @@ export class Card extends LitElement {
     color: var(--cx-color-text-less-important);
     gap: var(--cx-spacing-2);
     margin-bottom: var(--cx-spacing-4);
-    font-size: var(--cx-text-4-font-size);
-    font-weight: var(--cx-text-4-font-weight);
-    line-height: var(--cx-text-4-line-height);
   }
 
   .card-title {
@@ -77,9 +79,6 @@ export class Card extends LitElement {
     -webkit-line-clamp: 2;
     line-clamp: 2;
     overflow: hidden;
-    font-size: var(--cx-text-1-font-size);
-    font-weight: var(--cx-text-1-font-weight);
-    line-height: var(--cx-text-1-line-height);
     margin-bottom: var(--cx-spacing-2);
     align-content: center;
   }
@@ -119,22 +118,8 @@ export class Card extends LitElement {
       gap: var(--cx-spacing-2);
       box-sizing: border-box;
     }
-
-    .card-subtitle {
-      font-size: var(--cx-text-micro-font-size);
-      font-weight: var(--cx-text-micro-font-weight);
-      line-height: var(--cx-text-micro-line-height);
-    }
-
-    .card-title {
-      margin-top: unset;
-      min-height: unset;
-      font-size: var(--cx-text-2-font-size);
-      font-weight: var(--cx-text-2-font-weight);
-      line-height: var(--cx-text-2-line-height);
-    }
   }
-`;
+`];
 
   @property({ type: String, reflect: true })
   title = '';
@@ -148,31 +133,19 @@ export class Card extends LitElement {
   render() {
     const cardContent = html`
       <div class="card-image">
-        ${
-          this.image
-            ? html`
-          <img src="${this.image}" alt="" />
-        `
-            : html`
-          <slot name="image"></slot>
-        `
-        }
+        ${this.image
+        ? html`<img src="${this.image}" alt="" />`
+        : html`<slot name="image"></slot>`
+      }
       </div>
       <div class="card-info">
-        <div class="card-subtitle">
+        <div class="card-subtitle cx-text-4">
           <slot name="subtitle"></slot>
         </div>
-        ${
-          this.title
-            ? html`
-          <div class="card-title">${this.title}</div>
-        `
-            : html`
-          <div class="card-title">
-            <slot name="title"></slot>
-          </div>
-        `
-        }
+        ${this.title
+        ? html`<div class="card-title cx-text-1">${this.title}</div>`
+        : html`<div class="card-title cx-text-1"><slot name="title"></slot></div>`
+      }
         <div class="card-other">
           <slot name="other"></slot>
         </div>

@@ -1,0 +1,17 @@
+.cx-text-1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+:is(p).cx-text-1 {
+  max-width: 65ch;
+  text-wrap: pretty;
+  word-break: auto-phrase;
+}
+
+.cx-text-clickable-1 {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1;
+}
