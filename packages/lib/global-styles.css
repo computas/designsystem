@@ -13,6 +13,16 @@
 @import "global-css/a11y.css";
 @import "global-css/margins.css";
 @import "global-css/typography.css";
+@import "global-css/typography/title-1.css";
+@import "global-css/typography/title-2.css";
+@import "global-css/typography/title-3.css";
+@import "global-css/typography/title-4.css";
+@import "global-css/typography/title-5.css";
+@import "global-css/typography/text-1.css";
+@import "global-css/typography/text-2.css";
+@import "global-css/typography/text-3.css";
+@import "global-css/typography/text-4.css";
+@import "global-css/typography/text-micro.css";
 @import "global-css/animations.css";
 
 /* Components */
