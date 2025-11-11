@@ -21,10 +21,6 @@ export class Card extends LitElement {
     color: inherit;
   }
 
-  .card.clickable {
-    cursor: pointer;
-  }
-
   .card-image {
     width: 100%;
     height: 192px;
@@ -82,7 +78,7 @@ export class Card extends LitElement {
     align-content: center;
   }
 
-  .card-other {
+  .card-body {
     display: flex;
     gap: var(--cx-spacing-2);
     flex-wrap: wrap;
@@ -126,38 +122,25 @@ export class Card extends LitElement {
   @property({ type: String, reflect: true })
   image = '';
 
-  @property({ type: String, reflect: true })
-  href = '';
-
   render() {
-    const cardContent = html`
-      <div class="card-image">
-        ${this.image ? html`<img src="${this.image}" alt="" />` : html`<slot name="image"></slot>`}
-      </div>
-      <div class="card-info">
-        <div class="card-subtitle cx-text-4">
-          <slot name="subtitle"></slot>
-        </div>
-        ${
-          this.title
-            ? html`<div class="card-title cx-text-1">${this.title}</div>`
-            : html`<div class="card-title cx-text-1"><slot name="title"></slot></div>`
-        }
-        <div class="card-other">
-          <slot name="other"></slot>
-        </div>
-      </div>
-    `;
-
-    return this.href
-      ? html`
-      <a href="${this.href}" class="card clickable">
-        ${cardContent}
-      </a>
-    `
-      : html`
+    return html`
       <div class="card">
-        ${cardContent}
+        <div class="card-image">
+          ${this.image ? html`<img src="${this.image}" alt="" />` : html`<slot name="image"></slot>`}
+        </div>
+        <div class="card-info">
+          <div class="card-subtitle cx-text-4">
+            <slot name="subtitle"></slot>
+          </div>
+          ${
+            this.title
+              ? html`<div class="card-title cx-text-1">${this.title}</div>`
+              : html`<div class="card-title cx-text-1"><slot name="title"></slot></div>`
+          }
+          <div class="card-body">
+            <slot name="body"></slot>
+          </div>
+        </div>
       </div>
     `;
   }

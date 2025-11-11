@@ -20,18 +20,18 @@ import { CxCard } from '@computas/designsystem/card/react';
 ```
 
 ## Default
-A card can consist of an **image**, **title**, **subtitle** and **other**. The **title** and **image** can be set as properties, while **subtitle** and **other** use slots for maximum flexibility. To make a card clickable, provide an `href` property which will wrap the entire card in a link.
+A card can consist of an **image**, **title**, **subtitle** and **body content**. The **title** and **image** can be set as properties, while **subtitle** and **body** use slots for maximum flexibility.
 <Canvas of={stories.Default} />
 
 ## Content slots
 The card supports several content slots for customization:
 
 - **`subtitle`** - For metadata like time, location, or categories
-- **`other`** - For additional content like buttons, tags, or other actions
+- **`body`** - For additional content like buttons, tags, or other actions
 
 <Source
   code={`<cx-card image="https://example.com/image.jpg" title="Card Title">
   <span slot="subtitle">14:00 - 16:00 • Oslo, Norway</span>
-  <button slot="other" class="cx-btn__secondary">Learn more</button>
+  <button slot="body" class="cx-btn__secondary">Learn more</button>
 </cx-card>`}
 />

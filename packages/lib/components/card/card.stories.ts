@@ -11,7 +11,6 @@ const meta: Meta = {
   argTypes: {
     title: { control: 'text' },
     image: { control: 'text' },
-    href: { control: 'text' },
   },
 };
 
@@ -20,13 +19,15 @@ type Story = StoryObj;
 
 export const Default: Story = {
   args: {
-    title: 'Title',
+    title: 'Card Title',
     image: 'https://picsum.photos/500/220',
   },
   render: (args) => html`
-    <cx-card title="${args.title}" image="${args.image}" href="${args.href || ''}">
+    <cx-card title="${args.title}" image="${args.image}">
       <span slot="subtitle">14:00 - 16:00 • Oslo, Norway</span>
-      <span slot="other">Other content</span>
+      <div slot="body">
+        <p>Additional body content</p>
+      </div>
     </cx-card>
   `,
 };
