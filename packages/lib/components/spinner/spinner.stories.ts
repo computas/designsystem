@@ -33,23 +33,23 @@ export const Sizing: StoryObj = {
 };
 
 export const Color: StoryObj = {
-    render: () => html`
-      <style>
-    .danger-spinner {
-      color: var(--cx-color-signal-danger);
-    }
-    
-    .info-spinner {
-      color: var(--cx-color-signal-info);
-    }
-    
-    .success-spinner {
-      color: var(--cx-color-signal-success);
-    }
-  </style>
-  
-  <cx-spinner size="10" class="cx-mr-4 danger-spinner"></cx-spinner>
-  <cx-spinner size="10" class="cx-mr-4 info-spinner"></cx-spinner>
-  <cx-spinner size="10" class="cx-mr-4 success-spinner"></cx-spinner>
-    `,
-  };
+  render: () => html`
+    <style>
+      .danger-spinner {
+        color: var(--cx-color-signal-danger);
+      }
+
+      .info-spinner {
+        color: var(--cx-color-signal-info);
+      }
+
+      .success-spinner {
+        color: var(--cx-color-signal-success);
+      }
+    </style>
+
+    <cx-spinner size="10" class="cx-mr-4 danger-spinner"></cx-spinner>
+    <cx-spinner size="10" class="cx-mr-4 info-spinner"></cx-spinner>
+    <cx-spinner size="10" class="cx-mr-4 success-spinner"></cx-spinner>
+  `,
+};
