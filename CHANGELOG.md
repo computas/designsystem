@@ -1,5 +1,8 @@
+# 0.2.1 - 25.02.2026
+- Lagt til Spinner-komponent
+
 # 0.2.0 - 30.10.2025
-- Lagt til Toggle komponent
+- Lagt til Toggle-komponent
 - Endret Toast container til å kun ta top layer når den har toast i køen, for å hindre layering issues dersom andre komponenter også bruker top layer.
 
 # 0.1.1 - 14.10.2025
