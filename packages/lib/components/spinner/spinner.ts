@@ -36,7 +36,7 @@ export class Spinner extends LitElement {
     svg {
       width: 100%;
       height: 100%;
-      animation: spin 1s linear infinite;
+      animation: spin 3s linear infinite;
       transform-origin: center;
     }
 
