@@ -16,5 +16,3 @@ jobs:
       - run: bun install
       - run: bun run build-designsystem
       - run: cd packages/lib/dist && npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
