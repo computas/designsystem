@@ -1,0 +1,11 @@
+.cx-text-micro {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+:is(p).cx-text-micro {
+  max-width: 65ch;
+  text-wrap: pretty;
+  word-break: auto-phrase;
+}
